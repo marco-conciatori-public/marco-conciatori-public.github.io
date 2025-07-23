@@ -1,1 +1,3 @@
-# marco-conciatori-public.github.io
+Public site for the robot project
+
+Physical and hardware components, os setup, software etc...
