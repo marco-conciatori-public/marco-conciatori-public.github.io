@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marco's Robot - Gallery</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Apply Inter font to the entire body */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Light blue-gray background */
+            color: #334155; /* Dark slate text */
+        }
+        /* Custom scroll behavior for smooth navigation */
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Basic styling for sections for better visual separation */
+        section {
+            padding: 4rem 1rem; /* Vertical padding for sections */
+            margin-bottom: 2rem; /* Space between sections */
+        }
+        /* Style for the navigation links to ensure good touch targets */
+        .nav-link {
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            transition: background-color 0.3s ease;
+        }
+        .nav-link:hover {
+            background-color: #e2e8f0; /* Lighter background on hover */
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <!-- Header/Navigation Bar -->
+    <header class="bg-white shadow-md sticky top-0 z-50 rounded-b-lg">
+        <nav class="container mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center">
+            <!-- Robot Name/Logo -->
+            <a href="index.html" class="text-2xl font-bold text-indigo-700 mb-4 md:mb-0">
+                Marco's <span class="text-gray-800">Robot</span>
+            </a>
+            <!-- Navigation Links -->
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="index.html" class="nav-link text-gray-700 hover:text-indigo-700 font-medium">Home</a>
+                <a href="capabilities.html" class="nav-link text-gray-700 hover:text-indigo-700 font-medium">Capabilities</a>
+                <a href="hardware.html" class="nav-link text-gray-700 hover:text-indigo-700 font-medium">Hardware</a>
+                <a href="setup.html" class="nav-link text-gray-700 hover:text-indigo-700 font-medium">Setup</a>
+                <a href="gallery.html" class="nav-link text-gray-700 hover:text-indigo-700 font-medium">Gallery</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="bg-gray-50 py-16 rounded-lg shadow-md mx-4 mt-8">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Robot in Action</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Gallery Item 1 -->
+                <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+                    <img src="https://placehold.co/400x300/a78bfa/ffffff?text=Robot+Exploring" alt="Robot Exploring" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/400x300/a78bfa/ffffff?text=Image+Not+Found';">
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg text-gray-700">Mapping a New Environment</h3>
+                        <p class="text-gray-600 text-sm">The robot autonomously generating a 3D map.</p>
+                    </div>
+                </div>
+                <!-- Gallery Item 2 -->
+                <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+                    <img src="https://placehold.co/400x300/6366f1/ffffff?text=Hardware+Assembly" alt="Hardware Assembly" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/400x300/6366f1/ffffff?text=Image+Not+Found';">
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg text-gray-700">Internal Hardware View</h3>
+                        <p class="text-gray-600 text-sm">A look at the neatly integrated components.</p>
+                    </div>
+                </div>
+                <!-- Gallery Item 3 -->
+                <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+                    <img src="https://placehold.co/400x300/8b5cf6/ffffff?text=Robot+Interacting" alt="Robot Interacting" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/400x300/8b5cf6/ffffff?text=Image+Not+Found';">
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg text-gray-700">Responding to Voice Commands</h3>
+                        <p class="text-gray-600 text-sm">Demonstrating voice interaction capabilities.</p>
+                    </div>
+                </div>
+                <!-- Gallery Item 4 -->
+                <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+                    <img src="https://placehold.co/400x300/4f46e5/ffffff?text=Robot+Charging" alt="Robot Charging" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/400x300/4f46e5/ffffff?text=Image+Not+Found';">
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg text-gray-700">Autonomous Recharging</h3>
+                        <p class="text-gray-600 text-sm">The robot docking itself for a recharge.</p>
+                    </div>
+                </div>
+                <!-- Gallery Item 5 -->
+                <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+                    <img src="https://placehold.co/400x300/7c3aed/ffffff?text=Robot+Sensors" alt="Robot Sensors" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/400x300/7c3aed/ffffff?text=Image+Not+Found';">
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg text-gray-700">Close-up of Sensors</h3>
+                        <p class="text-gray-600 text-sm">Detail view of the depth camera and lidar.</p>
+                    </div>
+                </div>
+                <!-- Gallery Item 6 -->
+                <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+                    <img src="https://placehold.co/400x300/a78bfa/ffffff?text=Robot+Software" alt="Robot Software" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/400x300/a78bfa/ffffff?text=Image+Not+Found';">
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg text-gray-700">Software Interface</h3>
+                        <p class="text-gray-600 text-sm">A glimpse into the robot's control interface.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 mt-8 rounded-t-lg">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2025 Marco's Robot. All rights reserved.</p>
+            <p class="mt-2 text-sm">
+                Developed with passion for robotics and open-source.
+            </p>
+            <div class="flex justify-center space-x-4 mt-4">
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">GitHub</a>
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">Contact</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
