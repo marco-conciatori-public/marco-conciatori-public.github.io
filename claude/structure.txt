@@ -1,0 +1,31 @@
+robot-project/
+├── index.html          (Main landing page)
+├── hardware.html       (Hardware components & specs)
+├── software.html       (Software stack & code)
+├── setup.html         (Step-by-step build guide)
+├── capabilities.html  (Demos, videos, what it can do)
+├── gallery.html       (Photos & videos showcase)
+├── css/
+│   ├── base.css
+│   ├── layout.css
+│   ├── components.css
+│   ├── pages.css
+│   └── responsive.css
+├── js/
+│   ├── data.js        (Updated for multi-page)
+│   ├── components.js
+│   ├── navigation.js  (Simplified)
+│   ├── animations.js
+│   └── app.js
+├── images/
+│   ├── robot-photos/
+│   ├── hardware/
+│   ├── software/
+│   └── build-process/
+├── videos/
+│   ├── capabilities/
+│   └── build-guide/
+└── assets/
+    ├── 3d-models/
+    ├── schematics/
+    └── code-examples/
