@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hardware Components - TechFlow Robot</title>
+    <meta name="description" content="Detailed hardware specifications, components list, and assembly guide for the TechFlow Robot project. Complete parts list with purchasing links.">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Navigation Component -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">TechFlow Robot</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li class="active"><a href="hardware.html">Hardware</a></li>
+                <li><a href="software.html">Software</a></li>
+                <li><a href="setup.html">Setup Guide</a></li>
+                <li><a href="capabilities.html">Capabilities</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+            </ul>
+            <div class="mobile-menu" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="page-content">
+        <div class="container">
+            <!-- Page Header -->
+            <header class="page-header">
+                <h1 class="page-title">Hardware Components</h1>
+                <p class="page-subtitle">
+                    Comprehensive breakdown of all hardware components, specifications, and assembly details
+                </p>
+            </header>
+
+            <!-- Hardware Overview -->
+            <section class="hardware-overview">
+                <div class="overview-image">
+                    <div class="media-placeholder" style="background: linear-gradient(45deg, #667eea 0%, #764ba2 100%); height: 300px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem;">
+                        🤖 Robot Hardware Overview Photo
+                    </div>
+                </div>
+                <div class="overview-text">
+                    <h2>Platform Architecture</h2>
+                    <p>The TechFlow Robot is built on a modular architecture that combines powerful processing capabilities with advanced sensing and actuation systems. The platform is designed for expandability and customization.</p>
+                </div>
+            </section>
+
+            <!-- Core Components -->
+            <section class="hardware-section">
+                <h2 class="section-title">Core Components</h2>
+                <div class="spec-grid" id="hardware-specs">
+                    <!-- Specs will be loaded by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Component Details with Images -->
+            <section class="hardware-section">
+                <h2 class="section-title">Component Breakdown</h2>
+                <div class="component-details">
+                    
+                    <div class="component-item fade-in">
+                        <div class="component-image">
+                            <div class="media-placeholder" style="background: #f0f0f0; height: 200px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #666;">
+                                💻 Main Computer
+                            </div>
+                        </div>
+                        <div class="component-info">
+                            <h3>Main Processing Unit</h3>
+                            <p><strong>Model:</strong> NVIDIA Jetson AGX Orin</p>
+                            <p><strong>CPU:</strong> 12-core ARM Cortex-A78AE</p>
+                            <p><strong>GPU:</strong> 2048-core NVIDIA Ampere</p>
+                            <p><strong>RAM:</strong> 64GB</p>
+                            <p><strong>Purpose:</strong> Main AI processing, computer vision, and system control</p>
+                            <a href="#" class="component-link">Purchase Link →</a>
+                        </div>
+                    </div>
+
+                    <div class="component-item fade-in">
+                        <div class="component-image">
+                            <div class="media-placeholder" style="background: #f0f0f0; height: 200px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #666;">
+                                📹 Camera Array
+                            </div>
+                        </div>
+                        <div class="component-info">
+                            <h3>Vision System</h3>
+                            <p><strong>Main Camera:</strong> Intel RealSense D455</p>
+                            <p><strong>Resolution:</strong> 1280x720 @ 90fps</p>
+                            <p><strong>Depth Range:</strong> 0.6m - 20m</p>
+                            <p><strong>Additional:</strong> 4x USB cameras for 360° vision</p>
+                            <p><strong>Purpose:</strong> SLAM navigation, object detection, depth perception</p>
+                            <a href="#" class="component-link">Purchase Link →</a>
+                        </div>
+                    </div>
+
+                    <div class="component-item fade-in">
+                        <div class="component-image">
+                            <div class="media-placeholder" style="background: #f0f0f0; height: 200px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #666;">
+                                🚗 Motor System
+                            </div>
+                        </div>
+                        <div class="component-info">
+                            <h3>Locomotion System</h3>
+                            <p><strong>Motors:</strong> 4x Brushless DC Motors (500W each)</p>
+                            <p><strong>Wheels:</strong> Mecanum wheels for omnidirectional movement</p>
+                            <p><strong>Max Speed:</strong> 2 m/s</p>
+                            <p><strong>Controller:</strong> Custom motor controller board</p>
+                            <p><strong>Purpose:</strong> Precise movement and navigation in any direction</p>
+                            <a href="#" class="component-link">Purchase Link →</a>
+                        </div>
+                    </div>
+
+                    <div class="component-item fade-in">
+                        <div class="component-image">
+                            <div class="media-placeholder" style="background: #f0f0f0; height: 200px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #666;">
+                                🦾 Robotic Arm
+                            </div>
+                        </div>
+                        <div class="component-info">
+                            <h3>Manipulation System</h3>
+                            <p><strong>Arm:</strong> 6-DOF robotic arm with gripper</p>
+                            <p><strong>Servos:</strong> Dynamixel MX-106T servos</p>
+                            <p><strong>Payload:</strong> 2kg maximum</p>
+                            <p><strong>Reach:</strong> 65cm working radius</p>
+                            <p><strong>Purpose:</strong> Object manipulation, interaction with environment</p>
+                            <a href="#" class="component-link">Purchase Link →</a>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Advanced Features -->
+            <section class="hardware-section">
+                <h2 class="section-title">Advanced Features</h2>
+                <div class="features-grid" id="hardware-features">
+                    <!-- Features will be loaded by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Sensors Array -->
+            <section class="hardware-section">
+                <h2 class="section-title">Sensor Array</h2>
+                <div class="sensors-grid">
+                    <div class="sensor-card fade-in">
+                        <h3>🌐 LiDAR</h3>
+                        <p>RPLiDAR A3 - 360° laser scanner</p>
+                        <p>Range: 25m, 16Hz scan rate</p>
+                    </div>
+                    <div class="sensor-card fade-in">
+                        <h3>📡 IMU</h3>
+                        <p>9-axis inertial measurement unit</p>
+                        <p>Gyroscope, accelerometer, magnetometer</p>
+                    </div>
+                    <div class="sensor-card fade-in">
+                        <h3>🔊 Audio</h3>
+                        <p>Directional microphone array</p>
+                        <p>Voice recognition and sound localization</p>
+                    </div>
+                    <div class="sensor-card fade-in">
+                        <h3>🌡️ Environmental</h3>
+                        <p>Temperature, humidity, air quality</p>
+                        <p>Environmental monitoring sensors</p>
+                    </div>
+                    <div class="sensor-card fade-in">
+                        <h3>📏 Ultrasonic</h3>
+                        <p>12x HC-SR04 ultrasonic sensors</p>
+                        <p>Close-range obstacle detection</p>
+                    </div>
+                    <div class="sensor-card fade-in">
+                        <h3>👆 Touch</h3>
+                        <p>Force-sensitive resistors</p>
+                        <p>Physical interaction detection</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Performance Benchmarks -->
+            <section class="hardware-section">
+                <h2 class="section-title">Performance Benchmarks</h2>
+                <div class="spec-grid" id="hardware-benchmarks">
+                    <!-- Benchmarks will be loaded by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Bill of Materials -->
+            <section class="hardware-section">
+                <h2 class="section-title">Complete Parts List</h2>
+                <div class="bom-container">
+                    <div class="bom-summary">
+                        <div class="cost-breakdown">
+                            <h3>Total Project Cost</h3>
+                            <div class="cost-item">
+                                <span>Core Components:</span>
+                                <span>$2,500</span>
+                            </div>
+                            <div class="cost-item">
+                                <span>Sensors & Electronics:</span>
+                                <span>$800</span>
+                            </div>
+                            <div class="cost-item">
+                                <span>Mechanical Parts:</span>
+                                <span>$600</span>
+                            </div>
+                            <div class="cost-item">
+                                <span>3D Printing Materials:</span>
+                                <span>$200</span>
+                            </div>
+                            <div class="cost-total">
+                                <span>Total Estimated Cost:</span>
+                                <span>$4,100</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bom-download">
+                        <h3>Download Resources</h3>
+                        <a href="#" class="download-btn">📄 Complete BOM (Excel)</a>
+                        <a href="#" class="download-btn">🔧 3D Print Files</a>
+                        <a href="#" class="download-btn">📐 Assembly Drawings</a>
+                        <a href="#" class="download-btn">⚡ Wiring Diagrams</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Assembly Tips -->
+            <section class="hardware-section">
+                <h2 class="section-title">Assembly Guidelines</h2>
+                <div class="assembly-tips">
+                    <div class="tip-card fade-in">
+                        <div class="tip-icon">🔧</div>
+                        <h3>Tools Required</h3>
+                        <ul>
+                            <li>Soldering iron and supplies</li>
+                            <li>3D printer (or printing service)</li>
+                            <li>Basic hand tools</li>
+                            <li>Multimeter for testing</li>
+                        </ul>
+                    </div>
+                    <div class="tip-card fade-in">
+                        <div class="tip-icon">⏰</div>
+                        <h3>Build Time</h3>
+                        <ul>
+                            <li>3D printing: 40 hours total</li>
+                            <li>Electronics assembly: 20 hours</li>
+                            <li>Software setup: 10 hours</li>
+                            <li>Testing & calibration: 15 hours</li>
+                        </ul>
+                    </div>
+                    <div class="tip-card fade-in">
+                        <div class="tip-icon">⚠️</div>
+                        <h3>Important Notes</h3>
+                        <ul>
+                            <li>Follow ESD precautions</li>
+                            <li>Test each subsystem separately</li>
+                            <li>Use proper cable management</li>
+                            <li>Ensure proper cooling airflow</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Next Steps -->
+            <section class="next-steps">
+                <div class="container">
+                    <h2>Ready to Start Building?</h2>
+                    <p>Now that you know the hardware requirements, let's move on to the software stack and setup guide.</p>
+                    <div class="step-buttons">
+                        <a href="software.html" class="cta-button">Explore Software →</a>
+                        <a href="setup.html" class="btn-secondary">Setup Guide →</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>TechFlow Robot</h3>
+                    <p>An open-source personal robotics project</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Hardware</h4>
+                    <ul>
+                        <li><a href="#hardware-specs">Components</a></li>
+                        <li><a href="#sensors">Sensors</a></li>
+                        <li><a href="#bom">Parts List</a></li>
+                        <li><a href="#assembly">Assembly</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#" target="_blank">3D Print Files</a></li>
+                        <li><a href="#" target="_blank">Schematics</a></li>
+                        <li><a href="#" target="_blank">Assembly Videos</a></li>
+                        <li><a href="#" target="_blank">Purchase Links</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="software.html">Software</a></li>
+                        <li><a href="setup.html">Setup Guide</a></li>
+                        <li><a href="capabilities.html">Capabilities</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 TechFlow Robot Project. Open source under MIT License.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        // Initialize hardware page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load hardware page content
+            App.renderSection('hardware-specs', AppData.hardwareSpecs, 'spec');
+            App.renderSection('hardware-features', AppData.hardwareFeatures, 'feature');
+            App.renderSection('hardware-benchmarks', AppData.hardwareBenchmarks, 'spec');
+        });
+    </script>
+</body>
+</html>
