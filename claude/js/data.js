@@ -5,338 +5,6 @@ const AppData = {
         {
             icon: '🚀',
             title: 'High Performance',
-        },
-        {
-            icon: '🐳',
-            title: 'Container Platform',
-            description: 'Built-in Docker and Kubernetes support with orchestration tools for scalable application deployment.'
-        },
-        {
-            icon: '📊',
-            title: 'Performance Monitoring',
-            description: 'Real-time application profiling, resource monitoring, and automated performance optimization suggestions.'
-        },
-        {
-            icon: '🔍',
-            title: 'Advanced Debugging',
-            description: 'Step-through debugging, memory analysis, and distributed tracing for complex multi-service applications.'
-        },
-        {
-            icon: '🚀',
-            title: 'CI/CD Pipeline',
-            description: 'Automated build, test, and deployment pipelines with integration to popular git repositories and cloud platforms.'
-        },
-        {
-            icon: '🧪',
-            title: 'Testing Framework',
-            description: 'Comprehensive testing suite with unit, integration, and end-to-end testing capabilities plus automated test generation.'
-        }
-    ],
-
-    // Software system features
-    softwareSystem: [
-        {
-            label: 'Boot Time',
-            value: 'Sub-10 second boot with SSD optimization<br>Instant resume from sleep mode'
-        },
-        {
-            label: 'Resource Management',
-            value: 'Intelligent memory allocation<br>Dynamic CPU scaling'
-        },
-        {
-            label: 'File System',
-            value: 'ZFS with compression and deduplication<br>Automatic snapshots and versioning'
-        },
-        {
-            label: 'Virtualization',
-            value: 'KVM hypervisor with GPU passthrough<br>Container runtime optimization'
-        }
-    ],
-
-    // AI & ML capabilities
-    capabilitiesAI: [
-        {
-            icon: '🧠',
-            title: 'Neural Network Training',
-            description: 'Train complex deep learning models with distributed computing across multiple GPUs. Support for TensorFlow, PyTorch, and custom frameworks.'
-        },
-        {
-            icon: '👁️',
-            title: 'Computer Vision',
-            description: 'Real-time object detection, facial recognition, and image classification with sub-millisecond inference times.'
-        },
-        {
-            icon: '💬',
-            title: 'Natural Language Processing',
-            description: 'Advanced text analysis, language translation, and conversational AI with support for 100+ languages.'
-        },
-        {
-            icon: '📈',
-            title: 'Predictive Analytics',
-            description: 'Forecast trends, detect anomalies, and generate insights from large datasets using advanced statistical models.'
-        }
-    ],
-
-    // Data processing capabilities
-    capabilitiesData: [
-        {
-            icon: '⚡',
-            title: 'Real-time Streaming',
-            description: 'Process millions of events per second with Apache Kafka integration and custom stream processing engines.'
-        },
-        {
-            icon: '💾',
-            title: 'Big Data Analytics',
-            description: 'Handle petabyte-scale datasets with distributed processing using Spark, Hadoop, and custom distributed algorithms.'
-        },
-        {
-            icon: '🔄',
-            title: 'ETL Pipelines',
-            description: 'Automated Extract, Transform, Load processes with data validation, error handling, and monitoring for enterprise data workflows.'
-        },
-        {
-            icon: '🔍',
-            title: 'Data Mining',
-            description: 'Discover hidden patterns and relationships in complex datasets using advanced clustering and association algorithms.'
-        }
-    ],
-
-    // Development & deployment capabilities
-    capabilitiesDev: [
-        {
-            icon: '🏗️',
-            title: 'Microservices Architecture',
-            description: 'Build and deploy scalable microservices with automatic service discovery, load balancing, and fault tolerance.'
-        },
-        {
-            icon: '☁️',
-            title: 'Cloud-Native Development',
-            description: 'Develop applications optimized for cloud deployment with containerization, orchestration, and auto-scaling capabilities.'
-        },
-        {
-            icon: '🔐',
-            title: 'DevSecOps Integration',
-            description: 'Security-first development with automated vulnerability scanning, compliance checking, and security policy enforcement.'
-        },
-        {
-            icon: '📱',
-            title: 'Cross-Platform Development',
-            description: 'Build applications for web, mobile, and desktop from a single codebase using modern frameworks and tools.'
-        }
-    ],
-
-    // Performance metrics
-    capabilitiesMetrics: [
-        {
-            label: 'Processing Power',
-            value: '1 trillion operations per second<br>Sub-microsecond response times'
-        },
-        {
-            label: 'Concurrent Users',
-            value: 'Support for 1M+ simultaneous connections<br>Linear scaling with load balancing'
-        },
-        {
-            label: 'Data Throughput',
-            value: '100GB/s data processing speed<br>Real-time analytics at scale'
-        },
-        {
-            label: 'Uptime',
-            value: '99.99% availability guarantee<br>Automatic failover and recovery'
-        },
-        {
-            label: 'Security',
-            value: 'Military-grade encryption<br>Zero-trust architecture'
-        },
-        {
-            label: 'Scalability',
-            value: 'Horizontal scaling to 1000+ nodes<br>Elastic resource allocation'
-        }
-    ],
-
-    // Industry applications
-    capabilitiesIndustry: [
-        {
-            icon: '🏥',
-            title: 'Healthcare',
-            description: 'Medical imaging analysis, drug discovery acceleration, patient data management, and diagnostic assistance with AI-powered insights.'
-        },
-        {
-            icon: '🏦',
-            title: 'Finance',
-            description: 'High-frequency trading, fraud detection, risk assessment, and regulatory compliance with real-time transaction processing.'
-        },
-        {
-            icon: '🏭',
-            title: 'Manufacturing',
-            description: 'Predictive maintenance, quality control, supply chain optimization, and industrial IoT integration for smart factories.'
-        },
-        {
-            icon: '🚗',
-            title: 'Automotive',
-            description: 'Autonomous driving systems, vehicle diagnostics, fleet management, and connected car services with edge computing.'
-        },
-        {
-            icon: '🎮',
-            title: 'Gaming & Entertainment',
-            description: 'Real-time rendering, physics simulation, multiplayer networking, and content delivery for immersive experiences.'
-        },
-        {
-            icon: '🌐',
-            title: 'Telecommunications',
-            description: 'Network optimization, 5G infrastructure, edge computing deployment, and intelligent traffic routing systems.'
-        }
-    ],
-
-    // Future roadmap
-    capabilitiesRoadmap: [
-        {
-            icon: '🚀',
-            title: 'Quantum Computing Integration',
-            description: 'Hybrid classical-quantum algorithms for optimization problems and cryptographic applications coming in Q3 2025.'
-        },
-        {
-            icon: '🧬',
-            title: 'Biological Computing',
-            description: 'DNA storage systems and bio-inspired computing architectures for ultra-low power processing applications.'
-        },
-        {
-            icon: '🌌',
-            title: 'Edge-to-Space Computing',
-            description: 'Satellite-based computing nodes for global coverage and space-based data processing capabilities.'
-        }
-    ]
-};
-
-// Configuration and settings
-const AppConfig = {
-    // Animation settings
-    animations: {
-        enabled: true,
-        duration: 600,
-        easing: 'ease-out',
-        staggerDelay: 100
-    },
-    
-    // Navigation settings
-    navigation: {
-        enableKeyboardNav: true,
-        enableSwipeNav: false,
-        autoCloseMobileMenu: true
-    },
-    
-    // Performance settings
-    performance: {
-        enableLazyLoading: true,
-        enableImageOptimization: true,
-        enableIntersectionObserver: true
-    },
-    
-    // Accessibility settings
-    accessibility: {
-        enableFocusManagement: true,
-        enableReducedMotion: true,
-        enableHighContrast: false
-    },
-    
-    // Debug settings
-    debug: {
-        enableLogging: false,
-        enablePerformanceMonitoring: false
-    }
-};
-
-// Utility functions for data manipulation
-const DataUtils = {
-    // Get data by section
-    getSection: function(section) {
-        return AppData[section] || [];
-    },
-    
-    // Filter data by criteria
-    filterData: function(data, criteria) {
-        if (!criteria) return data;
-        return data.filter(item => {
-            for (let key in criteria) {
-                if (item[key] !== criteria[key]) {
-                    return false;
-                }
-            }
-            return true;
-        });
-    },
-    
-    // Sort data by field
-    sortData: function(data, field, order = 'asc') {
-        return [...data].sort((a, b) => {
-            const aVal = a[field];
-            const bVal = b[field];
-            
-            if (order === 'desc') {
-                return bVal.localeCompare ? bVal.localeCompare(aVal) : bVal - aVal;
-            }
-            return aVal.localeCompare ? aVal.localeCompare(bVal) : aVal - bVal;
-        });
-    },
-    
-    // Search data by text
-    searchData: function(data, searchTerm, fields = ['title', 'description']) {
-        if (!searchTerm) return data;
-        
-        const term = searchTerm.toLowerCase();
-        return data.filter(item => {
-            return fields.some(field => {
-                const value = item[field];
-                return value && value.toLowerCase().includes(term);
-            });
-        });
-    },
-    
-    // Group data by field
-    groupData: function(data, field) {
-        return data.reduce((groups, item) => {
-            const group = item[field];
-            if (!groups[group]) {
-                groups[group] = [];
-            }
-            groups[group].push(item);
-            return groups;
-        }, {});
-    },
-    
-    // Get random items from data
-    getRandomItems: function(data, count) {
-        const shuffled = [...data].sort(() => 0.5 - Math.random());
-        return shuffled.slice(0, count);
-    },
-    
-    // Validate data structure
-    validateData: function(data, requiredFields = []) {
-        if (!Array.isArray(data)) {
-            console.warn('Data is not an array');
-            return false;
-        }
-        
-        return data.every(item => {
-            return requiredFields.every(field => {
-                if (!item.hasOwnProperty(field)) {
-                    console.warn(`Missing required field: ${field}`);
-                    return false;
-                }
-                return true;
-            });
-        });
-    }
-};
-
-// Export for use in other modules
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { AppData, AppConfig, DataUtils };
-}   // Home page features
-const AppData = {
-    homeFeatures: [
-        {
-            icon: '🚀',
-            title: 'High Performance',
             description: 'Experience lightning-fast processing with our optimized hardware and software stack designed for maximum efficiency.'
         },
         {
@@ -553,4 +221,319 @@ const AppData = {
         {
             icon: '🐳',
             title: 'Container Platform',
-            description: '
+            description: 'Built-in Docker and Kubernetes support with orchestration tools for scalable application deployment.'
+        },
+        {
+            icon: '📊',
+            title: 'Performance Monitoring',
+            description: 'Real-time application profiling, resource monitoring, and automated performance optimization suggestions.'
+        },
+        {
+            icon: '🔍',
+            title: 'Advanced Debugging',
+            description: 'Step-through debugging, memory analysis, and distributed tracing for complex multi-service applications.'
+        },
+        {
+            icon: '🚀',
+            title: 'CI/CD Pipeline',
+            description: 'Automated build, test, and deployment pipelines with integration to popular git repositories and cloud platforms.'
+        },
+        {
+            icon: '🧪',
+            title: 'Testing Framework',
+            description: 'Comprehensive testing suite with unit, integration, and end-to-end testing capabilities plus automated test generation.'
+        }
+    ],
+
+    // Software system features
+    softwareSystem: [
+        {
+            label: 'Boot Time',
+            value: 'Sub-10 second boot with SSD optimization<br>Instant resume from sleep mode'
+        },
+        {
+            label: 'Resource Management',
+            value: 'Intelligent memory allocation<br>Dynamic CPU scaling'
+        },
+        {
+            label: 'File System',
+            value: 'ZFS with compression and deduplication<br>Automatic snapshots and versioning'
+        },
+        {
+            label: 'Virtualization',
+            value: 'KVM hypervisor with GPU passthrough<br>Container runtime optimization'
+        }
+    ],
+
+    // AI & ML capabilities
+    capabilitiesAI: [
+        {
+            icon: '🧠',
+            title: 'Neural Network Training',
+            description: 'Train complex deep learning models with distributed computing across multiple GPUs. Support for TensorFlow, PyTorch, and custom frameworks.'
+        },
+        {
+            icon: '👁️',
+            title: 'Computer Vision',
+            description: 'Real-time object detection, facial recognition, and image classification with sub-millisecond inference times.'
+        },
+        {
+            icon: '💬',
+            title: 'Natural Language Processing',
+            description: 'Advanced text analysis, language translation, and conversational AI with support for 100+ languages.'
+        },
+        {
+            icon: '📈',
+            title: 'Predictive Analytics',
+            description: 'Forecast trends, detect anomalies, and generate insights from large datasets using advanced statistical models.'
+        }
+    ],
+
+    // Data processing capabilities
+    capabilitiesData: [
+        {
+            icon: '⚡',
+            title: 'Real-time Streaming',
+            description: 'Process millions of events per second with Apache Kafka integration and custom stream processing engines.'
+        },
+        {
+            icon: '💾',
+            title: 'Big Data Analytics',
+            description: 'Handle petabyte-scale datasets with distributed processing using Spark, Hadoop, and custom distributed algorithms.'
+        },
+        {
+            icon: '🔄',
+            title: 'ETL Pipelines',
+            description: 'Automated Extract, Transform, Load processes with data validation, error handling, and monitoring for enterprise data workflows.'
+        },
+        {
+            icon: '🔍',
+            title: 'Data Mining',
+            description: 'Discover hidden patterns and relationships in complex datasets using advanced clustering and association algorithms.'
+        }
+    ],
+
+    // Development & deployment capabilities
+    capabilitiesDev: [
+        {
+            icon: '🏗️',
+            title: 'Microservices Architecture',
+            description: 'Build and deploy scalable microservices with automatic service discovery, load balancing, and fault tolerance.'
+        },
+        {
+            icon: '☁️',
+            title: 'Cloud-Native Development',
+            description: 'Develop applications optimized for cloud deployment with containerization, orchestration, and auto-scaling capabilities.'
+        },
+        {
+            icon: '🔐',
+            title: 'DevSecOps Integration',
+            description: 'Security-first development with automated vulnerability scanning, compliance checking, and security policy enforcement.'
+        },
+        {
+            icon: '📱',
+            title: 'Cross-Platform Development',
+            description: 'Build applications for web, mobile, and desktop from a single codebase using modern frameworks and tools.'
+        }
+    ],
+
+    // Performance metrics
+    capabilitiesMetrics: [
+        {
+            label: 'Processing Power',
+            value: '1 trillion operations per second<br>Sub-microsecond response times'
+        },
+        {
+            label: 'Concurrent Users',
+            value: 'Support for 1M+ simultaneous connections<br>Linear scaling with load balancing'
+        },
+        {
+            label: 'Data Throughput',
+            value: '100GB/s data processing speed<br>Real-time analytics at scale'
+        },
+        {
+            label: 'Uptime',
+            value: '99.99% availability guarantee<br>Automatic failover and recovery'
+        },
+        {
+            label: 'Security',
+            value: 'Military-grade encryption<br>Zero-trust architecture'
+        },
+        {
+            label: 'Scalability',
+            value: 'Horizontal scaling to 1000+ nodes<br>Elastic resource allocation'
+        }
+    ],
+
+    // Industry applications
+    capabilitiesIndustry: [
+        {
+            icon: '🏥',
+            title: 'Healthcare',
+            description: 'Medical imaging analysis, drug discovery acceleration, patient data management, and diagnostic assistance with AI-powered insights.'
+        },
+        {
+            icon: '🏦',
+            title: 'Finance',
+            description: 'High-frequency trading, fraud detection, risk assessment, and regulatory compliance with real-time transaction processing.'
+        },
+        {
+            icon: '🏭',
+            title: 'Manufacturing',
+            description: 'Predictive maintenance, quality control, supply chain optimization, and industrial IoT integration for smart factories.'
+        },
+        {
+            icon: '🚗',
+            title: 'Automotive',
+            description: 'Autonomous driving systems, vehicle diagnostics, fleet management, and connected car services with edge computing.'
+        },
+        {
+            icon: '🎮',
+            title: 'Gaming & Entertainment',
+            description: 'Real-time rendering, physics simulation, multiplayer networking, and content delivery for immersive experiences.'
+        },
+        {
+            icon: '🌐',
+            title: 'Telecommunications',
+            description: 'Network optimization, 5G infrastructure, edge computing deployment, and intelligent traffic routing systems.'
+        }
+    ],
+
+    // Future roadmap
+    capabilitiesRoadmap: [
+        {
+            icon: '🚀',
+            title: 'Quantum Computing Integration',
+            description: 'Hybrid classical-quantum algorithms for optimization problems and cryptographic applications coming in Q3 2025.'
+        },
+        {
+            icon: '🧬',
+            title: 'Biological Computing',
+            description: 'DNA storage systems and bio-inspired computing architectures for ultra-low power processing applications.'
+        },
+        {
+            icon: '🌌',
+            title: 'Edge-to-Space Computing',
+            description: 'Satellite-based computing nodes for global coverage and space-based data processing capabilities.'
+        }
+    ]
+};
+
+// Configuration and settings
+const AppConfig = {
+    // Animation settings
+    animations: {
+        enabled: true,
+        duration: 600,
+        easing: 'ease-out',
+        staggerDelay: 100
+    },
+
+    // Navigation settings
+    navigation: {
+        enableKeyboardNav: true,
+        enableSwipeNav: false,
+        autoCloseMobileMenu: true
+    },
+
+    // Performance settings
+    performance: {
+        enableLazyLoading: true,
+        enableImageOptimization: true,
+        enableIntersectionObserver: true
+    },
+
+    // Accessibility settings
+    accessibility: {
+        enableFocusManagement: true,
+        enableReducedMotion: true,
+        enableHighContrast: false
+    },
+
+    // Debug settings
+    debug: {
+        enableLogging: false,
+        enablePerformanceMonitoring: false
+    }
+};
+
+// Utility functions for data manipulation
+const DataUtils = {
+    // Get data by section
+    getSection(section) {
+        return AppData[section] || [];
+    },
+
+    // Filter data by criteria
+    filterData(data, criteria) {
+        if (!criteria) return data;
+        return data.filter(item => {
+            return Object.entries(criteria).every(([key, value]) => item[key] === value);
+        });
+    },
+
+    // Sort data by field
+    sortData(data, field, order = 'asc') {
+        return [...data].sort((a, b) => {
+            const aVal = a[field];
+            const bVal = b[field];
+
+            const compare = (aVal?.localeCompare && bVal?.localeCompare)
+                ? aVal.localeCompare(bVal)
+                : (aVal < bVal ? -1 : aVal > bVal ? 1 : 0);
+
+            return order === 'desc' ? -compare : compare;
+        });
+    },
+
+    // Search data by text
+    searchData(data, searchTerm, fields = ['title', 'description']) {
+        if (!searchTerm) return data;
+
+        const term = searchTerm.toLowerCase();
+        return data.filter(item => {
+            return fields.some(field => {
+                const value = item[field];
+                return value && value.toLowerCase().includes(term);
+            });
+        });
+    },
+
+    // Group data by field
+    groupData(data, field) {
+        return data.reduce((groups, item) => {
+            const group = item[field];
+            (groups[group] = groups[group] || []).push(item);
+            return groups;
+        }, {});
+    },
+
+    // Get random items from data
+    getRandomItems(data, count) {
+        const shuffled = [...data].sort(() => 0.5 - Math.random());
+        return shuffled.slice(0, count);
+    },
+
+    // Validate data structure
+    validateData(data, requiredFields = []) {
+        if (!Array.isArray(data)) {
+            console.warn('Data is not an array');
+            return false;
+        }
+
+        return data.every(item => {
+            return requiredFields.every(field => {
+                if (!item.hasOwnProperty(field)) {
+                    console.warn(`Missing required field: ${field}`);
+                    return false;
+                }
+                return true;
+            });
+        });
+    }
+};
+
+// Export for use in other modules
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { AppData, AppConfig, DataUtils };
+}

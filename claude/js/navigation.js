@@ -1,11 +1,24 @@
 // Navigation functionality
 const Navigation = {
-    // Current page tracking
+    // Configuration
+    validPages: ['home', 'hardware', 'software', 'setup', 'capabilities', 'gallery'],
+
+    // State
     currentPage: 'home',
     previousPage: null,
-    
+
+    // Page titles mapping
+    pageTitles: {
+        home: 'TechFlow Robot - Advanced Personal Robotics Project',
+        hardware: 'TechFlow Robot - Hardware Components',
+        software: 'TechFlow Robot - Software Stack',
+        setup: 'TechFlow Robot - Setup Guide',
+        capabilities: 'TechFlow Robot - Capabilities',
+        gallery: 'TechFlow Robot - Gallery'
+    },
+
     // Initialize navigation
-    init: function() {
+    init() {
         this.bindEvents();
         this.setupMobileMenu();
         this.setupScrollEffects();
@@ -18,7 +31,7 @@ const Navigation = {
     },
 
     // Bind navigation events
-    bindEvents: function() {
+    bindEvents() {
         // Handle browser back/forward
         window.addEventListener('popstate', (e) => {
             const page = e.state?.page || 'home';
@@ -45,7 +58,7 @@ const Navigation = {
     },
 
     // Setup mobile menu functionality
-    setupMobileMenu: function() {
+    setupMobileMenu() {
         const mobileMenuBtn = document.querySelector('.mobile-menu');
         if (mobileMenuBtn) {
             mobileMenuBtn.addEventListener('click', (e) => {
@@ -56,7 +69,7 @@ const Navigation = {
     },
 
     // Setup scroll effects
-    setupScrollEffects: function() {
+    setupScrollEffects() {
         let ticking = false;
 
         const handleScroll = () => {
@@ -73,30 +86,28 @@ const Navigation = {
     },
 
     // Update navbar appearance on scroll
-    updateNavbarOnScroll: function() {
+    updateNavbarOnScroll() {
         const navbar = document.querySelector('.navbar');
         if (!navbar) return;
 
-        if (window.scrollY > 50) {
-            navbar.style.background = 'rgba(26, 26, 46, 0.98)';
-            navbar.style.backdropFilter = 'blur(10px)';
-            navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.3)';
-        } else {
-            navbar.style.background = 'rgba(26, 26, 46, 0.95)';
-            navbar.style.backdropFilter = 'none';
-            navbar.style.boxShadow = 'none';
-        }
+        const isScrolled = window.scrollY > 50;
+
+        // Apply styles based on scroll position
+        Object.assign(navbar.style, {
+            background: isScrolled ? 'rgba(26, 26, 46, 0.98)' : 'rgba(26, 26, 46, 0.95)',
+            backdropFilter: isScrolled ? 'blur(10px)' : 'none',
+            boxShadow: isScrolled ? '0 2px 20px rgba(0, 0, 0, 0.3)' : 'none'
+        });
     },
 
     // Show specific page
-    showPage: function(pageId, addToHistory = true) {
+    showPage(pageId, addToHistory = true) {
         if (!this.isValidPage(pageId) || pageId === this.currentPage) {
             return false;
         }
 
         const pages = document.querySelectorAll('.page');
         const targetPage = document.getElementById(pageId);
-        const navLinks = document.querySelectorAll('.nav-links li');
 
         if (!targetPage) {
             console.warn(`Page ${pageId} not found`);
@@ -106,36 +117,17 @@ const Navigation = {
         // Store previous page
         this.previousPage = this.currentPage;
 
-        // Hide all pages
-        pages.forEach(page => {
-            page.classList.remove('active');
-            page.setAttribute('aria-hidden', 'true');
-        });
+        // Update page visibility
+        this.updatePageVisibility(pages, targetPage);
 
-        // Remove active class from nav links
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            link.setAttribute('aria-current', 'false');
-        });
-
-        // Show target page
-        targetPage.classList.add('active');
-        targetPage.setAttribute('aria-hidden', 'false');
-
-        // Update active nav link
-        const activeNavIndex = ['home', 'hardware', 'software', 'setup', 'capabilities', 'gallery'].indexOf(pageId);
-        if (activeNavIndex !== -1 && navLinks[activeNavIndex]) {
-            navLinks[activeNavIndex].classList.add('active');
-            navLinks[activeNavIndex].setAttribute('aria-current', 'page');
-        }
+        // Update navigation state
+        this.updateNavigationState(pageId);
 
         // Update current page
         this.currentPage = pageId;
 
-        // Close mobile menu
+        // Close mobile menu and scroll to top
         this.closeMobileMenu();
-
-        // Scroll to top
         window.scrollTo({ top: 0, behavior: 'smooth' });
 
         // Update URL and history
@@ -146,92 +138,94 @@ const Navigation = {
         // Update document title
         this.updateTitle(pageId);
 
+        // Trigger page change event
+        document.dispatchEvent(new CustomEvent('pageChange', { detail: { pageId } }));
+
         return true;
     },
 
+    // Update page visibility
+    updatePageVisibility(pages, targetPage) {
+        pages.forEach(page => {
+            const isTarget = page === targetPage;
+            page.classList.toggle('active', isTarget);
+            page.setAttribute('aria-hidden', !isTarget);
+        });
+    },
+
+    // Update navigation state
+    updateNavigationState(pageId) {
+        const navLinks = document.querySelectorAll('.nav-links li');
+        const activeIndex = this.validPages.indexOf(pageId);
+
+        navLinks.forEach((link, index) => {
+            const isActive = index === activeIndex;
+            link.classList.toggle('active', isActive);
+            link.setAttribute('aria-current', isActive ? 'page' : 'false');
+        });
+    },
+
     // Check if page ID is valid
-    isValidPage: function(pageId) {
-        const validPages = ['home', 'hardware', 'software', 'setup', 'capabilities', 'gallery'];
-        return validPages.includes(pageId);
+    isValidPage(pageId) {
+        return this.validPages.includes(pageId);
     },
 
     // Update browser history
-    updateHistory: function(pageId) {
+    updateHistory(pageId) {
         const url = pageId === 'home' ? window.location.pathname : `${window.location.pathname}#${pageId}`;
-        const title = this.getPageTitle(pageId);
+        const title = this.pageTitles[pageId];
 
-        // Add to browser history
         window.history.pushState({ page: pageId }, title, url);
     },
 
     // Update document title
-    updateTitle: function(pageId) {
-        const titles = {
-            home: 'TechFlow Robot - Advanced Personal Robotics Project',
-            hardware: 'TechFlow Robot - Hardware Components',
-            software: 'TechFlow Robot - Software Stack',
-            setup: 'TechFlow Robot - Setup Guide',
-            capabilities: 'TechFlow Robot - Capabilities',
-            gallery: 'TechFlow Robot - Gallery'
-        };
-
-        document.title = titles[pageId] || 'TechFlow Robot';
-    },
-
-    // Get page title
-    getPageTitle: function(pageId) {
-        const titles = {
-            home: 'Home',
-            hardware: 'Hardware',
-            software: 'Software',
-            setup: 'Setup Guide',
-            capabilities: 'Capabilities',
-            gallery: 'Gallery'
-        };
-
-        return titles[pageId] || 'Home';
+    updateTitle(pageId) {
+        document.title = this.pageTitles[pageId] || 'TechFlow Robot';
     },
 
     // Mobile menu functions
-    toggleMobileMenu: function() {
+    toggleMobileMenu() {
         const navLinks = document.querySelector('.nav-links');
         const mobileMenu = document.querySelector('.mobile-menu');
 
         if (navLinks) {
             const isActive = navLinks.classList.toggle('active');
-            navLinks.setAttribute('aria-expanded', isActive);
-
-            if (mobileMenu) {
-                mobileMenu.classList.toggle('active', isActive);
-                mobileMenu.setAttribute('aria-expanded', isActive);
-            }
+            this.updateMenuAttributes(navLinks, mobileMenu, isActive);
         }
     },
 
-    closeMobileMenu: function() {
+    closeMobileMenu() {
         const navLinks = document.querySelector('.nav-links');
         const mobileMenu = document.querySelector('.mobile-menu');
 
-        if (navLinks && navLinks.classList.contains('active')) {
+        if (navLinks?.classList.contains('active')) {
             navLinks.classList.remove('active');
-            navLinks.setAttribute('aria-expanded', 'false');
-
-            if (mobileMenu) {
-                mobileMenu.classList.remove('active');
-                mobileMenu.setAttribute('aria-expanded', 'false');
-            }
+            this.updateMenuAttributes(navLinks, mobileMenu, false);
         }
+    },
+
+    // Update menu ARIA attributes
+    updateMenuAttributes(navLinks, mobileMenu, isActive) {
+        navLinks.setAttribute('aria-expanded', isActive);
+        if (mobileMenu) {
+            mobileMenu.classList.toggle('active', isActive);
+            mobileMenu.setAttribute('aria-expanded', isActive);
+        }
+    },
+
+    // Get navigation state (for debugging/monitoring)
+    getNavigationState() {
+        return {
+            currentPage: this.currentPage,
+            previousPage: this.previousPage,
+            validPages: this.validPages
+        };
     }
 };
 
 // Global navigation functions for inline event handlers
-window.showPage = function(pageId) {
-    Navigation.showPage(pageId);
-};
-
-window.toggleMobileMenu = function() {
-    Navigation.toggleMobileMenu();
-};
+window.showPage = (pageId) => Navigation.showPage(pageId);
+window.toggleMobileMenu = () => Navigation.toggleMobileMenu();
 
 // Export for use in other modules
 if (typeof module !== 'undefined' && module.exports) {

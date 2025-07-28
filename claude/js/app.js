@@ -4,332 +4,269 @@ const App = {
     isInitialized: false,
     isLoading: false,
     currentTheme: 'dark',
-    
+
     // Performance monitoring
     performanceMetrics: {
         loadTime: 0,
         renderTime: 0,
         interactionTime: 0
     },
-    
+
+    // Section configuration
+    sectionConfig: {
+        'home-features': { data: 'homeFeatures', type: 'feature' },
+        'setup-steps': { data: 'setupSteps', type: 'step' },
+        'setup-tips': { data: 'setupTips', type: 'feature' },
+        'hardware-specs': { data: 'hardwareSpecs', type: 'spec' },
+        'hardware-features': { data: 'hardwareFeatures', type: 'feature' },
+        'hardware-benchmarks': { data: 'hardwareBenchmarks', type: 'spec' },
+        'software-os': { data: 'softwareOS', type: 'feature' },
+        'software-apps': { data: 'softwareApps', type: 'spec' },
+        'software-dev-tools': { data: 'softwareDevTools', type: 'feature' },
+        'software-system': { data: 'softwareSystem', type: 'spec' },
+        'capabilities-ai': { data: 'capabilitiesAI', type: 'capability' },
+        'capabilities-data': { data: 'capabilitiesData', type: 'capability' },
+        'capabilities-dev': { data: 'capabilitiesDev', type: 'capability' },
+        'capabilities-metrics': { data: 'capabilitiesMetrics', type: 'spec' },
+        'capabilities-industry': { data: 'capabilitiesIndustry', type: 'capability' },
+        'capabilities-roadmap': { data: 'capabilitiesRoadmap', type: 'feature' }
+    },
+
     // Initialize the application
-    init: function() {
-        if (this.isInitialized) {
-            return;
-        }
-        
+    init() {
+        if (this.isInitialized) return;
+
         const startTime = performance.now();
-        
+
         try {
-            // Initialize core modules
             this.initializeModules();
-            
-            // Load and render content
             this.loadContent();
-            
-            // Setup error handling
             this.setupErrorHandling();
-            
-            // Setup performance monitoring
             this.setupPerformanceMonitoring();
-            
-            // Mark as initialized
+
             this.isInitialized = true;
-            
-            // Calculate load time
             this.performanceMetrics.loadTime = performance.now() - startTime;
-            
-            // Log initialization
-            if (AppConfig.debug.enableLogging) {
-                console.log('🚀 TechFlow application initialized successfully');
-                console.log('📊 Load time:', this.performanceMetrics.loadTime.toFixed(2), 'ms');
-            }
-            
-            // Trigger initialization complete event
+
+            this.log('🚀 TechFlow application initialized successfully');
+            this.log('📊 Load time:', this.performanceMetrics.loadTime.toFixed(2), 'ms');
+
             this.triggerEvent('appInitialized', {
                 loadTime: this.performanceMetrics.loadTime,
                 timestamp: Date.now()
             });
-            
+
         } catch (error) {
             console.error('❌ Failed to initialize application:', error);
             this.handleError(error, 'initialization');
         }
     },
-    
+
     // Initialize core modules
-    initializeModules: function() {
-        // Initialize navigation
+    initializeModules() {
         Navigation.init();
-        
-        // Initialize animations
         Animations.init();
-        
-        // Initialize accessibility features
         this.initializeAccessibility();
-        
-        // Initialize service worker if available
         this.initializeServiceWorker();
     },
-    
+
     // Load and render content
-    loadContent: function() {
+    loadContent() {
         this.isLoading = true;
-        
+
         try {
-            // Render home page features
-            this.renderSection('home-features', AppData.homeFeatures, 'feature');
-            
-            // Render setup content
-            this.renderSection('setup-steps', AppData.setupSteps, 'step');
-            this.renderSection('setup-tips', AppData.setupTips, 'feature');
-            
-            // Render hardware content
-            this.renderSection('hardware-specs', AppData.hardwareSpecs, 'spec');
-            this.renderSection('hardware-features', AppData.hardwareFeatures, 'feature');
-            this.renderSection('hardware-benchmarks', AppData.hardwareBenchmarks, 'spec');
-            
-            // Render software content
-            this.renderSection('software-os', AppData.softwareOS, 'feature');
-            this.renderSection('software-apps', AppData.softwareApps, 'spec');
-            this.renderSection('software-dev-tools', AppData.softwareDevTools, 'feature');
-            this.renderSection('software-system', AppData.softwareSystem, 'spec');
-            
-            // Render capabilities content
-            this.renderSection('capabilities-ai', AppData.capabilitiesAI, 'capability');
-            this.renderSection('capabilities-data', AppData.capabilitiesData, 'capability');
-            this.renderSection('capabilities-dev', AppData.capabilitiesDev, 'capability');
-            this.renderSection('capabilities-metrics', AppData.capabilitiesMetrics, 'spec');
-            this.renderSection('capabilities-industry', AppData.capabilitiesIndustry, 'capability');
-            this.renderSection('capabilities-roadmap', AppData.capabilitiesRoadmap, 'feature');
-            
+            // Render all sections based on configuration
+            Object.entries(this.sectionConfig).forEach(([containerId, config]) => {
+                this.renderSection(containerId, AppData[config.data], config.type);
+            });
+
             this.isLoading = false;
-            
+
         } catch (error) {
             this.isLoading = false;
             console.error('❌ Failed to load content:', error);
             this.handleError(error, 'content-loading');
         }
     },
-    
+
     // Render a section with data
-    renderSection: function(containerId, data, type) {
+    renderSection(containerId, data, type) {
         const container = document.getElementById(containerId);
-        if (!container || !data) {
-            return;
-        }
-        
+        if (!container || !data) return;
+
         try {
-            let html = '';
-            
             // Show loading state
             container.innerHTML = this.getLoadingHTML(type);
-            
-            // Simulate async loading with timeout
+
+            // Simulate async loading
             setTimeout(() => {
-                data.forEach(item => {
+                const html = data.map(item => {
                     switch (type) {
-                        case 'feature':
-                            html += Components.renderFeatureCard(item);
-                            break;
-                        case 'capability':
-                            html += Components.renderCapabilityCard(item);
-                            break;
-                        case 'spec':
-                            html += Components.renderSpecItem(item);
-                            break;
-                        case 'step':
-                            html += Components.renderStep(item);
-                            break;
-                        default:
-                            html += Components.renderFeatureCard(item);
+                        case 'feature': return Components.renderFeatureCard(item);
+                        case 'capability': return Components.renderCapabilityCard(item);
+                        case 'spec': return Components.renderSpecItem(item);
+                        case 'step': return Components.renderStep(item);
+                        default: return Components.renderFeatureCard(item);
                     }
-                });
-                
+                }).join('');
+
                 container.innerHTML = html;
-                
+
                 // Re-observe elements for animations
-                setTimeout(() => {
-                    Animations.observeElements();
-                }, 50);
-                
-            }, Math.random() * 200 + 100); // Random delay to simulate real loading
-            
+                setTimeout(() => Animations.observeElements(), 50);
+
+            }, Math.random() * 200 + 100);
+
         } catch (error) {
             container.innerHTML = Components.renderError(`Failed to load ${type} content`);
             console.error(`❌ Failed to render section ${containerId}:`, error);
         }
     },
-    
+
     // Get loading HTML for different types
-    getLoadingHTML: function(type) {
+    getLoadingHTML(type) {
         const count = type === 'step' ? 5 : 6;
-        let html = '';
-        
-        for (let i = 0; i < count; i++) {
-            html += Components.renderSkeleton(type);
-        }
-        
-        return html;
+        return Array(count).fill().map(() => Components.renderSkeleton(type)).join('');
     },
-    
+
     // Initialize accessibility features
-    initializeAccessibility: function() {
-        // Skip links for keyboard navigation
+    initializeAccessibility() {
         this.addSkipLinks();
-        
-        // ARIA labels and roles
         this.setupAriaAttributes();
-        
-        // Focus management
         this.setupFocusManagement();
-        
-        // High contrast mode detection
         this.detectHighContrastMode();
     },
-    
+
     // Add skip links for accessibility
-    addSkipLinks: function() {
+    addSkipLinks() {
         const skipLinks = `
             <div class="skip-links sr-only" style="position: absolute; top: 0; left: 0; z-index: 9999;">
                 <a href="#main-content" class="skip-link">Skip to main content</a>
                 <a href="#navigation" class="skip-link">Skip to navigation</a>
             </div>
         `;
-        
+
         document.body.insertAdjacentHTML('afterbegin', skipLinks);
-        
+
         // Show skip links on focus
         const skipLinkElements = document.querySelectorAll('.skip-link');
         skipLinkElements.forEach(link => {
             link.addEventListener('focus', () => {
+                Object.assign(link.style, {
+                    position: 'fixed',
+                    top: '10px',
+                    left: '10px',
+                    background: 'var(--accent-color)',
+                    color: 'var(--primary-bg)',
+                    padding: 'var(--spacing-sm)',
+                    borderRadius: 'var(--radius-sm)',
+                    textDecoration: 'none',
+                    zIndex: '10000'
+                });
                 link.parentElement.classList.remove('sr-only');
-                link.style.position = 'fixed';
-                link.style.top = '10px';
-                link.style.left = '10px';
-                link.style.background = 'var(--accent-color)';
-                link.style.color = 'var(--primary-bg)';
-                link.style.padding = 'var(--spacing-sm)';
-                link.style.borderRadius = 'var(--radius-sm)';
-                link.style.textDecoration = 'none';
-                link.style.zIndex = '10000';
             });
-            
+
             link.addEventListener('blur', () => {
                 link.parentElement.classList.add('sr-only');
             });
         });
     },
-    
+
     // Setup ARIA attributes
-    setupAriaAttributes: function() {
-        // Main navigation
-        const nav = document.querySelector('.navbar');
-        if (nav) {
-            nav.setAttribute('role', 'navigation');
-            nav.setAttribute('aria-label', 'Main navigation');
-        }
-        
-        // Navigation links
-        const navLinks = document.querySelector('.nav-links');
-        if (navLinks) {
-            navLinks.setAttribute('role', 'menubar');
-            navLinks.setAttribute('aria-label', 'Main menu');
-        }
-        
-        // Mobile menu button
-        const mobileMenu = document.querySelector('.mobile-menu');
-        if (mobileMenu) {
-            mobileMenu.setAttribute('role', 'button');
-            mobileMenu.setAttribute('aria-label', 'Toggle mobile menu');
-            mobileMenu.setAttribute('aria-expanded', 'false');
-        }
-        
-        // Pages
+    setupAriaAttributes() {
+        const attributeConfig = [
+            { selector: '.navbar', attributes: { role: 'navigation', 'aria-label': 'Main navigation' } },
+            { selector: '.nav-links', attributes: { role: 'menubar', 'aria-label': 'Main menu' } },
+            { selector: '.mobile-menu', attributes: { role: 'button', 'aria-label': 'Toggle mobile menu', 'aria-expanded': 'false' } }
+        ];
+
+        attributeConfig.forEach(({ selector, attributes }) => {
+            const element = document.querySelector(selector);
+            if (element) {
+                Object.entries(attributes).forEach(([key, value]) => {
+                    element.setAttribute(key, value);
+                });
+            }
+        });
+
+        // Setup page attributes
         const pages = document.querySelectorAll('.page');
         pages.forEach(page => {
             page.setAttribute('role', 'main');
             page.setAttribute('aria-hidden', page.classList.contains('active') ? 'false' : 'true');
         });
-        
+
         // Add main content landmark
         const activePageContent = document.querySelector('.page.active .container');
         if (activePageContent) {
             activePageContent.id = 'main-content';
         }
     },
-    
+
     // Setup focus management
-    setupFocusManagement: function() {
-        // Trap focus in mobile menu when open
+    setupFocusManagement() {
+        // Focus trap for mobile menu
         document.addEventListener('keydown', (e) => {
             const navLinks = document.querySelector('.nav-links');
-            if (navLinks && navLinks.classList.contains('active') && e.key === 'Tab') {
-                const focusableElements = navLinks.querySelectorAll('li');
-                const firstElement = focusableElements[0];
-                const lastElement = focusableElements[focusableElements.length - 1];
-                
-                if (e.shiftKey) {
-                    if (document.activeElement === firstElement) {
-                        e.preventDefault();
-                        lastElement.focus();
-                    }
-                } else {
-                    if (document.activeElement === lastElement) {
-                        e.preventDefault();
-                        firstElement.focus();
-                    }
-                }
+            if (navLinks?.classList.contains('active') && e.key === 'Tab') {
+                this.handleMenuFocusTrap(e, navLinks);
             }
         });
-        
-        // Focus visible elements when they come into view
+
+        // Focus management for animated elements
         document.addEventListener('elementAnimated', (e) => {
             if (e.target.hasAttribute('tabindex')) {
                 e.target.setAttribute('tabindex', '0');
             }
         });
     },
-    
+
+    // Handle focus trap in mobile menu
+    handleMenuFocusTrap(event, navLinks) {
+        const focusableElements = navLinks.querySelectorAll('li');
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+
+        if (event.shiftKey && document.activeElement === firstElement) {
+            event.preventDefault();
+            lastElement.focus();
+        } else if (!event.shiftKey && document.activeElement === lastElement) {
+            event.preventDefault();
+            firstElement.focus();
+        }
+    },
+
     // Detect high contrast mode
-    detectHighContrastMode: function() {
+    detectHighContrastMode() {
         const testElement = document.createElement('div');
-        testElement.style.border = '1px solid';
-        testElement.style.borderColor = 'red green';
+        Object.assign(testElement.style, {
+            border: '1px solid',
+            borderColor: 'red green'
+        });
+
         document.body.appendChild(testElement);
-        
+
         const computedStyle = window.getComputedStyle(testElement);
         const isHighContrast = computedStyle.borderTopColor === computedStyle.borderRightColor;
-        
+
         document.body.removeChild(testElement);
-        
+
         if (isHighContrast) {
             document.body.classList.add('high-contrast');
-            if (AppConfig.debug.enableLogging) {
-                console.log('🎨 High contrast mode detected');
-            }
+            this.log('🎨 High contrast mode detected');
         }
     },
-    
+
     // Initialize service worker
-    initializeServiceWorker: function() {
+    initializeServiceWorker() {
         if ('serviceWorker' in navigator && window.location.protocol === 'https:') {
             navigator.serviceWorker.register('/sw.js')
-                .then(registration => {
-                    if (AppConfig.debug.enableLogging) {
-                        console.log('✅ Service Worker registered:', registration);
-                    }
-                })
-                .catch(error => {
-                    if (AppConfig.debug.enableLogging) {
-                        console.log('❌ Service Worker registration failed:', error);
-                    }
-                });
+                .then(registration => this.log('✅ Service Worker registered:', registration))
+                .catch(error => this.log('❌ Service Worker registration failed:', error));
         }
     },
-    
+
     // Setup error handling
-    setupErrorHandling: function() {
+    setupErrorHandling() {
         // Global error handler
         window.addEventListener('error', (e) => {
             this.handleError(e.error, 'runtime', {
@@ -338,22 +275,25 @@ const App = {
                 colno: e.colno
             });
         });
-        
+
         // Unhandled promise rejection handler
         window.addEventListener('unhandledrejection', (e) => {
             this.handleError(e.reason, 'promise-rejection');
         });
-        
+
         // Resource loading error handler
         window.addEventListener('error', (e) => {
             if (e.target !== window) {
-                this.handleError(new Error(`Failed to load resource: ${e.target.src || e.target.href}`), 'resource-loading');
+                this.handleError(
+                    new Error(`Failed to load resource: ${e.target.src || e.target.href}`),
+                    'resource-loading'
+                );
             }
         }, true);
     },
-    
+
     // Handle application errors
-    handleError: function(error, context, details = {}) {
+    handleError(error, context, details = {}) {
         const errorInfo = {
             message: error.message || 'Unknown error',
             stack: error.stack,
@@ -363,22 +303,15 @@ const App = {
             userAgent: navigator.userAgent,
             url: window.location.href
         };
-        
-        // Log error
+
         console.error('🚨 Application Error:', errorInfo);
-        
-        // Show user-friendly error message
         this.showErrorNotification(error, context);
-        
-        // Send error to monitoring service (if available)
         this.reportError(errorInfo);
-        
-        // Trigger error event
         this.triggerEvent('appError', errorInfo);
     },
-    
+
     // Show error notification to user
-    showErrorNotification: function(error, context) {
+    showErrorNotification(error, context) {
         const friendlyMessages = {
             'initialization': 'The application failed to start properly. Please refresh the page.',
             'content-loading': 'Some content failed to load. Please try refreshing the page.',
@@ -386,75 +319,78 @@ const App = {
             'resource-loading': 'Some resources failed to load. Some features may not work correctly.',
             'promise-rejection': 'A background operation failed. The application should continue to work normally.'
         };
-        
+
         const message = friendlyMessages[context] || 'An unexpected error occurred.';
         Components.renderNotification(message, 'error', 8000);
     },
-    
+
     // Report error to monitoring service
-    reportError: function(errorInfo) {
-        // This would typically send the error to a monitoring service
-        // For demo purposes, we'll just store it locally
-        if (AppConfig.debug.enableLogging) {
+    reportError(errorInfo) {
+        if (!AppConfig.debug.enableLogging) return;
+
+        try {
             const errors = JSON.parse(localStorage.getItem('app-errors') || '[]');
             errors.push(errorInfo);
-            
+
             // Keep only last 50 errors
             if (errors.length > 50) {
                 errors.splice(0, errors.length - 50);
             }
-            
+
             localStorage.setItem('app-errors', JSON.stringify(errors));
+        } catch (e) {
+            console.warn('Failed to store error info:', e);
         }
     },
-    
+
     // Setup performance monitoring
-    setupPerformanceMonitoring: function() {
+    setupPerformanceMonitoring() {
         if (!AppConfig.debug.enablePerformanceMonitoring) return;
-        
+
         // Monitor page load performance
         window.addEventListener('load', () => {
             setTimeout(() => {
                 const perfData = performance.getEntriesByType('navigation')[0];
                 if (perfData) {
                     this.performanceMetrics.renderTime = perfData.loadEventEnd - perfData.loadEventStart;
-                    
-                    if (AppConfig.debug.enableLogging) {
-                        console.log('📊 Performance Metrics:', {
-                            loadTime: this.performanceMetrics.loadTime.toFixed(2) + 'ms',
-                            renderTime: this.performanceMetrics.renderTime.toFixed(2) + 'ms',
-                            domContentLoaded: (perfData.domContentLoadedEventEnd - perfData.domContentLoadedEventStart).toFixed(2) + 'ms'
-                        });
-                    }
+
+                    this.log('📊 Performance Metrics:', {
+                        loadTime: this.performanceMetrics.loadTime.toFixed(2) + 'ms',
+                        renderTime: this.performanceMetrics.renderTime.toFixed(2) + 'ms',
+                        domContentLoaded: (perfData.domContentLoadedEventEnd - perfData.domContentLoadedEventStart).toFixed(2) + 'ms'
+                    });
                 }
             }, 0);
         });
-        
+
         // Monitor interaction performance
-        document.addEventListener('click', (e) => {
+        document.addEventListener('click', () => {
             const startTime = performance.now();
             setTimeout(() => {
                 this.performanceMetrics.interactionTime = performance.now() - startTime;
             }, 0);
         });
     },
-    
+
     // Trigger custom events
-    triggerEvent: function(eventName, detail = {}) {
+    triggerEvent(eventName, detail = {}) {
         const event = new CustomEvent(eventName, {
-            detail: {
-                ...detail,
-                timestamp: Date.now()
-            }
+            detail: { ...detail, timestamp: Date.now() }
         });
-        
         document.dispatchEvent(event);
     },
-    
+
+    // Logging utility
+    log(...args) {
+        if (AppConfig.debug.enableLogging) {
+            console.log(...args);
+        }
+    },
+
     // Utility functions
     utils: {
         // Debounce function
-        debounce: function(func, wait, immediate) {
+        debounce(func, wait, immediate) {
             let timeout;
             return function executedFunction(...args) {
                 const later = () => {
@@ -467,9 +403,9 @@ const App = {
                 if (callNow) func.apply(this, args);
             };
         },
-        
+
         // Throttle function
-        throttle: function(func, limit) {
+        throttle(func, limit) {
             let inThrottle;
             return function executedFunction(...args) {
                 if (!inThrottle) {
@@ -479,34 +415,31 @@ const App = {
                 }
             };
         },
-        
+
         // Deep clone object
-        deepClone: function(obj) {
+        deepClone(obj) {
             if (obj === null || typeof obj !== 'object') return obj;
             if (obj instanceof Date) return new Date(obj.getTime());
             if (obj instanceof Array) return obj.map(item => this.deepClone(item));
+
             if (typeof obj === 'object') {
-                const clonedObj = {};
-                for (const key in obj) {
-                    if (obj.hasOwnProperty(key)) {
-                        clonedObj[key] = this.deepClone(obj[key]);
-                    }
-                }
-                return clonedObj;
+                return Object.fromEntries(
+                    Object.entries(obj).map(([key, value]) => [key, this.deepClone(value)])
+                );
             }
         },
-        
+
         // Format file size
-        formatFileSize: function(bytes) {
+        formatFileSize(bytes) {
             if (bytes === 0) return '0 Bytes';
             const k = 1024;
             const sizes = ['Bytes', 'KB', 'MB', 'GB'];
             const i = Math.floor(Math.log(bytes) / Math.log(k));
             return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
         },
-        
+
         // Generate UUID
-        generateUUID: function() {
+        generateUUID() {
             return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
                 const r = Math.random() * 16 | 0;
                 const v = c === 'x' ? r : (r & 0x3 | 0x8);
@@ -514,27 +447,20 @@ const App = {
             });
         }
     },
-    
+
     // Cleanup function
-    cleanup: function() {
-        // Clean up animations
+    cleanup() {
         Animations.cleanup();
-        
-        // Clear any intervals or timeouts
+
         if (this.performanceInterval) {
             clearInterval(this.performanceInterval);
         }
-        
-        // Remove event listeners if needed
-        // (most are handled automatically by the browser)
-        
-        if (AppConfig.debug.enableLogging) {
-            console.log('🧹 Application cleanup completed');
-        }
+
+        this.log('🧹 Application cleanup completed');
     },
-    
+
     // Get application state
-    getState: function() {
+    getState() {
         return {
             isInitialized: this.isInitialized,
             isLoading: this.isLoading,
@@ -548,35 +474,20 @@ const App = {
 
 // Initialize the application when DOM is ready
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-        App.init();
-    });
+    document.addEventListener('DOMContentLoaded', () => App.init());
 } else {
     App.init();
 }
 
-// Handle page unload cleanup
-window.addEventListener('beforeunload', () => {
-    App.cleanup();
-});
+// Handle page lifecycle events
+window.addEventListener('beforeunload', () => App.cleanup());
 
-// Handle page visibility changes
 document.addEventListener('visibilitychange', () => {
-    if (document.hidden) {
-        // Page is hidden, pause expensive operations
-        if (AppConfig.debug.enableLogging) {
-            console.log('⏸️ Page hidden, pausing operations');
-        }
-    } else {
-        // Page is visible, resume operations
-        if (AppConfig.debug.enableLogging) {
-            console.log('▶️ Page visible, resuming operations');
-        }
-        
-        // Re-observe elements that might have been added while hidden
-        setTimeout(() => {
-            Animations.observeElements();
-        }, 100);
+    const isHidden = document.hidden;
+    App.log(isHidden ? '⏸️ Page hidden, pausing operations' : '▶️ Page visible, resuming operations');
+
+    if (!isHidden) {
+        setTimeout(() => Animations.observeElements(), 100);
     }
 });
 
