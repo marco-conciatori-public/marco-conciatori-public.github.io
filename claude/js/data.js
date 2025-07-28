@@ -5,6 +5,7 @@ const AppData = {
         {
             icon: '🚀',
             title: 'High Performance',
+        },
         {
             icon: '🐳',
             title: 'Container Platform',
@@ -330,7 +331,13 @@ const DataUtils = {
 // Export for use in other modules
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = { AppData, AppConfig, DataUtils };
-}Experience lightning-fast processing with our optimized hardware and software stack designed for maximum efficiency.'
+}   // Home page features
+const AppData = {
+    homeFeatures: [
+        {
+            icon: '🚀',
+            title: 'High Performance',
+            description: 'Experience lightning-fast processing with our optimized hardware and software stack designed for maximum efficiency.'
         },
         {
             icon: '🔧',
