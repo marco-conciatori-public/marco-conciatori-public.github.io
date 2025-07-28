@@ -39,7 +39,27 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Function to highlight the current page in the navigation bar
+    function highlightActiveNavLink() {
+        const navLinks = document.querySelectorAll('.nav-link');
+        const currentPath = window.location.pathname.split('/').pop(); // Gets 'index.html', 'capabilities.html', etc.
+
+        navLinks.forEach(link => {
+            const linkPath = link.getAttribute('href').split('/').pop();
+            if (linkPath === currentPath || (currentPath === '' && linkPath === 'index.html')) {
+                // Add Tailwind classes for highlighting
+                link.classList.add('bg-indigo-100', 'text-indigo-800', 'font-semibold');
+                link.classList.remove('text-gray-700', 'hover:text-indigo-700'); // Remove default hover styles
+            } else {
+                // Ensure other links don't have the active style if they were previously active
+                link.classList.remove('bg-indigo-100', 'text-indigo-800', 'font-semibold');
+                link.classList.add('text-gray-700', 'hover:text-indigo-700');
+            }
+        });
+    }
+
     // Execute functions when the DOM is fully loaded
     loadFooter();
     setupImageErrorFallback();
+    highlightActiveNavLink(); // Call the new function
 });
