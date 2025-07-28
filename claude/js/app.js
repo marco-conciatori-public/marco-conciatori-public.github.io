@@ -203,7 +203,6 @@ const App = {
         const skipLinkElements = document.querySelectorAll('.skip-link');
         skipLinkElements.forEach(link => {
             link.addEventListener('focus', () => {
-            link.addEventListener('focus', () => {
                 link.parentElement.classList.remove('sr-only');
                 link.style.position = 'fixed';
                 link.style.top = '10px';
