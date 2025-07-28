@@ -1,24 +1,21 @@
-// main.js
-
 document.addEventListener('DOMContentLoaded', function() {
-    // Function to load the footer from footer.html
-    function loadFooter() {
-        fetch('footer.html')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                return response.text();
-            })
-            .then(data => {
-                const footerPlaceholder = document.getElementById('footer-placeholder');
-                if (footerPlaceholder) {
-                    footerPlaceholder.innerHTML = data;
-                } else {
-                    console.warn('Footer placeholder not found. Ensure a div with id="footer-placeholder" exists.');
-                }
-            })
-            .catch(error => console.error('Error loading footer:', error));
+    // Function to load reusable HTML content into a placeholder
+    async function loadContent(placeholderId, filePath) {
+        try {
+            const response = await fetch(filePath);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const data = await response.text();
+            const placeholder = document.getElementById(placeholderId);
+            if (placeholder) {
+                placeholder.innerHTML = data;
+            } else {
+                console.warn(`Placeholder '${placeholderId}' not found. Ensure a div with id='${placeholderId}' exists.`);
+            }
+        } catch (error) {
+            console.error(`Error loading ${filePath}:`, error);
+        }
     }
 
     // Function to handle image loading errors and set a fallback
@@ -46,6 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         navLinks.forEach(link => {
             const linkPath = link.getAttribute('href').split('/').pop();
+            // Handle empty currentPath for index.html if accessed directly (e.g., yourdomain.com/)
             if (linkPath === currentPath || (currentPath === '' && linkPath === 'index.html')) {
                 // Add Tailwind classes for highlighting
                 link.classList.add('bg-indigo-100', 'text-indigo-800', 'font-semibold');
@@ -59,7 +57,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Execute functions when the DOM is fully loaded
-    loadFooter();
+    // Load navbar first, then footer, then set up image fallbacks and highlight nav
+    loadContent('navbar-placeholder', 'navbar.html').then(() => {
+        highlightActiveNavLink(); // Highlight after navbar is loaded
+    });
+    loadContent('footer-placeholder', 'footer.html');
     setupImageErrorFallback();
-    highlightActiveNavLink(); // Call the new function
 });
