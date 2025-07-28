@@ -1,5 +1,3 @@
-// main.js
-
 document.addEventListener('DOMContentLoaded', function() {
     // Function to load reusable HTML content into a placeholder
     async function loadContent(placeholderId, filePath) {
