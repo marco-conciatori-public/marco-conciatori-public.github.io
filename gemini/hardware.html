@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marco's Robot - Hardware</title>
+    <title>Jade - Hardware</title>
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -35,105 +35,105 @@
     </style>
 </head>
 <body class="antialiased">
-    <!-- Header/Navigation Bar -->
-    <header class="bg-white shadow-md sticky top-0 z-50 rounded-b-lg">
-        <nav class="container mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center">
-            <!-- Robot Name/Logo -->
-            <a href="index.html" class="text-2xl font-bold text-indigo-700 mb-4 md:mb-0">
-                Marco's <span class="text-gray-800">Robot</span>
-            </a>
-            <!-- Navigation Links -->
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="index.html" class="nav-link text-gray-700 hover:text-indigo-700 font-medium">Home</a>
-                <a href="capabilities.html" class="nav-link text-gray-700 hover:text-indigo-700 font-medium">Capabilities</a>
-                <a href="hardware.html" class="nav-link text-gray-700 hover:text-indigo-700 font-medium">Hardware</a>
-                <a href="setup.html" class="nav-link text-gray-700 hover:text-indigo-700 font-medium">Setup</a>
-                <a href="gallery.html" class="nav-link text-gray-700 hover:text-indigo-700 font-medium">Gallery</a>
-            </div>
-        </nav>
-    </header>
+<!-- Header/Navigation Bar -->
+<header class="bg-white shadow-md sticky top-0 z-50 rounded-b-lg">
+    <nav class="container mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center">
+        <!-- Robot Name/Logo -->
+        <a href="index.html" class="text-2xl font-bold text-indigo-700 mb-4 md:mb-0">
+            <span class="text-gray-800">Jade</span>
+        </a>
+        <!-- Navigation Links -->
+        <div class="flex flex-wrap justify-center gap-4">
+            <a href="index.html" class="nav-link text-gray-700 hover:text-indigo-700 font-medium">Home</a>
+            <a href="capabilities.html" class="nav-link text-gray-700 hover:text-indigo-700 font-medium">Capabilities</a>
+            <a href="hardware.html" class="nav-link text-gray-700 hover:text-indigo-700 font-medium">Hardware</a>
+            <a href="setup.html" class="nav-link text-gray-700 hover:text-indigo-700 font-medium">Setup</a>
+            <a href="gallery.html" class="nav-link text-gray-700 hover:text-indigo-700 font-medium">Gallery</a>
+        </div>
+    </nav>
+</header>
 
-    <!-- Hardware Components Section -->
-    <section id="hardware" class="bg-gray-100 py-16 rounded-lg shadow-md mx-4 mt-8">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Hardware Components</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Component Card 1 -->
-                <div class="bg-white p-6 rounded-xl shadow-sm flex items-start space-x-4">
-                    <div class="flex-shrink-0 text-indigo-500 text-4xl">⚙️</div> <!-- Placeholder icon -->
-                    <div>
-                        <h3 class="text-2xl font-semibold text-gray-700 mb-2">Main Processor (Raspberry Pi 4)</h3>
-                        <p class="text-gray-600">
-                            The brain of the robot, handling all high-level computations, AI, and communication. Runs Ubuntu 18.04.
-                        </p>
-                    </div>
+<!-- Hardware Components Section -->
+<section id="hardware" class="bg-gray-100 py-16 rounded-lg shadow-md mx-4 mt-8">
+    <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Jade's Hardware Components</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Component Card 1 -->
+            <div class="bg-white p-6 rounded-xl shadow-sm flex items-start space-x-4">
+                <div class="flex-shrink-0 text-indigo-500 text-4xl">⚙️</div> <!-- Placeholder icon -->
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-700 mb-2">Main Processor (Raspberry Pi 4)</h3>
+                    <p class="text-gray-600">
+                        The brain of Jade, handling all high-level computations, AI, and communication. Runs Ubuntu 18.04.
+                    </p>
                 </div>
-                <!-- Component Card 2 -->
-                <div class="bg-white p-6 rounded-xl shadow-sm flex items-start space-x-4">
-                    <div class="flex-shrink-0 text-indigo-500 text-4xl">📸</div> <!-- Placeholder icon -->
-                    <div>
-                        <h3 class="text-2xl font-semibold text-gray-700 mb-2">Depth Camera (Intel RealSense D435)</h3>
-                        <p class="text-gray-600">
-                            Provides accurate depth information for 3D mapping, obstacle avoidance, and object recognition.
-                        </p>
-                    </div>
+            </div>
+            <!-- Component Card 2 -->
+            <div class="bg-white p-6 rounded-xl shadow-sm flex items-start space-x-4">
+                <div class="flex-shrink-0 text-indigo-500 text-4xl">📸</div> <!-- Placeholder icon -->
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-700 mb-2">Depth Camera (Intel RealSense D435)</h3>
+                    <p class="text-gray-600">
+                        Provides accurate depth information for 3D mapping, obstacle avoidance, and object recognition.
+                    </p>
                 </div>
-                <!-- Component Card 3 -->
-                <div class="bg-white p-6 rounded-xl shadow-sm flex items-start space-x-4">
-                    <div class="flex-shrink-0 text-indigo-500 text-4xl">⚡</div> <!-- Placeholder icon -->
-                    <div>
-                        <h3 class="text-2xl font-semibold text-gray-700 mb-2">Motor Drivers (L298N H-Bridge)</h3>
-                        <p class="text-gray-600">
-                            Controls the speed and direction of the DC motors, enabling precise movement.
-                        </p>
-                    </div>
+            </div>
+            <!-- Component Card 3 -->
+            <div class="bg-white p-6 rounded-xl shadow-sm flex items-start space-x-4">
+                <div class="flex-shrink-0 text-indigo-500 text-4xl">⚡</div> <!-- Placeholder icon -->
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-700 mb-2">Motor Drivers (L298N H-Bridge)</h3>
+                    <p class="text-gray-600">
+                        Controls the speed and direction of the DC motors, enabling precise movement.
+                    </p>
                 </div>
-                <!-- Component Card 4 -->
-                <div class="bg-white p-6 rounded-xl shadow-sm flex items-start space-x-4">
-                    <div class="flex-shrink-0 text-indigo-500 text-4xl">🔋</div> <!-- Placeholder icon -->
-                    <div>
-                        <h3 class="text-2xl font-semibold text-gray-700 mb-2">LiPo Battery Pack (11.1V, 5000mAh)</h3>
-                        <p class="text-gray-600">
-                            Powers all components, ensuring long operational periods before recharging.
-                        </p>
-                    </div>
+            </div>
+            <!-- Component Card 4 -->
+            <div class="bg-white p-6 rounded-xl shadow-sm flex items-start space-x-4">
+                <div class="flex-shrink-0 text-indigo-500 text-4xl">🔋</div> <!-- Placeholder icon -->
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-700 mb-2">LiPo Battery Pack (11.1V, 5000mAh)</h3>
+                    <p class="text-gray-600">
+                        Powers all components, ensuring long operational periods before recharging.
+                    </p>
                 </div>
-                <!-- Component Card 5 -->
-                <div class="bg-white p-6 rounded-xl shadow-sm flex items-start space-x-4">
-                    <div class="flex-shrink-0 text-indigo-500 text-4xl">📡</div> <!-- Placeholder icon -->
-                    <div>
-                        <h3 class="text-2xl font-semibold text-gray-700 mb-2">Lidar Sensor (RPLIDAR A1M8)</h3>
-                        <p class="text-gray-600">
-                            Used for 2D mapping and precise localization within the environment.
-                        </p>
-                    </div>
+            </div>
+            <!-- Component Card 5 -->
+            <div class="bg-white p-6 rounded-xl shadow-sm flex items-start space-x-4">
+                <div class="flex-shrink-0 text-indigo-500 text-4xl">📡</div> <!-- Placeholder icon -->
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-700 mb-2">Lidar Sensor (RPLIDAR A1M8)</h3>
+                    <p class="text-gray-600">
+                        Used for 2D mapping and precise localization within the environment.
+                    </p>
                 </div>
-                <!-- Component Card 6 -->
-                <div class="bg-white p-6 rounded-xl shadow-sm flex items-start space-x-4">
-                    <div class="flex-shrink-0 text-indigo-500 text-4xl">🔊</div> <!-- Placeholder icon -->
-                    <div>
-                        <h3 class="text-2xl font-semibold text-gray-700 mb-2">Microphone Array & Speaker</h3>
-                        <p class="text-gray-600">
-                            Enables voice command input and audio output for interactive responses.
-                        </p>
-                    </div>
+            </div>
+            <!-- Component Card 6 -->
+            <div class="bg-white p-6 rounded-xl shadow-sm flex items-start space-x-4">
+                <div class="flex-shrink-0 text-indigo-500 text-4xl">🔊</div> <!-- Placeholder icon -->
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-700 mb-2">Microphone Array & Speaker</h3>
+                    <p class="text-gray-600">
+                        Enables voice command input and audio output for interactive responses.
+                    </p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8 mt-8 rounded-t-lg">
-        <div class="container mx-auto px-4 text-center">
-            <p>&copy; 2025 Marco's Robot. All rights reserved.</p>
-            <p class="mt-2 text-sm">
-                Developed with passion for robotics and open-source.
-            </p>
-            <div class="flex justify-center space-x-4 mt-4">
-                <a href="#" class="text-gray-400 hover:text-white transition duration-300">GitHub</a>
-                <a href="#" class="text-gray-400 hover:text-white transition duration-300">Contact</a>
-            </div>
+<!-- Footer -->
+<footer class="bg-gray-800 text-white py-8 mt-8 rounded-t-lg">
+    <div class="container mx-auto px-4 text-center">
+        <p>&copy; 2025 Jade Robot. All rights reserved.</p>
+        <p class="mt-2 text-sm">
+            Developed with passion for robotics and open-source.
+        </p>
+        <div class="flex justify-center space-x-4 mt-4">
+            <a href="#" class="text-gray-400 hover:text-white transition duration-300">GitHub</a>
+            <a href="#" class="text-gray-400 hover:text-white transition duration-300">Contact</a>
         </div>
-    </footer>
+    </div>
+</footer>
 </body>
 </html>
