@@ -4,14 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mantis - Gallery</title>
-    <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Link to external stylesheet -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body class="antialiased">
-<!-- Navbar Placeholder -->
 <div id="navbar-placeholder"></div>
 
 <!-- Gallery Section -->
@@ -67,17 +64,19 @@
                 <div class="bg-white rounded-xl shadow-sm overflow-hidden p-2">
                     <div class="aspect-w-4 aspect-h-3">
                         <iframe
-                                class="w-full h-full rounded-lg"
-                                src="https://www.youtube.com/embed/P-A_BqP3b5Y"
-                                title="YouTube video player"
+                                src="https://player.cloudinary.com/embed/?cloud_name=dywsmv4ow&public_id=VID_20250329_162817_oskaac&profile=cld-default"
+                                width="640"
+                                height="360"
+                                title="Sound-following mode"
+                                style="height: auto; width: 100%; aspect-ratio: 640 / 360;"
+                                allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
+                                allowfullscreen
                                 frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen>
-                        </iframe>
+                        ></iframe>
                     </div>
                     <div class="p-4">
-                        <h4 class="font-semibold text-lg text-gray-700">Voice Interaction with Mantis</h4>
-                        <p class="text-gray-600 text-sm">Demonstration of Mantis responding to voice commands.</p>
+                        <h4 class="font-semibold text-lg text-gray-700">Sound-following mode</h4>
+                        <p class="text-gray-600 text-sm">A toy mode in which the robot autonomously goes toward the nearest sound source.</p>
                     </div>
                 </div>
             </div>
@@ -87,54 +86,15 @@
         <div>
             <h3 class="text-3xl font-bold text-center text-gray-700 mb-8">Photos</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Gallery Item 1 -->
-                <div class="bg-white rounded-xl shadow-sm overflow-hidden">
-                    <img src="https://placehold.co/400x300/a78bfa/ffffff?text=Robot+Exploring" alt="Robot Exploring" class="w-full h-48 object-cover">
-                    <div class="p-4">
-                        <h3 class="font-semibold text-lg text-gray-700">Mapping a New Environment</h3>
-                        <p class="text-gray-600 text-sm">Mantis autonomously generating a 3D map.</p>
-                    </div>
-                </div>
-                <!-- Gallery Item 2 -->
-                <div class="bg-white rounded-xl shadow-sm overflow-hidden">
-                    <img src="https://placehold.co/400x300/6366f1/ffffff?text=Hardware+Assembly" alt="Hardware Assembly" class="w-full h-48 object-cover">
-                    <div class="p-4">
-                        <h3 class="font-semibold text-lg text-gray-700">Internal Hardware View</h3>
-                        <p class="text-gray-600 text-sm">A look at Mantis's neatly integrated components.</p>
-                    </div>
-                </div>
-                <!-- Gallery Item 3 -->
-                <div class="bg-white rounded-xl shadow-sm overflow-hidden">
-                    <img src="https://placehold.co/400x300/8b5cf6/ffffff?text=Robot+Interacting" alt="Robot Interacting" class="w-full h-48 object-cover">
-                    <div class="p-4">
-                        <h3 class="font-semibold text-lg text-gray-700">Responding to Voice Commands</h3>
-                        <p class="text-gray-600 text-sm">Mantis demonstrating voice interaction capabilities.</p>
-                    </div>
-                </div>
-                <!-- Gallery Item 4 -->
-                <div class="bg-white rounded-xl shadow-sm overflow-hidden">
-                    <img src="https://placehold.co/400x300/4f46e5/ffffff?text=Robot+Charging" alt="Robot Charging" class="w-full h-48 object-cover">
-                    <div class="p-4">
-                        <h3 class="font-semibold text-lg text-gray-700">Autonomous Recharging</h3>
-                        <p class="text-gray-600 text-sm">Mantis docking itself for a recharge.</p>
-                    </div>
-                </div>
-                <!-- Gallery Item 5 -->
-                <div class="bg-white rounded-xl shadow-sm overflow-hidden">
-                    <img src="https://placehold.co/400x300/7c3aed/ffffff?text=Robot+Sensors" alt="Robot Sensors" class="w-full h-48 object-cover">
-                    <div class="p-4">
-                        <h3 class="font-semibold text-lg text-gray-700">Close-up of Sensors</h3>
-                        <p class="text-gray-600 text-sm">Detail view of Mantis's depth camera and lidar.</p>
-                    </div>
-                </div>
-                <!-- Gallery Item 6 -->
-                <div class="bg-white rounded-xl shadow-sm overflow-hidden">
-                    <img src="https://placehold.co/400x300/a78bfa/ffffff?text=Robot+Software" alt="Robot Software" class="w-full h-48 object-cover">
-                    <div class="p-4">
-                        <h3 class="font-semibold text-lg text-gray-700">Software Interface</h3>
-                        <p class="text-gray-600 text-sm">A glimpse into Mantis's control interface.</p>
-                    </div>
-                </div>
+                <img src="https://res.cloudinary.com/dywsmv4ow/image/upload/v1754154492/IMG_20240610_133601_oibmxt.jpg" alt="RDK X3 Robot front-side view">
+                <img src="https://res.cloudinary.com/dywsmv4ow/image/upload/v1754154492/IMG_20240610_133546_egvnb5.jpg" alt="RDK X3 Robot rearview">
+                <img src="https://res.cloudinary.com/dywsmv4ow/image/upload/v1754155566/IMG_20250425_171217_r4oq4m.jpg" alt="Bigger Chassis">
+                <img src="https://res.cloudinary.com/dywsmv4ow/image/upload/v1754157125/IMG_20250506_235645_qysmur_c_crop_ar_1_1_dwpeim.jpg" alt="New Chassis and added Arm">
+                <img src="https://res.cloudinary.com/dywsmv4ow/image/upload/v1754155590/IMG_20250717_220654_dozpu2.jpg" alt="Top (Jetson Nano) protection">
+                <img src="https://res.cloudinary.com/dywsmv4ow/image/upload/v1754155592/IMG_20250728_161236_dlqqkq.jpg" alt="Second Battery">
+                <img src="https://res.cloudinary.com/dywsmv4ow/image/upload/v1754155591/IMG_20250716_162442_mhj9bx.jpg" alt="Battery charging">
+                <img src="https://res.cloudinary.com/dywsmv4ow/image/upload/v1754155598/IMG_20250716_145056_cmufsb.jpg" alt="Ethernet Connection">
+                <img src="https://res.cloudinary.com/dywsmv4ow/image/upload/v1754155589/IMG_20250730_183502_z0hcjz.jpg" alt="Added Speakers">
             </div>
         </div>
     </div>
