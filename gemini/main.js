@@ -64,3 +64,26 @@ document.addEventListener('DOMContentLoaded', function() {
     loadContent('footer-placeholder', 'footer.html');
     setupImageErrorFallback();
 });
+
+// Get the modal and its content
+const modal = document.getElementById("image-modal");
+const modalImage = document.getElementById("modal-image");
+
+// Function to open the modal
+function openModal(element) {
+    modal.classList.remove('hidden');
+    modalImage.src = element.src;
+    modalImage.alt = element.alt;
+}
+
+// Function to close the modal
+function closeModal() {
+    modal.classList.add('hidden');
+}
+
+// Close the modal when the user presses the Escape key
+document.addEventListener('keydown', function(event) {
+    if (event.key === "Escape" && !modal.classList.contains('hidden')) {
+        closeModal();
+    }
+});

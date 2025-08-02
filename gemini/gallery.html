@@ -22,7 +22,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Video Item 1 -->
                 <div class="bg-white rounded-xl shadow-sm overflow-hidden p-2">
-                    <div class="aspect-w-4 aspect-h-3">
+                    <div class="p-1">
                         <iframe
                                 src="https://player.cloudinary.com/embed/?cloud_name=dywsmv4ow&public_id=Lidar_nn8h7g&profile=cld-default"
                                 width="640"
@@ -34,7 +34,7 @@
                                 frameborder="0"
                         ></iframe>
                     </div>
-                    <div class="p-4">
+                    <div class="p-2">
                         <h4 class="font-semibold text-lg text-gray-700">Real Time Lidar Measurements</h4>
                         <p class="text-gray-600 text-sm">Check of Mantis' lidar by printing the position of all detected objects in the terminal.</p>
                     </div>
@@ -42,7 +42,7 @@
 
                 <!-- Video Item 2 -->
                 <div class="bg-white rounded-xl shadow-sm overflow-hidden p-2">
-                    <div class="aspect-w-4 aspect-h-3">
+                    <div class="p-1">
                         <iframe
                                 src="https://player.cloudinary.com/embed/?cloud_name=dywsmv4ow&public_id=Robot_VR_g00ekm&profile=cld-default"
                                 width="640"
@@ -54,7 +54,7 @@
                                 frameborder="0"
                         ></iframe>
                     </div>
-                    <div class="p-4">
+                    <div class="p-2">
                         <h4 class="font-semibold text-lg text-gray-700">VR Headset Control</h4>
                         <p class="text-gray-600 text-sm">Control the robot and see through its camera using a VR Headset and the connection app.</p>
                     </div>
@@ -62,7 +62,7 @@
 
                 <!-- Video Item 3 -->
                 <div class="bg-white rounded-xl shadow-sm overflow-hidden p-2">
-                    <div class="aspect-w-4 aspect-h-3">
+                    <div class="p-1">
                         <iframe
                                 src="https://player.cloudinary.com/embed/?cloud_name=dywsmv4ow&public_id=VID_20250329_162817_oskaac&profile=cld-default"
                                 width="640"
@@ -74,7 +74,7 @@
                                 frameborder="0"
                         ></iframe>
                     </div>
-                    <div class="p-4">
+                    <div class="p-2">
                         <h4 class="font-semibold text-lg text-gray-700">Sound-following mode</h4>
                         <p class="text-gray-600 text-sm">A toy mode in which the robot autonomously goes toward the nearest sound source.</p>
                     </div>
@@ -85,25 +85,53 @@
         <!-- Photo Section -->
         <div>
             <h3 class="text-3xl font-bold text-center text-gray-700 mb-8">Photos</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <img src="https://res.cloudinary.com/dywsmv4ow/image/upload/v1754154492/IMG_20240610_133601_oibmxt.jpg" alt="RDK X3 Robot front-side view">
-                <img src="https://res.cloudinary.com/dywsmv4ow/image/upload/v1754154492/IMG_20240610_133546_egvnb5.jpg" alt="RDK X3 Robot rearview">
-                <img src="https://res.cloudinary.com/dywsmv4ow/image/upload/v1754155566/IMG_20250425_171217_r4oq4m.jpg" alt="Bigger Chassis">
-                <img src="https://res.cloudinary.com/dywsmv4ow/image/upload/v1754157125/IMG_20250506_235645_qysmur_c_crop_ar_1_1_dwpeim.jpg" alt="New Chassis and added Arm">
-                <img src="https://res.cloudinary.com/dywsmv4ow/image/upload/v1754155590/IMG_20250717_220654_dozpu2.jpg" alt="Top (Jetson Nano) protection">
-                <img src="https://res.cloudinary.com/dywsmv4ow/image/upload/v1754155592/IMG_20250728_161236_dlqqkq.jpg" alt="Second Battery">
-                <img src="https://res.cloudinary.com/dywsmv4ow/image/upload/v1754155591/IMG_20250716_162442_mhj9bx.jpg" alt="Battery charging">
-                <img src="https://res.cloudinary.com/dywsmv4ow/image/upload/v1754155598/IMG_20250716_145056_cmufsb.jpg" alt="Ethernet Connection">
-                <img src="https://res.cloudinary.com/dywsmv4ow/image/upload/v1754155589/IMG_20250730_183502_z0hcjz.jpg" alt="Added Speakers">
+            <div id="photo-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                <!-- Photo thumbnails are now clickable -->
+                <div class="cursor-pointer bg-white rounded-xl shadow-sm overflow-hidden aspect-square flex items-center justify-center">
+                    <img src="https://res.cloudinary.com/dywsmv4ow/image/upload/v1754154492/IMG_20240610_133601_oibmxt.jpg" alt="RDK X3 Robot front-side view" class="object-cover w-full h-full" onclick="openModal(this)">
+                </div>
+                <div class="cursor-pointer bg-white rounded-xl shadow-sm overflow-hidden aspect-square flex items-center justify-center">
+                    <img src="https://res.cloudinary.com/dywsmv4ow/image/upload/v1754154492/IMG_20240610_133546_egvnb5.jpg" alt="RDK X3 Robot rearview" class="object-cover w-full h-full" onclick="openModal(this)">
+                </div>
+                <div class="cursor-pointer bg-white rounded-xl shadow-sm overflow-hidden aspect-square flex items-center justify-center">
+                    <img src="https://res.cloudinary.com/dywsmv4ow/image/upload/v1754155566/IMG_20250425_171217_r4oq4m.jpg" alt="Bigger Chassis" class="object-cover w-full h-full" onclick="openModal(this)">
+                </div>
+                <div class="cursor-pointer bg-white rounded-xl shadow-sm overflow-hidden aspect-square flex items-center justify-center">
+                    <img src="https://res.cloudinary.com/dywsmv4ow/image/upload/v1754155624/IMG_20250506_235645_qysmur.jpg" alt="New Chassis and added Arm" class="object-cover w-full h-full" onclick="openModal(this)">
+                </div>
+                <div class="cursor-pointer bg-white rounded-xl shadow-sm overflow-hidden aspect-square flex items-center justify-center">
+                    <img src="https://res.cloudinary.com/dywsmv4ow/image/upload/v1754155590/IMG_20250717_220654_dozpu2.jpg" alt="Top (Jetson Nano) protection" class="object-cover w-full h-full" onclick="openModal(this)">
+                </div>
+                <div class="cursor-pointer bg-white rounded-xl shadow-sm overflow-hidden aspect-square flex items-center justify-center">
+                    <img src="https://res.cloudinary.com/dywsmv4ow/image/upload/v1754155592/IMG_20250728_161236_dlqqkq.jpg" alt="Second Battery" class="object-cover w-full h-full" onclick="openModal(this)">
+                </div>
+                <div class="cursor-pointer bg-white rounded-xl shadow-sm overflow-hidden aspect-square flex items-center justify-center">
+                    <img src="https://res.cloudinary.com/dywsmv4ow/image/upload/v1754155591/IMG_20250716_162442_mhj9bx.jpg" alt="Battery charging" class="object-cover w-full h-full" onclick="openModal(this)">
+                </div>
+                <div class="cursor-pointer bg-white rounded-xl shadow-sm overflow-hidden aspect-square flex items-center justify-center">
+                    <img src="https://res.cloudinary.com/dywsmv4ow/image/upload/v1754155598/IMG_20250716_145056_cmufsb.jpg" alt="Ethernet Connection" class="object-cover w-full h-full" onclick="openModal(this)">
+                </div>
+                <div class="cursor-pointer bg-white rounded-xl shadow-sm overflow-hidden aspect-square flex items-center justify-center">
+                    <img src="https://res.cloudinary.com/dywsmv4ow/image/upload/v1754155589/IMG_20250730_183502_z0hcjz.jpg" alt="Added Speakers" class="object-cover w-full h-full" onclick="openModal(this)">
+                </div>
             </div>
         </div>
     </div>
 </section>
+
+<!-- The Modal / Popup -->
+<div id="image-modal" class="fixed inset-0 z-50 hidden bg-black bg-opacity-75 flex justify-center items-center p-4" onclick="closeModal()">
+    <div class="relative max-w-full max-h-full" onclick="event.stopPropagation()">
+        <span class="absolute top-4 right-4 text-white text-5xl font-thin cursor-pointer hover:text-gray-300" onclick="closeModal()">&times;</span>
+        <img id="modal-image" class="rounded-lg shadow-xl max-w-full max-h-[85vh]" src="" alt="">
+    </div>
+</div>
 
 <!-- Footer Placeholder -->
 <div id="footer-placeholder"></div>
 
 <!-- Link to external JavaScript file -->
 <script src="main.js"></script>
+
 </body>
 </html>
