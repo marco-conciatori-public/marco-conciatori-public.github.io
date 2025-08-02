@@ -22,3 +22,15 @@ section {
 .nav-link:hover {
     background-color: #e2e8f0; /* Lighter background on hover */
 }
+/* This is for the video aspect ratio on older browsers that don't support aspect-w/h classes */
+.aspect-w-4 {
+    position: relative;
+    padding-bottom: 75%; /* 3/4 ratio */
+}
+.aspect-w-4 iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
