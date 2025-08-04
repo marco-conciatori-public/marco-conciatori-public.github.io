@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         navLinks.forEach(link => {
             const linkPath = link.getAttribute('href').split('/').pop();
-            // Handle empty currentPath for index.html if accessed directly (e.g., yourdomain.com/)
+            // Handle empty currentPath for index.html if accessed directly (e.g., your_domain.com/)
             if (linkPath === currentPath || (currentPath === '' && linkPath === 'index.html')) {
                 // Add Tailwind classes for highlighting
                 link.classList.add('bg-indigo-100', 'text-indigo-800', 'font-semibold');
