@@ -14,47 +14,55 @@
 <!-- Setup Guide -->
 <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Getting Started: Setup Guide for Mantis</h2>
 
-<!-- Introduction Section -->
-<section id="introduction" class="bg-white py-16 rounded-lg shadow-md mx-4 mt-8">
+<!-- Note Section -->
+<section id="note" class="bg-white py-16 rounded-lg shadow-md mx-4 mt-8">
     <div class="container mx-auto px-4">
-        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Introduction</h3>
+        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Note</h3>
         <p class="mb-6">
-            This guide will help you set up a copy of the Mantis robot, including hardware connections and software
-            installation. Follow these steps to get your robot up and running. <br>
-
+            This section explains how I created my robot, including hardware and software installation. Follow these
+            steps if you want to create your own.
+            <br>
             The latest robot includes many physical components and software that you may not be interested in, in terms
             of capabilities. The guide will follow my development in chronological order, but if you know what you are
-            doing, you can skip sections, use alternative hardware, and so on.
+            doing, you can skip sections, use alternative hardware, and so on. I didn't have a clear idea of what I
+            wanted to do in the beginning, but if you plan to copy this project, it may be cheaper to only buy the
+            parts that are in the final robot, not every component listed.
+            <br>
+            As an advice, if you have to power on the robot with cables connected to it, make sure the wheels are not
+            touching the ground. In this way, even if it starts moving it won't cause damage.
         </p>
     </div>
 </section>
-<!-- The initial robot -->
-<section id="initial robot" class="bg-gray-50 py-16 rounded-lg shadow-md mx-4 mt-8">
+
+<!-- The original robot Section -->
+<section id="original robot" class="bg-gray-50 py-16 rounded-lg shadow-md mx-4 mt-8">
     <div class="container mx-auto px-4">
-        <h3 class="text-2xl font-semibold text-gray-800 mb-4">The initial robot</h3>
+        <h3 class="text-2xl font-semibold text-gray-800 mb-4">The original robot</h3>
         I started my project from Yahboom's <a href="https://www.yahboom.net/study/RDK-X3-Robot" class="text-blue-600 hover:underline">RDK X3 Robot</a>
         (the version without the depth camera), which is already a fully functioning robot (you have to assemble it however) with a lot of capabilities.
         <img src="../assets/setup/original_robot.png" alt="Original Robot" style="width: 400px; height: auto;">
-        I didn't have a clear idea of what I wanted to do, but if you plan to copy this project it may be cheaper to
-        only buy the parts that are still in the final robot. <br>
 
-        The robot has 4 mechanum wheels, which give it the ability to move in any direction. For sensors, it has a
+        <h4 class="text-xl font-semibold text-gray-800 mb-2">Brief introduction</h4>
+        RDK X3 has 4 mechanum wheels, which give it the ability to move in any direction. For sensors, it has a
         camera, a lidar, and other internal sensors that I still have not experimented with, like IMU. It has a
-        buzzer that can emit a beeping sound, and a small OLED screen that displays information about the robot.
-        it also comes with a remote PS2-like controller, which is used to control the robot. <br>
-
-        The robot has already many sophisticated capabilities, such as SLAM (Simultaneous Localization and
+        buzzer that can emit a beeping sound and a small oled screen that displays information about the robot.
+        it also comes with a handy, wireless PS2-like controller. The main computer is a RDK X3 development board, which
+        is similar to a Raspberry Pi.
+        <br>
+        The robot has already many sophisticated capabilities, such as SLAM (Simultaneous Localization And
         Mapping), which allows it to map its environment and navigate autonomously. It can also follow a line, avoid
-        obstacles, and recognize objects. Most of them are implemented as ROS packages, which is a framework for
-        building robot applications.
+        obstacles, and recognize objects. Most of them are implemented as ROS2 packages, which is a framework for
+        building robotic applications.
         The <a href="https://www.yahboom.net/study/RDK-X3-Robot" class="text-blue-600 hover:underline">official documentation</a>
-        linked above enters into the details of all the hardware and software if you are interested. <br>
+        linked above enters into the details about all the hardware and software, if you are interested.
 
-        To access the robot OS from a computer there are several ways, but what I found more convenient is with
-        RealVNC viewer, which is a remote desktop application. Note however that the robot has to already be connected
-        to a Wi-Fi network. To do this I connected a screen, a mouse and a keyboard directly to the robot via cable,
-        and then I configured the Wi-Fi network from the desktop environment. When connecting cables to the robot
-        make sure the wheels are not touching the ground, so accidental movements won't cause damage. <br>
+        <h4 class="text-xl font-semibold text-gray-800 mb-2">PC connection</h4>
+        To access the robot OS from a computer there are several ways, but what I found most convenient is with
+        RealVNC viewer, which is a remote desktop application. Note, however, that the robot has to already be connected
+        to the same Wi-Fi network as your computer. To do this I connected a screen, a mouse, and a keyboard via cable directly to the robot,
+        and then I configured the Wi-Fi network from the desktop environment.
+
+        <h4 class="text-xl font-semibold text-gray-800 mb-2">Issues</h4>
         I had some issues with the robot, which I will list here so you will be prepared in advance.
         <ul class="list-disc pl-6 mb-4">
             <li>The smartphone apps provided by Yahboom didn't work in my case (the robot should be controllable by phone).</li>
@@ -63,10 +71,38 @@
         </ul>
 
         <h4 class="text-xl font-semibold text-gray-800 mb-2">Software changes</h4>
-
         I started by changing small bits of code while I was trying to understand how the robot worked. For example, I
-        added the control of the internal lights to the ps2 controller, and changed some of the information
+        added the control of the internal lights to the PS2 controller and changed some of the information
         displayed on the oled screen.
+        <br>
+        In the end I wrote almost all the code from scratch, but I still use some of the original code, for example
+        the functions to send commands to hardware components like the motors, screen, buzzer, and so on. You can
+        find the code in my <a href="https://github.com/marco-conciatori-public?tab=repositories" class="text-blue-600 hover:underline">GitHub repository</a>.
+        There is more than one repository related to the robot
+        <ul class="list-disc pl-6 mb-4">
+            <li> <b>yahboom_rdk_x3_robot</b> contains the code for the robot's main computer (RDK X3 development board), it is mostly python with
+                some bash scripts. Actually, all my code is in the "sunriseRobot" folder, I kept the original folder
+                structure with all of Yahboom's code because I find it useful as a reference while programming. Remember
+                to switch to the latest branch (currently it is "arm_inverse_kinematics"). The other useful part of the
+                repository is the "src" folder where my ROS2 packages are kept.</li>
+            <li> <b>voice_robot_interaction</b> contains the code for the voice interaction with the robot. It is meant
+                to be run on the second computer on the robot, the Jetson Nano, just because I had it available (it came
+                with the robotic arm). It helps to offload some of the processing from the main computer and uses the
+                arm camera to avoid conflicts, but it is not strictly necessary. Note that if you want to run it on the
+                main computer you have to change a good portion of the code and install the required libraries.</li>
+            <li> <b>robot_remote_control</b> and <b>robot_remote_control_2</b> were attempts to create a smartphone
+                application to control and monitor the robot, but I have no experience in mobile development and
+                for now they are not functional.</li>
+            <li> <b>marco-conciatori-public.github.io</b> is the repository for this website, it contains the code for the
+                pages you are reading now.</li>
+        </ul>
+        There are still many features to add (es. the smartphone app mentioned above), inefficiencies to improve (es.
+        the inverse kinematics computation), bugs to solve, and the code could be better organized. If you want to
+        contribute, feel free to fork the repositories and make a pull request, I will be happy to review it. Or just
+        send advices: I am a python programmer, expert on AI, but this was my first experience with robotics, ROS/ROS2,
+        smartphone applications, and Unity/C#, so I expect many things could be improved. Even this is the first
+        website I create (thanks Gemini)!
+
     </div>
 </section>
 
