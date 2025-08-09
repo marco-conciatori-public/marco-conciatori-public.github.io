@@ -7,6 +7,13 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Additional style to ensure images don't get squished in flex container on small screens */
+        .component-image {
+            max-width: 100%; /* Ensure image is not wider than its container */
+            width: auto; /* Let the width be determined by the height to keep aspect ratio */
+        }
+    </style>
 </head>
 <body class="antialiased">
 <div id="navbar-placeholder"></div>
@@ -16,68 +23,69 @@
     <div class="container mx-auto px-4">
         <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Mantis' Hardware Components</h2>
 
+        <!-- Category: Components from RDK X3 Robot (Yahboom) -->
         <div class="mb-16">
             <h3 class="text-3xl font-bold text-gray-700 mb-8 border-b-2 border-indigo-500 pb-2">From RDK X3 Robot (Yahboom)</h3>
             <div class="space-y-8">
                 <div class="bg-white p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
-                    <img src="../assets/hardware/" alt="RDK X3 Development Board" class="w-full md:w-32 h-32 object-cover rounded-lg flex-shrink-0 mb-4 md:mb-0">
+                    <img src="../assets/hardware/rdk_x3_development_board.jpg" alt="RDK X3 Development Board" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
                     <div>
                         <h4 class="text-2xl font-semibold text-gray-800">RDK X3 Development Board</h4>
-                        <p class="text-gray-600 mt-2">The main processor. It is similar to a Raspberry Pi, and came already set up with Ubuntu 18.04.</p>
+                        <p class="text-gray-600 mt-2">The main processor. It came already set up with Ubuntu 18.04.</p>
                     </div>
                 </div>
                 <div class="bg-white p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
-                    <img src="../assets/hardware/ros_expansion_board.jpg" alt="ROS Expansion Board" class="w-full md:w-32 h-32 object-cover rounded-lg flex-shrink-0 mb-4 md:mb-0">
+                    <img src="../assets/hardware/ros_expansion_board.jpg" alt="ROS Expansion Board" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
                     <div>
                         <h4 class="text-2xl font-semibold text-gray-800">ROS Expansion Board</h4>
                         <p class="text-gray-600 mt-2">Features the main switch, connections for wheel and arm motors, and distributes power from the battery to all other connected components.</p>
                     </div>
                 </div>
                 <div class="bg-white p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
-                    <img src="../assets/hardware/" alt="USB HUB Board" class="w-full md:w-32 h-32 object-cover rounded-lg flex-shrink-0 mb-4 md:mb-0">
+                    <img src="https://via.placeholder.com/150/818cf8/ffffff?text=Board" alt="USB HUB Board" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
                     <div>
                         <h4 class="text-2xl font-semibold text-gray-800">USB HUB Board</h4>
                         <p class="text-gray-600 mt-2">Increases the number and type of ports available for connecting to the RDK X3 Development Board.</p>
                     </div>
                 </div>
                 <div class="bg-white p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
-                    <img src="../assets/hardware/" alt="RGB Cooling Hat" class="w-full md:w-32 h-32 object-cover rounded-lg flex-shrink-0 mb-4 md:mb-0">
+                    <img src="https://via.placeholder.com/150/818cf8/ffffff?text=Fan" alt="RGB Cooling Hat" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
                     <div>
                         <h4 class="text-2xl font-semibold text-gray-800">RGB Cooling Hat</h4>
                         <p class="text-gray-600 mt-2">Includes a fan for cooling the stack of boards (RDK X3, ROS Expansion, USB HUB) and some lights controllable via the PS2 controller.</p>
                     </div>
                 </div>
                 <div class="bg-white p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
-                    <img src="../assets/hardware/" alt="OLED Screen" class="w-full md:w-32 h-32 object-cover rounded-lg flex-shrink-0 mb-4 md:mb-0">
+                    <img src="https://via.placeholder.com/150/818cf8/ffffff?text=OLED" alt="OLED Screen" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
                     <div>
                         <h4 class="text-2xl font-semibold text-gray-800">OLED Screen</h4>
                         <p class="text-gray-600 mt-2">Used for displaying text, which is useful for checking the robot's state without a computer connection.</p>
                     </div>
                 </div>
                 <div class="bg-white p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
-                    <img src="../assets/hardware/imx219_camera.jpg" alt="IMX219 MIPI Camera" class="w-full md:w-32 h-32 object-cover rounded-lg flex-shrink-0 mb-4 md:mb-0">
+                    <img src="../assets/hardware/imx219_camera.jpg" alt="IMX219 MIPI Camera" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
                     <div>
                         <h4 class="text-2xl font-semibold text-gray-800">IMX219 MIPI Camera</h4>
                         <p class="text-gray-600 mt-2">A camera that connects to the RDK X3 Development Board with a wide, flat ribbon cable.</p>
-                        <img src="../assets/hardware/imx219_camera_info.jpg" alt="IMX219 MIPI Camera">
+                        <img src="../assets/hardware/imx219_camera_info.jpg" alt="IMX219 MIPI Camera Info">
                     </div>
                 </div>
                 <div class="bg-white p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
-                    <img src="../assets/hardware/" alt="MS200 Lidar" class="w-full md:w-32 h-32 object-cover rounded-lg flex-shrink-0 mb-4 md:mb-0">
+                    <img src="https://via.placeholder.com/150/818cf8/ffffff?text=Lidar" alt="MS200 Lidar" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
                     <div>
                         <h4 class="text-2xl font-semibold text-gray-800">MS200 Lidar</h4>
                         <p class="text-gray-600 mt-2">Senses the direction and distance of objects in the horizontal plane. It comes with a dedicated adapter board. <br><strong>Note:</strong> In the current setup, the lidar is partially occluded and can only see in front and to the sides. Mounting it higher would obstruct its view of lower obstacles.</p>
                     </div>
                 </div>
                 <div class="bg-white p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
-                    <img src="../assets/hardware/" alt="Wireless PS2-like controller" class="w-full md:w-32 h-32 object-cover rounded-lg flex-shrink-0 mb-4 md:mb-0">
+                    <img src="https://via.placeholder.com/150/818cf8/ffffff?text=Controller" alt="Wireless PS2-like controller" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
                     <div>
                         <h4 class="text-2xl font-semibold text-gray-800">Wireless PS2-like controller</h4>
                         <p class="text-gray-600 mt-2">Used for manual control of the robot; its behavior can be customized via software.</p>
                     </div>
                 </div>
                 <div class="bg-white p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
-                    <img src="../assets/hardware/" alt="Battery" class="w-full md:w-32 h-32 object-cover rounded-lg flex-shrink-0 mb-4 md:mb-0">
+                    <img src="https://via.placeholder.com/150/818cf8/ffffff?text=Battery" alt="Battery" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
                     <div>
                         <h4 class="text-2xl font-semibold text-gray-800">Battery</h4>
                         <p class="text-gray-600 mt-2">Powers the ROS Expansion Board and all connected components. It can last from 30 minutes to a few hours depending on usage and has a specific charger.</p>
@@ -86,32 +94,33 @@
             </div>
         </div>
 
+        <!-- Category: Components from DOFBOT - Jetson NANO (Yahboom) -->
         <div class="mb-16">
             <h3 class="text-3xl font-bold text-gray-700 mb-8 border-b-2 border-indigo-500 pb-2">From DOFBOT - Jetson NANO (Yahboom)</h3>
             <div class="space-y-8">
                 <div class="bg-white p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
-                    <img src="../assets/hardware/" alt="Robotic Arm" class="w-full md:w-32 h-32 object-cover rounded-lg flex-shrink-0 mb-4 md:mb-0">
+                    <img src="https://via.placeholder.com/150/7c3aed/ffffff?text=Arm" alt="Robotic Arm" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
                     <div>
                         <h4 class="text-2xl font-semibold text-gray-800">Robotic Arm</h4>
                         <p class="text-gray-600 mt-2">A pre-assembled robotic arm with 6 Degrees of Freedom (DOF).</p>
                     </div>
                 </div>
                 <div class="bg-white p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
-                    <img src="../assets/hardware/" alt="Jetson Nano Board" class="w-full md:w-32 h-32 object-cover rounded-lg flex-shrink-0 mb-4 md:mb-0">
+                    <img src="https://via.placeholder.com/150/7c3aed/ffffff?text=Board" alt="Jetson Nano Board" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
                     <div>
                         <h4 class="text-2xl font-semibold text-gray-800">Jetson Nano Board</h4>
                         <p class="text-gray-600 mt-2">The arm's main computer, which is currently used only for voice interaction. It's configured to boot from USB instead of a TF Card and includes a wireless network card.</p>
                     </div>
                 </div>
                 <div class="bg-white p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
-                    <img src="../assets/hardware/" alt="U Disk" class="w-full md:w-32 h-32 object-cover rounded-lg flex-shrink-0 mb-4 md:mb-0">
+                    <img src="https://via.placeholder.com/150/7c3aed/ffffff?text=USB" alt="U Disk" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
                     <div>
                         <h4 class="text-2xl font-semibold text-gray-800">U Disk (64 GB)</h4>
                         <p class="text-gray-600 mt-2">A metal USB drive that contains the OS and memory for the Jetson Nano.</p>
                     </div>
                 </div>
                 <div class="bg-white p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
-                    <img src="../assets/hardware/" alt="USB Camera" class="w-full md:w-32 h-32 object-cover rounded-lg flex-shrink-0 mb-4 md:mb-0">
+                    <img src="https://via.placeholder.com/150/7c3aed/ffffff?text=Camera" alt="USB Camera" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
                     <div>
                         <h4 class="text-2xl font-semibold text-gray-800">USB Camera</h4>
                         <p class="text-gray-600 mt-2">A 0.3 MP USB camera with a support for attaching it to the top of the robotic arm.</p>
@@ -120,18 +129,19 @@
             </div>
         </div>
 
+        <!-- Category: Components from Mechanum Wheel Chassis (large) (Yahboom) -->
         <div class="mb-16">
             <h3 class="text-3xl font-bold text-gray-700 mb-8 border-b-2 border-indigo-500 pb-2">From Mechanum Wheel Chassis (Yahboom)</h3>
             <div class="space-y-8">
                 <div class="bg-white p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
-                    <img src="../assets/hardware/" alt="Chassis" class="w-full md:w-32 h-32 object-cover rounded-lg flex-shrink-0 mb-4 md:mb-0">
+                    <img src="https://via.placeholder.com/150/6d28d9/ffffff?text=Chassis" alt="Chassis" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
                     <div>
                         <h4 class="text-2xl font-semibold text-gray-800">Chassis</h4>
                         <p class="text-gray-600 mt-2">A large chassis configured to host the robotic arm, featuring a "pendulous suspension" to ensure all four mechanum wheels maintain ground contact for correct operation.</p>
                     </div>
                 </div>
                 <div class="bg-white p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
-                    <img src="../assets/hardware/" alt="Wheels and Motors" class="w-full md:w-32 h-32 object-cover rounded-lg flex-shrink-0 mb-4 md:mb-0">
+                    <img src="https://via.placeholder.com/150/6d28d9/ffffff?text=Wheels" alt="Wheels and Motors" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
                     <div>
                         <h4 class="text-2xl font-semibold text-gray-800">Wheels and Motors</h4>
                         <p class="text-gray-600 mt-2">Includes larger mechanum wheels and motors. These motors have a higher reduction ratio, making them slower but capable of carrying more weight.</p>
@@ -140,39 +150,40 @@
             </div>
         </div>
 
+        <!-- Category: Components bought separately -->
         <div class="mb-16">
             <h3 class="text-3xl font-bold text-gray-700 mb-8 border-b-2 border-indigo-500 pb-2">Separately Acquired Components</h3>
             <div class="space-y-8">
                 <div class="bg-white p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
-                    <img src="../assets/hardware/" alt="Coral USB Accelerator" class="w-full md:w-32 h-32 object-cover rounded-lg flex-shrink-0 mb-4 md:mb-0">
+                    <img src="https://via.placeholder.com/150/4338ca/ffffff?text=TPU" alt="Coral USB Accelerator" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
                     <div>
                         <h4 class="text-2xl font-semibold text-gray-800">Coral USB Accelerator (Google)</h4>
                         <p class="text-gray-600 mt-2">An Edge TPU used to speed up AI computations. It allows for local execution of YOLO models for object recognition and the autonomous vision agent, accelerating frame processing by nearly 10 times. It's possible this could be replaced by the Jetson Nano.</p>
                     </div>
                 </div>
                 <div class="bg-white p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
-                    <img src="../assets/hardware/" alt="Battery for Jetson Nano" class="w-full md:w-32 h-32 object-cover rounded-lg flex-shrink-0 mb-4 md:mb-0">
+                    <img src="https://via.placeholder.com/150/4338ca/ffffff?text=Battery" alt="Battery for Jetson Nano" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
                     <div>
                         <h4 class="text-2xl font-semibold text-gray-800">Battery for the Jetson Nano (Zeee)</h4>
                         <p class="text-gray-600 mt-2">A Lipo battery (3S 5200mAh with Deans T Plug) that powers all devices on the Robotic Arm Expansion Board (Jetson Nano, microphone, speakers, USB Camera). Requires a compatible charger like the WANGCL IMAX B6AC.</p>
                     </div>
                 </div>
                 <div class="bg-white p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
-                    <img src="../assets/hardware/" alt="ReSpeaker Mic Array v2.0" class="w-full md:w-32 h-32 object-cover rounded-lg flex-shrink-0 mb-4 md:mb-0">
+                    <img src="../assets/hardware/microphone.png" alt="ReSpeaker Mic Array v2.0" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
                     <div>
                         <h4 class="text-2xl font-semibold text-gray-800">ReSpeaker Mic Array v2.0 (Seeed Studio)</h4>
                         <p class="text-gray-600 mt-2">A microphone array with sound filtering capabilities and Direction of Arrival (DoA) computation. It is connected to the Jetson Nano for voice interaction but must be connected to the main board for the sound-following agent.</p>
                     </div>
                 </div>
                 <div class="bg-white p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
-                    <img src="../assets/hardware/" alt="Speakers" class="w-full md:w-32 h-32 object-cover rounded-lg flex-shrink-0 mb-4 md:mb-0">
+                    <img src="https://via.placeholder.com/150/4338ca/ffffff?text=Speakers" alt="Speakers" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
                     <div>
                         <h4 class="text-2xl font-semibold text-gray-800">Speakers</h4>
                         <p class="text-gray-600 mt-2">A pair of standard speakers (casings removed) connected to the ReSpeaker Mic Array via a 3.5mm audio jack.</p>
                     </div>
                 </div>
                 <div class="bg-white p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
-                    <img src="../assets/hardware/" alt="Other Customizations" class="w-full md:w-32 h-32 object-cover rounded-lg flex-shrink-0 mb-4 md:mb-0">
+                    <img src="https://via.placeholder.com/150/4338ca/ffffff?text=Misc" alt="Other Customizations" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
                     <div>
                         <h4 class="text-2xl font-semibold text-gray-800">Other Customizations</h4>
                         <p class="text-gray-600 mt-2">Various custom parts including: <br>
@@ -186,6 +197,7 @@
                 </div>
             </div>
         </div>
+
     </div>
 </section>
 
