@@ -70,7 +70,8 @@
                     <img src="../assets/hardware/imx219_camera.jpg" alt="IMX219 MIPI Camera" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
                     <div>
                         <h4 class="text-2xl font-semibold text-gray-800">IMX219 MIPI Camera</h4>
-                        <p class="text-gray-600 mt-2">A camera that connects to the RDK X3 Development Board with a wide, flat ribbon cable.</p>
+                        <p class="text-gray-600 mt-2">A camera that connects to the RDK X3 Development Board with a
+                            wide, flat ribbon cable. Used for object recognition and streaming to the VR.</p>
                         <img src="../assets/hardware/imx219_camera_info.jpg" alt="IMX219 MIPI Camera Info">
                     </div>
                 </div>
@@ -96,7 +97,8 @@
                     <img src="../assets/hardware/battery_main.png" alt="Battery" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
                     <div>
                         <h4 class="text-2xl font-semibold text-gray-800">Battery</h4>
-                        <p class="text-gray-600 mt-2">Powers the ROS Expansion Board and all connected components. It can last from 30 minutes to a few hours depending on usage and has a specific charger.</p>
+                        <p class="text-gray-600 mt-2">Powers the ROS Expansion Board and all connected components. It
+                            can last from 30 minutes to a few hours depending on usage. Its specific charger is also included.</p>
                     </div>
                 </div>
             </div>
@@ -133,7 +135,13 @@
                     <img src="../assets/hardware/" alt="USB Camera" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
                     <div>
                         <h4 class="text-2xl font-semibold text-gray-800">USB Camera</h4>
-                        <p class="text-gray-600 mt-2">A 0.3 MP USB camera with a support for attaching it to the top of the robotic arm.</p>
+                        <p class="text-gray-600 mt-2">A 0.3 MP USB camera with a support for attaching it to the top of
+                            the robotic arm. Used for voice interaction, so that the reasoning network can "watch" through
+                            the camera if that is required to answer user's questions. In theory, you don't need this
+                            camera, the IMX219 MIPI Camera from the RDK X3 Robot can be used for this purpose. However,
+                            I used it because it was already included with the robotic arm and because it is convenient
+                            (the camera is directly connected to the Jetson Nano, where the images are needed, and in
+                            this way there are no problems with many component competing for the same resource)</p>
                     </div>
                 </div>
             </div>
