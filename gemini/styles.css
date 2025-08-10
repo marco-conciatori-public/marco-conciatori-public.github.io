@@ -35,3 +35,8 @@ section {
     height: 100%;
     border: none; /* Remove default iframe border */
 }
+/* Additional style to ensure images don't get squished in flex container on small screens */
+.component-image {
+    max-width: 100%; /* Ensure image is not wider than its container */
+    width: auto; /* Let the width be determined by the height to keep aspect ratio */
+}
