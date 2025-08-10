@@ -169,9 +169,12 @@
                         <h4 class="text-2xl font-semibold text-gray-800">Jetson Nano Board</h4>
                         <p class="text-gray-600 mt-2">
                             The arm's computer, which in the current setup, is used only for voice interaction. It
-                            includes a wireless network card. <br><strong>Note:</strong> the Yahboom one is configured
+                            includes a wireless network card. <br><strong>Note 1:</strong> the Yahboom one is configured
                             to boot from USB instead of a TF Card. It is possible to revert the change, everything is
                             explained on their robotic arm and Jetson Nano guides, but I kept it as is.
+                            <br><strong>Note 2:</strong> the Jetson Nano, for now, is used only for the voice
+                            interaction, so it is not strictly necessary. I am using it mainly because I already have
+                            it. However, it is possible in the future it will be used for more functions.
                         </p>
                     </div>
                 </div>
@@ -262,9 +265,13 @@
                     <img src="../assets/hardware/new_chassis.png" alt="Chassis" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
                     <div>
                         <h4 class="text-2xl font-semibold text-gray-800">Chassis</h4>
-                        <p class="text-gray-600 mt-2">A large chassis configured to host the robotic arm, featuring a
-                            "pendulous suspension" to ensure all four mechanum wheels maintain ground contact for
-                            correct operation.</p>
+                        <p class="text-gray-600 mt-2">
+                            A large chassis configured to host the robotic arm, featuring a "pendulous suspension" to
+                            ensure all four mechanum wheels maintain ground contact for correct operation.
+                            <br>It already has many screw holes, but I still had to add quite a few to secure every
+                            component. I even had to make a larger hole on the bottom plate for the battery cable, but
+                            it depends on how you organize the various boards and sensors.
+                        </p>
                     </div>
                 </div>
                 <div class="bg-white p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
@@ -288,10 +295,15 @@
                     <img src="../assets/hardware/coral_tpu.png" alt="Coral USB Accelerator" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
                     <div>
                         <h4 class="text-2xl font-semibold text-gray-800">Coral USB Accelerator (Google)</h4>
-                        <p class="text-gray-600 mt-2">An Edge TPU used to speed up AI computations. It allows for local
-                            execution of YOLO models for object recognition and the autonomous vision agent,
-                            accelerating frame processing by nearly 10 times. It's possible this could be replaced by
-                            the Jetson Nano.</p>
+                        <p class="text-gray-600 mt-2">
+                            It is an Edge TPU, a USB device that a computer can delegate specific computations to. In
+                            the current setup it is used to run the YOLO models locally (for object recognition and the
+                            autonomous vision agent). From my tests it speeds up the processing of a single camera frame
+                            by almost 10 times.
+                            <br><strong>Note:</strong> I bought the Coral USB Accelerator before adding the robotic arm
+                            (with the attached Jetson Nano). I didn't do any test, but it is possible the Jetson Nano
+                            could entirely replace the Coral USB Accelerator.
+                        </p>
                     </div>
                 </div>
                 <div class="bg-white p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
@@ -320,8 +332,9 @@
                         <h4 class="text-2xl font-semibold text-gray-800">ReSpeaker Mic Array v2.0 (Seeed Studio)</h4>
                         <p class="text-gray-600 mt-2">
                             A microphone array with sound filtering capabilities and Direction of Arrival (DoA)
-                            computation. It is connected to the Jetson Nano for voice interaction but must be connected
-                            to the main board for the sound-following agent.
+                            computation. Currently, it is connected to the Jetson Nano and for voice interaction (it can
+                            distinguish between ambient sounds and voices). To use the Sound Agent (the mode in which
+                            the robot follows any sound it hears), the microphone must be connected to the main board.
                         </p>
                     </div>
                 </div>
@@ -338,31 +351,44 @@
                     </div>
                 </div>
                 <div class="bg-white p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
-                    <img src="../assets/hardware/cables.jpg" alt="Cables" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
+                    <img src="../assets/hardware/vr_headset.png" alt="VR Headset" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
                     <div>
-                        <h4 class="text-2xl font-semibold text-gray-800">Cables</h4>
-                        <p class="text-gray-600 mt-2">The cables necessary to connect all the components are included in
-                            both the RDK X3 Robot and the DOFBOT - Jetson Nano. However, I had to buy a few specific
-                            cables that adapted physically to the new configuration (some were too short, or needed the
-                            head to curve in a different direction).</p>
+                        <h4 class="text-2xl font-semibold text-gray-800">VR Headset</h4>
+                        <p class="text-gray-600 mt-2">
+                            If you want to use the robot with a VR headset, you need one on which you can install/run
+                            custom applications. I am using (and only tested it with) Meta Quest 3.
+                        </p>
                     </div>
                 </div>
                 <div class="bg-white p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
-                    <img src="../assets/hardware/" alt="Other Customizations" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
+                    <img src="../assets/hardware/gpio_pins_cable.jpg" alt="GPIO Pins Cable" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
+                    <img src="../assets/hardware/gpio_pins_components.jpg" alt="GPIO Pins Components" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
                     <div>
                         <h4 class="text-2xl font-semibold text-gray-800">Other Customizations</h4>
-                        <p class="text-gray-600 mt-2">Various custom parts including: <br>
-                            - A 128 GB TF Card for the RDK X3. <br>
-                            - Specific cables and a 40-pin extension for easier access to the RDK X3's GPIO. <br>
-                            - Physical LEDs and switches connected to the GPIO for controller-free operation of autonomous modes. <br>
-                            - Extra screws and pillars for mounting. <br>
-                            - A protective U-shaped metal mesh (from an old PC case) for the Jetson Nano. <br>
-                            - Sturdy cardboard for mounting the speakers.</p>
+                        <p class="text-gray-600 mt-2">Various custom parts including</p>
+                        <ul class="list-disc pl-6 mt-2">
+                            <li>128 GB TF Card, a memory expansion for the RDK X3 Development Board. You can keep the 64
+                                GB one from the RDK X3 robot.</li>
+                            <li>The cables necessary to connect all the components are included in both the RDK X3 Robot
+                                and the DOFBOT - Jetson Nano. However, I had to buy a few specific cables that adapted
+                                physically to the new configuration (some were too short, or needed the head to curve in
+                                a different direction).</li>
+                            <li>I also added an extension cable to the 40-pin interface of the RDK X3 Development Board
+                                because, in the current configuration, adding or removing connections to the pins is
+                                Very inconvenient. Even just counting the pins to connect the cables to the correct pins
+                                is not an easy task.</li>
+                            <li>Since I had various LEDs and switches, I connected them to the 40-pi interface of the
+                                RDK X3 Development Board, so that some important functions of the robot can be used even
+                                without controller or pc connection. For example, if you want to use the autonomous
+                                Vision Agent mode (automatically search for a target and move toward it), a controller
+                                should not be needed, it is autonomous after all!</li>
+                            <li>For fixing all the components to the chassis you would need extra screws, pillars, and
+                                other supporting pieces.</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
 </section>
 
