@@ -15,81 +15,95 @@
 <section id="capabilities" class="bg-white py-16 rounded-lg shadow-md mx-4 mt-8">
     <div class="container mx-auto px-4">
         <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">What Mantis Can Do</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Capability Card 1 -->
-            <div class="bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition duration-300 ease-in-out">
-                <div class="text-indigo-500 text-5xl mb-4 text-center">
-                    <img src=../assets/capabilities/voice_interaction.png alt="Voice Interaction Icon" class="w-16 h-16 mx-auto">
-                </div>
-                <h3 class="text-2xl font-semibold text-gray-700 mb-3 text-center">Voice Interaction</h3>
-                <p class="text-gray-600 text-center">
-                    With microphone and speakers, the robot can interact with the user through voice commands, making it intuitive and easy to use.
-                </p>
-            </div>
-            <!-- Capability Card 2 -->
-            <div class="bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition duration-300 ease-in-out">
-                <div class="text-indigo-500 text-5xl mb-4 text-center">
-                    <img src=../assets/capabilities/ai_reasoning.png alt="AI Reasoning Icon" class="w-16 h-16 mx-auto">
-                </div>
-                <h3 class="text-2xl font-semibold text-gray-700 mb-3 text-center">AI Reasoning</h3>
-                <p class="text-gray-600 text-center">
-                    With the latest AI models the robot can understand voice commands and respond or perform tasks depending on the request
-                </p>
-            </div>
-            <!-- Capability Card 3 -->
-            <div class="bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition duration-300 ease-in-out">
-                <div class="text-indigo-500 text-5xl mb-4 text-center">
-                    <img src=../assets/capabilities/object_recognition.png alt="Object Recognition Icon" class="w-16 h-16 mx-auto">
-                </div>
-                <h3 class="text-2xl font-semibold text-gray-700 mb-3 text-center">Object Recognition</h3>
-                <p class="text-gray-600 text-center">
-                    Equipped with computer vision for real-time object detection and an autonomous mode for searching a target.
-                </p>
-            </div>
-            <!-- Capability Card 4 -->
-            <div class="bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition duration-300 ease-in-out">
-                <div class="text-indigo-500 text-5xl mb-4 text-center">
-                    <img src=../assets/capabilities/vr_headset_control.png alt="VR Headset Icon" class="w-16 h-16 mx-auto">
-                </div>
-                <h3 class="text-2xl font-semibold text-gray-700 mb-3 text-center">VR Headset Control</h3>
-                <p class="text-gray-600 text-center">
-                    Can be controlled via a VR headset, providing an immersive experience for remote operations.
-                </p>
-            </div>
-            <!-- Capability Card 5 -->
-            <div class="bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition duration-300 ease-in-out">
-                <div class="text-indigo-500 text-5xl mb-4 text-center">
-                    <img src=../assets/capabilities/robotic_arm.png alt="Robotic Arm Icon" class="w-16 h-16 mx-auto">
-                </div>
-                <h3 class="text-2xl font-semibold text-gray-700 mb-3 text-center">Robotic Arm</h3>
-                <p class="text-gray-600 text-center">
-                    Equipped with a 6-DOF arm for tasks like picking/moving up objects. It has two modes of movement: direct and inverse kinematics.
-                </p>
-            </div>
-            <!-- Capability Card 6 -->
-            <div class="bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition duration-300 ease-in-out">
-                <div class="text-indigo-500 text-5xl mb-4 text-center">
-                    <img src=../assets/capabilities/lidar_color.png alt="Lidar Sensor Icon" class="w-20 h-16 mx-auto">
-                </div>
-                <h3 class="text-2xl font-semibold text-gray-700 mb-3 text-center">Lidar Sensor</h3>
-                <p class="text-gray-600 text-center">
-                    Equipped with a lidar sensor enabling autonomous navigation, obstacle avoidance and distance-to-target assessment.
-                </p>
-            </div>
-            <!-- Capability Card 7 -->
-            <div class="bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition duration-300 ease-in-out">
-                <div class="text-indigo-500 text-5xl mb-4 text-center">
-                    <img src=../assets/capabilities/standalone_system.png alt="Standalone System Icon" class="w-16 h-16 mx-auto">
-                </div>
-                <h3 class="text-2xl font-semibold text-gray-700 mb-3 text-center">Standalone System</h3>
-                <p class="text-gray-600 text-center">
-                    All the capabilities (except voice interaction) are available without any internet connection or external hardware, ensuring functionality in any location.
-                </p>
-            </div>
 
+        <!-- Movement Section -->
+        <div class="mb-16">
+            <h3 class="text-3xl font-bold text-indigo-700 mb-6">Omnidirectional Movement</h3>
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <p class="text-lg text-gray-600 mb-4">
+                        Mantis has four mecanum wheels, which grant it the ability to move forward, backward, sideways,
+                        and rotate on the spot. This omnidirectional movement allows it to navigate tight spaces and
+                        complex environments with ease. Mecanum wheels work best on surfaces that are not too smooth,
+                        nor too uneven.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-4">
+                        For precise control, the speed can be adjusted in real time between 10% and 100% of the maximum
+                        velocity using the controller.
+                        This affects all form of movement, including autonomous navigation and arm speed.
+                    </p>
+                </div>
+                <div>
+                    <img src="../assets/capabilities/mecanum_wheels.png" alt="Mantis omnidirectional wheels" class="component-image h-40 flex-shrink-0 mb-4 md:mb-0">
+                </div>
+            </div>
+            <div class="mt-8">
+                <!--<h4 class="text-2xl font-semibold text-gray-700 mb-4">Movement Demo</h4>-->
+                <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-xl">
+                    <iframe
+                            src=""
+                            width="640"
+                            height="360"
+                            title="Arm Control"
+                            style="height: auto; width: 100%; aspect-ratio: 640 / 360;"
+                            allow="autoplay; fullscreen; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen
+                    ></iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- Divider -->
+        <hr class="my-12 border-gray-200">
+
+        <!-- Arm Movement Section -->
+        <div class="mb-16">
+            <h3 class="text-3xl font-bold text-indigo-700 mb-6">Robotic Arm & Gripper</h3>
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <img src="https://placehold.co/600x400/e0e7ff/4338ca?text=Robotic+Arm+Detail" alt="Mantis robotic arm" class="rounded-lg shadow-lg component-image">
+                </div>
+                <div>
+                    <p class="text-lg text-gray-600 mb-4">
+                        The 6-axis robotic arm provides a wide range of motion, mimicking the flexibility of a human arm. It can reach objects in various orientations and positions.
+                    </p>
+                    <p class="text-lg text-gray-600">
+                        The arm is equipped with a parallel gripper that can handle objects of different shapes and sizes. The gripping force is adjustable to handle both delicate and robust items.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Divider -->
+        <hr class="my-12 border-gray-200">
+
+        <!-- Computer Vision Section -->
+        <div class="mb-16">
+            <h3 class="text-3xl font-bold text-indigo-700 mb-6">Computer Vision</h3>
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <p class="text-lg text-gray-600 mb-4">
+                        Mantis uses a high-resolution camera and advanced computer vision algorithms to perceive its environment. This allows it to perform tasks like object recognition, tracking, and navigation.
+                    </p>
+                    <ul class="list-disc list-inside text-lg text-gray-600 space-y-2">
+                        <li><strong>Object Detection:</strong> Identifies and locates objects using a pre-trained YOLOv5 model.</li>
+                        <li><strong>AprilTag Following:</strong> Precisely follows visual markers for docking and guidance.</li>
+                        <li><strong>3D Environment Mapping:</strong> Creates a 3D map of its surroundings using its depth camera.</li>
+                    </ul>
+                </div>
+                <div>
+                    <img src="https://placehold.co/600x400/e0e7ff/4338ca?text=Vision+System+View" alt="Computer vision interface" class="rounded-lg shadow-lg component-image">
+                </div>
+            </div>
         </div>
     </div>
 </section>
+
+<!-- Image Modal -->
+<div id="image-modal" class="hidden fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center p-4" onclick="closeModal()">
+    <span class="absolute top-4 right-6 text-white text-4xl font-bold cursor-pointer">&times;</span>
+    <img id="modal-image" class="max-w-full max-h-full rounded-lg" src="" alt="Full-size capability image">
+</div>
 
 <div id="footer-placeholder"></div>
 <script src="main.js"></script>
