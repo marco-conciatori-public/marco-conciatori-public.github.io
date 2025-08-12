@@ -19,8 +19,8 @@
         <!-- Movement Section -->
         <div class="mb-16">
             <h3 class="text-3xl font-bold text-indigo-700 mb-6">Omnidirectional Movement</h3>
-            <div class="grid md:grid-cols-2 gap-8 items-center">
-                <div>
+            <div class="grid md:grid-cols-12 gap-8 items-center">
+                <div class="md:col-span-7">
                     <p class="text-lg text-gray-600 mb-4">
                         Mantis has four mecanum wheels, which grant it the ability to move forward, backward, sideways,
                         and rotate on the spot. This omnidirectional movement allows it to navigate tight spaces and
@@ -33,19 +33,19 @@
                         This affects all form of movement, including autonomous navigation and arm speed.
                     </p>
                 </div>
-                <div>
-                    <img src="../assets/capabilities/mecanum_wheels.png" alt="Mantis omnidirectional wheels" class="component-image h-40 flex-shrink-0 mb-4 md:mb-0">
+                <div class="md:col-span-5">
+                    <img src="../assets/capabilities/mecanum_wheels.png" alt="Mantis omnidirectional wheels" class="rounded-lg w-full h-auto max-h-[320px] object-contain">
                 </div>
             </div>
             <div class="mt-8">
                 <!--<h4 class="text-2xl font-semibold text-gray-700 mb-4">Movement Demo</h4>-->
                 <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-xl">
                     <iframe
-                            src=""
+                            src="https://player.cloudinary.com/embed/?cloud_name=dywsmv4ow&public_id=VID_20250329_162817_oskaac&profile=cld-default"
                             width="640"
                             height="360"
-                            title="Arm Control"
-                            style="height: auto; width: 100%; aspect-ratio: 640 / 360;"
+                            title="Sound-following Mode"
+                            style="height: auto; width: 30%; aspect-ratio: 640 / 360;"
                             allow="autoplay; fullscreen; encrypted-media; gyroscope; picture-in-picture"
                             allowfullscreen
                     ></iframe>
@@ -59,17 +59,71 @@
         <!-- Arm Movement Section -->
         <div class="mb-16">
             <h3 class="text-3xl font-bold text-indigo-700 mb-6">Robotic Arm & Gripper</h3>
-            <div class="grid md:grid-cols-2 gap-8 items-center">
-                <div>
-                    <img src="https://placehold.co/600x400/e0e7ff/4338ca?text=Robotic+Arm+Detail" alt="Mantis robotic arm" class="rounded-lg shadow-lg component-image">
-                </div>
-                <div>
+            <div class="grid md:grid-cols-12 gap-8 items-center">
+                <div class="md:col-span-8">
                     <p class="text-lg text-gray-600 mb-4">
-                        The 6-axis robotic arm provides a wide range of motion, mimicking the flexibility of a human arm. It can reach objects in various orientations and positions.
+                        The robotic arm has 6 motors, giving it 6 Degrees of Freedom (DoF), which allows it to reach a
+                        wide range of positions and orientations. The 1st motor controls the base rotation, motors 2, 3
+                        and 4 can bend the arm at different points, the 5th motor controls the gripper rotation, and the
+                        6th motor opens and closes the gripper.
+                    </p>
+                    <p class="text-lg text-gray-600">The arm has three different control modes.</p>
+                    <ul class="list-disc list-inside text-lg text-gray-600 space-y-2 mb-4">
+                            <li><strong>Direct motor control:</strong> control each motor individually using the
+                                controller. It is not very intuitive, since you need 2 buttons or 1 rocker for each
+                                motor (forward and backward movements), for a total of 12 buttons.</li>
+                            <li><strong>Inverse kinematics:</strong> in this mode, you control the position of the
+                                gripper (up-down, left-right, forward-backward), and an algorithm calculates the motor
+                                movements necessary to reach that position. It is more intuitive to use, and requires
+                                fewer buttons (10 instead of 12). That is because the 4 controls for motors 1 to 4 are
+                                substituted with controls for the 3 axes of a 3D position in space. Currently, this
+                                mode is noticeably slow because the main computer can't complete the computations fast
+                                enough. It uses the
+                                <a href="https://ikpy.readthedocs.io/en/latest/ikpy.html" class="text-blue-600 hover:underline">IKPy library</a>
+                                to calculate inverse kinematics.
+                            <li><strong>Memorized positions:</strong> the arm can move between memorized positions.
+                                There are 4 buttons on the controller that can be used to memorize and recall
+                                positions (they are set with predefined, useful positions that can be overwritten).
+                                A long press (2 seconds) memorizes the current position, while a click makes the arm
+                                reach the memorized position.</li>
+                        </ul>
+                    <p class="text-lg text-gray-600">
+                        Finally, it is possible to unlock the arm motors with the
+                        controller, so that it can be moved manually (for example to memorize a position).
                     </p>
                     <p class="text-lg text-gray-600">
-                        The arm is equipped with a parallel gripper that can handle objects of different shapes and sizes. The gripping force is adjustable to handle both delicate and robust items.
+                        The arm is automatically extended forward when you start using it, and folded back when you
+                        stop using it. This is done to save space and avoid collisions with the environment.
                     </p>
+                </div>
+                <div class="md:col-span-4">
+                    <img src="../assets/hardware/robotic_arm.png" alt="Mantis robotic arm" class="rounded-lg w-full h-auto max-h-[500px] object-contain">
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="aspect-w-16 aspect-h-9 overflow-hidden p-4">
+                        <h4 class="font-semibold text-lg text-gray-700 text-center">Direct motor control</h4>
+                    <iframe
+                            src="https://player.cloudinary.com/embed/?cloud_name=dywsmv4ow&public_id=robotic_arm_mqmijm&profile=cld-default"
+                            width="640"
+                            height="360"
+                            title="Direct Motor Control"
+                            style="height: auto; width: 100%; aspect-ratio: 640 / 360;"
+                            allow="autoplay; fullscreen; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen
+                    ></iframe>
+                </div>
+                <div class="aspect-w-16 aspect-h-9 overflow-hidden p-4">
+                    <h4 class="font-semibold text-lg text-gray-700 text-center">Inverse Kinematics</h4>
+                    <iframe
+                            src="https://player.cloudinary.com/embed/?cloud_name=dywsmv4ow&public_id=robotic_arm_mqmijm&profile=cld-default"
+                            width="640"
+                            height="360"
+                            title="Inverse Kinematics"
+                            style="height: auto; width: 100%; aspect-ratio: 640 / 360;"
+                            allow="autoplay; fullscreen; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen
+                    ></iframe>
                 </div>
             </div>
         </div>
@@ -80,22 +134,49 @@
         <!-- Computer Vision Section -->
         <div class="mb-16">
             <h3 class="text-3xl font-bold text-indigo-700 mb-6">Computer Vision</h3>
-            <div class="grid md:grid-cols-2 gap-8 items-center">
-                <div>
+            <div class="grid md:grid-cols-12 gap-8 items-center">
+                <div class="md:col-span-7">
                     <p class="text-lg text-gray-600 mb-4">
-                        Mantis uses a high-resolution camera and advanced computer vision algorithms to perceive its environment. This allows it to perform tasks like object recognition, tracking, and navigation.
+                        Mantis is equipped with a frontal camera that allows it to see its surroundings and uses
+                        <a href="https://docs.ultralytics.com/" class="text-blue-600 hover:underline">YOLO
+                        (You Only Look Once)</a> to detect objects in real time. YOLO models can detect about 80
+                        different categories including people, animals, vehicles, tools, toys, electronic devices, etc.
+                        It is free and works very well. It is also relatively easy to fine-tune models, so you can
+                        customize it to your needs.
                     </p>
-                    <ul class="list-disc list-inside text-lg text-gray-600 space-y-2">
-                        <li><strong>Object Detection:</strong> Identifies and locates objects using a pre-trained YOLOv5 model.</li>
-                        <li><strong>AprilTag Following:</strong> Precisely follows visual markers for docking and guidance.</li>
-                        <li><strong>3D Environment Mapping:</strong> Creates a 3D map of its surroundings using its depth camera.</li>
-                    </ul>
+                    <p class="text-lg text-gray-600 mb-4">
+                        On the robot are present four YOLO models (the latest at the time of the development): v11 large
+                        for TPU, v11 medium for TPU, v11 small for TPU, v11 small standard. YOLO on the main computer is
+                        very slow (about 30 seconds to examine a single image, but it depends on the model dimension).
+                        That is why, if it is present, the robot will automatically run the models on the Coral TPU, which
+                        is about 10 times faster. It, however, needs the model to be converted to a specific format,
+                        that is why three of them are "for TPU". The "standard" model is used automatically if no TPU is
+                        found at runtime.
+                        Depending on the trade-offs you want to make, you can choose the smaller and faster models, or
+                        the larger and more accurate ones.
+                    </p>
                 </div>
-                <div>
-                    <img src="https://placehold.co/600x400/e0e7ff/4338ca?text=Vision+System+View" alt="Computer vision interface" class="rounded-lg shadow-lg component-image">
+                <div class="md:col-span-5">
+                    <img src="../assets/capabilities/yolo_capabilities.png" alt="Mantis omnidirectional wheels" class="rounded-lg w-full h-auto max-h-[350px] object-contain">
+                    <br>
+                    <img src="../assets/capabilities/yolo_logo.svg" alt="Mantis omnidirectional wheels" class="rounded-lg w-full h-auto max-h-[350px] object-contain">
+                </div>
+            </div>
+            <div class="mt-8">
+                <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-xl">
+                    <iframe
+                            src="https://player.cloudinary.com/embed/?cloud_name=yolo_example"
+                            width="640"
+                            height="360"
+                            title="Sound-following Mode"
+                            style="height: auto; width: 30%; aspect-ratio: 640 / 360;"
+                            allow="autoplay; fullscreen; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen
+                    ></iframe>
                 </div>
             </div>
         </div>
+
     </div>
 </section>
 
