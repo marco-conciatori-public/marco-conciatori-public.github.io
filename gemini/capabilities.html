@@ -374,10 +374,33 @@
             <div class="grid md:grid-cols-12 gap-8 items-center">
                 <div class="md:col-span-7">
                     <p class="text-lg text-gray-600 mb-4">
-
+                        Mantis can interact with the user via spoken commands. It understands natural language
+                        (many languages are supported) and can:
                     </p>
-                    <p class="text-lg text-gray-600 mb-4"><strong>Note 1:</strong>
-
+                    <ul class="list-disc list-inside text-lg text-gray-600 space-y-2 mb-4">
+                        <li>respond through the speakers (often it responds in English unless
+                            explicitly asked to do it in a different language).</li>
+                        <li>execute various robot functions. Es. move the robot (you can specify direction, velocity
+                            and duration), move the arm (it uses inverse kinematics to accept intuitive commands),
+                            use the arm's camera, sound the buzzer, increase/decrease max speed...</li>
+                        <li>access the robotic arm's camera to add visual information to the conversation.</li>
+                    </ul>
+                    <p class="text-lg text-gray-600 mb-4">
+                        It uses the ReSpeaker Mic Array v2.0 to recognize voices and filter out other sounds. The voice
+                        interaction is powered by Google's
+                        <a href="https://ai.google.dev/gemini-api/docs" class="text-blue-600 hover:underline">Gemini API</a>.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-4">
+                        <strong>Note 1:</strong> in my experience, you need to speak quite loudly for this mode to work well.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-4">
+                        <strong>Note 2:</strong> this capability requires internet connection, since the models are not
+                        hosted locally on the robot.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-4">
+                        <strong>Note 3:</strong> you will need to create an account and put your API key on the robot
+                        to use this feature. With the free tier, you have a limited number of requests per minute and
+                        per day, but it is still usable.
                     </p>
                 </div>
                 <div class="md:col-span-5">
