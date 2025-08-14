@@ -94,10 +94,11 @@
                             Senses the direction and distance of objects in a 2D horizontal plane (if mounted
                             perpendicular to the terrain). It comes with a dedicated adapter board. It has a notable
                             range (up to 12 meters).
-                            <br><strong>Note:</strong> In the current setup, the lidar is partially occluded and can
-                            only see in front and to the sides because of other components behind it. Mounting it higher
-                            with some kind of pole or platform would solve that but make it blind to any obstacle lower
-                            than itself.
+                        </p>
+                        <p class="text-lg text-gray-600 mb-4"><strong>Note:</strong> In the current setup, the lidar is
+                            partially occluded and can only see in front and to the sides because of other components
+                            behind it. Mounting it higher with some kind of pole or platform would solve that but make
+                            it blind to any obstacle lower than itself.
                         </p>
                     </div>
                 </div>
@@ -170,12 +171,16 @@
                         <h4 class="text-2xl font-semibold text-gray-800">Jetson Nano Board</h4>
                         <p class="text-gray-600 mt-2">
                             The arm's computer, which in the current setup, is used only for voice interaction. It
-                            includes a wireless network card. <br><strong>Note 1:</strong> the Yahboom one is configured
+                            includes a wireless network card.
+                        </p>
+                        <p class="text-lg text-gray-600 mb-4"><strong>Note 1:</strong> the Yahboom one is configured
                             to boot from USB instead of a TF Card. It is possible to revert the change, everything is
                             explained on their robotic arm and Jetson Nano guides, but I kept it as is.
-                            <br><strong>Note 2:</strong> the Jetson Nano, for now, is used only for the voice
-                            interaction, so it is not strictly necessary. I am using it mainly because I already have
-                            it. However, it is possible in the future it will be used for more functions.
+                        </p>
+                        <p class="text-lg text-gray-600 mb-4"><strong>Note 2:</strong> the Jetson Nano, for now, is used
+                            only for the voice interaction, so it is not strictly necessary. I am using it mainly
+                            because I already have it. However, it is possible in the future it will be used for more
+                            functions.
                         </p>
                     </div>
                 </div>
@@ -301,9 +306,10 @@
                             the current setup it is used to run the YOLO models locally (for object recognition and the
                             autonomous vision agent). From my tests it speeds up the processing of a single camera frame
                             by almost 10 times.
-                            <br><strong>Note:</strong> I bought the Coral USB Accelerator before adding the robotic arm
-                            (with the attached Jetson Nano). I didn't do any test, but it is possible the Jetson Nano
-                            could entirely replace the Coral USB Accelerator.
+                        </p>
+                        <p class="text-lg text-gray-600 mb-4"><strong>Note:</strong> I bought the Coral USB Accelerator
+                            before adding the robotic arm (with the attached Jetson Nano). I didn't do any test, but it
+                            is possible the Jetson Nano could entirely replace the Coral USB Accelerator.
                         </p>
                     </div>
                 </div>
@@ -317,13 +323,17 @@
                             available, and with 5200mAh probably lasts a lot more than the battery connected to the main
                             processor. Consider I had to also buy an extension cable from the battery to the Robotic Arm
                             Expansion Board, because the battery cable is short.
-                            <br><strong>Note 1:</strong> you also need a charger for the battery. I am using WANGCL IMAX
-                            B6AC Lipo Battery Charger B6 80W Digital LCD, but it is not specific for this battery, as
-                            long as you know what you are doing, any compatible charger is fine.
-                            <br><strong>Note 2:</strong> the Robotic Arm Expansion Board and Jetson Nano can't monitor
-                            the battery level, and lithium batteries can be damaged if discharged too much. So you may
-                            want to monitor the battery level manually or buy a component that can do it for you. Since
-                            the battery I chose lasts longer than the main battery, I use that as recharge reminder.
+                        </p>
+                        <p class="text-lg text-gray-600 mb-4"><strong>Note 1:</strong> you also need a charger for the
+                            battery. I am using WANGCL IMAX B6AC Lipo Battery Charger B6 80W Digital LCD, but it is not
+                            specific for this battery, as long as you know what you are doing, any compatible charger is
+                            fine.
+                        </p>
+                        <p class="text-lg text-gray-600 mb-4"><strong>Note 2:</strong> the Robotic Arm Expansion Board
+                            and Jetson Nano can't monitor the battery level, and lithium batteries can be damaged if
+                            discharged too much. So you may want to monitor the battery level manually or buy a
+                            component that can do it for you. Since the battery I chose lasts longer than the main
+                            battery, I use that as recharge reminder.
                         </p>
                     </div>
                 </div>
