@@ -56,6 +56,42 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Function to observe content sections and highlight the corresponding side-nav link
+    function setupSideNavObserver() {
+        const sections = document.querySelectorAll('main section[id]');
+        const navLinks = document.querySelectorAll('aside nav a.side-nav-link');
+
+        if (sections.length === 0 || navLinks.length === 0) {
+            return; // Don't run if the required elements aren't on the page
+        }
+
+        const observerOptions = {
+            root: null, // relative to the viewport
+            rootMargin: '-50% 0px -50% 0px', // trigger when the section is in the middle of the screen
+            threshold: 0
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const id = entry.target.getAttribute('id');
+                const correspondingLink = document.querySelector(`a.side-nav-link[href="#${id}"]`);
+
+                if (entry.isIntersecting) {
+                    // Remove active class from all links first
+                    navLinks.forEach(link => link.classList.remove('active-nav-link'));
+                    // Add active class to the link of the intersecting section
+                    if(correspondingLink) {
+                        correspondingLink.classList.add('active-nav-link');
+                    }
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    }
+
     // Execute functions when the DOM is fully loaded
     // Load navbar first, then footer, then set up image fallbacks and highlight nav
     loadContent('navbar-placeholder', 'navbar.html').then(() => {
@@ -63,6 +99,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     loadContent('footer-placeholder', 'footer.html');
     setupImageErrorFallback();
+
+    // This line activates the side menu logic
+    setupSideNavObserver();
 });
 
 // Get the modal and its content

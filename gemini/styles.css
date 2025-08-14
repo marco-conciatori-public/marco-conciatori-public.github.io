@@ -40,3 +40,9 @@ section {
     max-width: 100%; /* Ensure image is not wider than its container */
     width: auto; /* Let the width be determined by the height to keep aspect ratio */
 }
+/* Styling for the active link in the side navigation */
+.side-nav-link.active-nav-link {
+    background-color: #e0e7ff; /* indigo-100 */
+    color: #3730a3; /* indigo-800 */
+    font-weight: 600; /* font-semibold */
+}

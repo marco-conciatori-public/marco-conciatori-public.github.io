@@ -11,432 +11,453 @@
 <body class="antialiased">
 <div id="navbar-placeholder"></div>
 
-<!-- Capabilities Section -->
-<section id="capabilities" class="bg-white py-16 rounded-lg shadow-md mx-4 mt-8">
-    <div class="container mx-auto px-4">
-        <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">What Mantis Can Do</h2>
+<!-- Main Page Layout with Side Menu -->
+<div class="container mx-auto px-4 py-8">
+    <div class="lg:grid lg:grid-cols-12 lg:gap-8">
 
-        <!-- Movement Section -->
-        <div class="mb-16">
-            <h3 class="text-3xl font-bold text-indigo-700 mb-6">Omnidirectional Movement</h3>
-            <div class="grid md:grid-cols-12 gap-8 items-center">
-                <div class="md:col-span-7">
-                    <p class="text-lg text-gray-600 mb-4">
-                        Mantis has four mecanum wheels, which grant it the ability to move forward, backward, sideways,
-                        and rotate on the spot. This omnidirectional movement allows it to navigate tight spaces and
-                        complex environments with ease. Mecanum wheels work best on surfaces that are not too smooth,
-                        nor too uneven.
-                    </p>
-                    <p class="text-lg text-gray-600 mb-4">
-                        For precise control, the speed can be adjusted in real time between 10% and 100% of the maximum
-                        velocity using the controller.
-                        This affects all form of movement, including autonomous navigation and arm speed.
-                    </p>
-                </div>
-                <div class="md:col-span-5">
-                    <img src="../assets/capabilities/mecanum_wheels.png" alt="Mantis Omnidirectional Wheels" class="rounded-lg w-full h-auto object-contain">
-                </div>
-            </div>
-                <!--<h4 class="text-2xl font-semibold text-gray-700 mb-4">Movement</h4>-->
-            <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="aspect-w-16 aspect-h-9 overflow-hidden p-4">
-                    <iframe
-                            src=""
-                            width="640"
-                            height="360"
-                            title="Mecanum Wheels Movement"
-                            style="height: auto; width: 100%; aspect-ratio: 640 / 360;"
-                            allow="autoplay; fullscreen; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen
-                    ></iframe>
-                </div>
-            </div>
-        </div>
+        <!-- Side Navigation (Sticky on large screens) -->
+        <aside class="hidden lg:block lg:col-span-2 lg:sticky lg:top-24 self-start">
+            <nav class="p-4 rounded-lg bg-gray-50 border">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">Capabilities</h3>
+                <ul class="space-y-2" id="side-nav-links">
+                    <li><a href="#omnidirectional-movement" class="side-nav-link block text-gray-600 hover:text-indigo-700 p-2 rounded-md transition-colors duration-200">Omnidirectional Movement</a></li>
+                    <li><a href="#robotic-arm" class="side-nav-link block text-gray-600 hover:text-indigo-700 p-2 rounded-md transition-colors duration-200">Robotic Arm</a></li>
+                    <li><a href="#computer-vision" class="side-nav-link block text-gray-600 hover:text-indigo-700 p-2 rounded-md transition-colors duration-200">Computer Vision</a></li>
+                    <li><a href="#autonomous-agent-vision" class="side-nav-link block text-gray-600 hover:text-indigo-700 p-2 rounded-md transition-colors duration-200">Autonomous Agent (Vision)</a></li>
+                    <li><a href="#autonomous-agent-sound" class="side-nav-link block text-gray-600 hover:text-indigo-700 p-2 rounded-md transition-colors duration-200">Autonomous Agent (Sound)</a></li>
+                    <li><a href="#obstacle-avoidance" class="side-nav-link block text-gray-600 hover:text-indigo-700 p-2 rounded-md transition-colors duration-200">Obstacle Avoidance</a></li>
+                    <li><a href="#vr-connection" class="side-nav-link block text-gray-600 hover:text-indigo-700 p-2 rounded-md transition-colors duration-200">VR Connection</a></li>
+                    <li><a href="#voice-interaction" class="side-nav-link block text-gray-600 hover:text-indigo-700 p-2 rounded-md transition-colors duration-200">Voice Interaction</a></li>
+                </ul>
+            </nav>
+        </aside>
 
-        <hr class="my-12 border-gray-200">
-        <!-- Arm Movement Section -->
-        <div class="mb-16">
-            <h3 class="text-3xl font-bold text-indigo-700 mb-6">Robotic Arm & Gripper</h3>
-            <div class="grid md:grid-cols-12 gap-8 items-center">
-                <div class="md:col-span-8">
-                    <p class="text-lg text-gray-600 mb-4">
-                        The robotic arm has 6 motors, giving it 6 Degrees of Freedom (DoF), which allows it to reach a
-                        wide range of positions and orientations. The 1st motor controls the base rotation, motors 2, 3
-                        and 4 can bend the arm at different points, the 5th motor controls the gripper rotation, and the
-                        6th motor opens and closes the gripper.
-                    </p>
-                    <p class="text-lg text-gray-600">The arm has three different control modes.</p>
-                    <ul class="list-disc list-inside text-lg text-gray-600 space-y-2 mb-4">
-                            <li><strong>Direct motor control:</strong> control each motor individually using the
-                                controller. It is not very intuitive, since you need 2 buttons or 1 rocker for each
-                                motor (forward and backward movements), for a total of 12 buttons.</li>
-                            <li><strong>Inverse kinematics:</strong> in this mode, you control the position of the
-                                gripper (up-down, left-right, forward-backward), and an algorithm calculates the motor
-                                movements necessary to reach that position. It is more intuitive to use, and requires
-                                fewer buttons (10 instead of 12). That is because the 4 controls for motors 1 to 4 are
-                                substituted with controls for the 3 axes of a 3D position in space. Currently, this
-                                mode is noticeably slow because the main computer can't complete the computations fast
-                                enough. It uses the
-                                <a href="https://ikpy.readthedocs.io/en/latest/ikpy.html" class="text-blue-600 hover:underline">IKPy library</a>
-                                to calculate inverse kinematics.
-                            <li><strong>Memorized positions:</strong> the arm can move between memorized positions.
-                                There are 4 buttons on the controller that can be used to memorize and recall
-                                positions (they are set with predefined, useful positions that can be overwritten).
-                                A long press (2 seconds) memorizes the current position, while a click makes the arm
-                                reach the memorized position.</li>
-                        </ul>
-                    <p class="text-lg text-gray-600">
-                        Finally, it is possible to unlock the arm motors with the
-                        controller, so that it can be moved manually (for example to memorize a position).
-                    </p>
-                    <p class="text-lg text-gray-600">
-                        The arm is automatically extended forward when you start using it, and folded back when you
-                        stop using it. This is done to save space and avoid collisions with the environment.
-                    </p>
-                </div>
-                <div class="md:col-span-4">
-                    <img src="../assets/hardware/robotic_arm.png" alt="Mantis Robotic Arm" class="rounded-lg w-full h-auto object-contain">
-                </div>
-            </div>
-            <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="aspect-w-16 aspect-h-9 overflow-hidden p-4">
-                    <h4 class="font-semibold text-lg text-gray-700 text-center">Direct motor control</h4>
-                    <iframe
-                            src="https://player.cloudinary.com/embed/?cloud_name=dywsmv4ow&public_id=robotic_arm_mqmijm&profile=cld-default"
-                            width="640"
-                            height="360"
-                            title="Direct Motor Control"
-                            style="height: auto; width: 100%; aspect-ratio: 640 / 360;"
-                            allow="autoplay; fullscreen; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen
-                    ></iframe>
-                </div>
-                <div class="aspect-w-16 aspect-h-9 overflow-hidden p-4">
-                    <h4 class="font-semibold text-lg text-gray-700 text-center">Inverse Kinematics</h4>
-                    <iframe
-                            src=""
-                            width="640"
-                            height="360"
-                            title="Inverse Kinematics"
-                            style="height: auto; width: 100%; aspect-ratio: 640 / 360;"
-                            allow="autoplay; fullscreen; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen
-                    ></iframe>
-                </div>
-            </div>
-        </div>
+        <!-- Main Content -->
+        <main class="lg:col-span-10">
+            <div class="bg-white p-8 sm:p-12 rounded-lg shadow-md">
+                <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">What Mantis Can Do</h2>
 
-        <hr class="my-12 border-gray-200">
-        <!-- Computer Vision Section -->
-        <div class="mb-16">
-            <h3 class="text-3xl font-bold text-indigo-700 mb-6">Computer Vision</h3>
-            <div class="grid md:grid-cols-12 gap-8 items-center">
-                <div class="md:col-span-7">
-                    <p class="text-lg text-gray-600 mb-4">
-                        Mantis is equipped with a frontal camera that allows it to see its surroundings and uses
-                        <a href="https://docs.ultralytics.com/" class="text-blue-600 hover:underline">YOLO
-                        (You Only Look Once)</a> to detect objects in real time. YOLO models can detect about 80
-                        different categories including people, animals, vehicles, tools, toys, electronic devices, etc.
-                        It is free and works very well. It is also relatively easy to fine-tune models, so you can
-                        customize it to your needs.
-                    </p>
-                    <p class="text-lg text-gray-600 mb-4">
-                        On the robot are present four YOLO models (the latest at the time of the development): v11 large
-                        for TPU, v11 medium for TPU, v11 small for TPU, v11 small standard. YOLO on the main computer is
-                        very slow (about 30 seconds to examine a single image, but it depends on the model dimension).
-                        That is why, if it is present, the robot will automatically run the models on the Coral TPU, which
-                        is about 10 times faster. It, however, needs the model to be converted to a specific format,
-                        that is why three of them are "for TPU". The "standard" model is used automatically if no TPU is
-                        found at runtime.
-                        Depending on the trade-offs you want to make, you can choose the smaller and faster models, or
-                        the larger and more accurate ones. You can also easily add your own models, as long as they
-                        are in the correct format.
-                    </p>
-                </div>
-                <div class="md:col-span-5">
-                    <img src="../assets/capabilities/yolo_capabilities.png" alt="YOLO Capabilities" class="rounded-lg w-full h-auto object-contain">
-                    <br>
-                    <img src="../assets/capabilities/yolo_logo.svg" alt="TOLO Logo" class="rounded-lg w-full h-auto object-contain">
-                </div>
-            </div>
-            <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="aspect-w-16 aspect-h-9 overflow-hidden p-4">
-                    <iframe
-                            src=""
-                            width="640"
-                            height="360"
-                            title="YOLO Object Detection"
-                            style="height: auto; width: 100%; aspect-ratio: 640 / 360;"
-                            allow="autoplay; fullscreen; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen
-                    ></iframe>
-                </div>
-            </div>
-        </div>
+                <!-- Movement Section -->
+                <section id="omnidirectional-movement" class="mb-16 scroll-mt-24">
+                    <h3 class="text-3xl font-bold text-indigo-700 mb-6">Omnidirectional Movement</h3>
+                    <div class="grid md:grid-cols-12 gap-8 items-center">
+                        <div class="md:col-span-7">
+                            <p class="text-lg text-gray-600 mb-4">
+                                Mantis has four mecanum wheels, which grant it the ability to move forward, backward, sideways,
+                                and rotate on the spot. This omnidirectional movement allows it to navigate tight spaces and
+                                complex environments with ease. Mecanum wheels work best on surfaces that are not too smooth,
+                                nor too uneven.
+                            </p>
+                            <p class="text-lg text-gray-600 mb-4">
+                                For precise control, the speed can be adjusted in real time between 10% and 100% of the maximum
+                                velocity using the controller.
+                                This affects all form of movement, including autonomous navigation and arm speed.
+                            </p>
+                        </div>
+                        <div class="md:col-span-5">
+                            <img src="../assets/capabilities/mecanum_wheels.png" alt="Mantis Omnidirectional Wheels" class="rounded-lg w-full h-auto object-contain">
+                        </div>
+                    </div>
+                    <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="aspect-w-16 aspect-h-9 overflow-hidden p-4">
+                            <iframe
+                                    src=""
+                                    width="640"
+                                    height="360"
+                                    title="Mecanum Wheels Movement"
+                                    style="height: auto; width: 100%; aspect-ratio: 640 / 360;"
+                                    allow="autoplay; fullscreen; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen
+                            ></iframe>
+                        </div>
+                    </div>
+                </section>
 
-        <hr class="my-12 border-gray-200">
-        <!-- Autonomous Agent (Vision) -->
-        <div class="mb-16">
-            <h3 class="text-3xl font-bold text-indigo-700 mb-6">Autonomous Agent (Vision)</h3>
-            <div class="grid md:grid-cols-12 gap-8 items-center">
-                <div class="md:col-span-7">
-                    <p class="text-lg text-gray-600 mb-4">
-                        Mantis can autonomously navigate its environment using computer vision (the YOLO models
-                        described before). In this mode, the robot uses the camera to search for a specific target (must
-                        be chosen among the 80 categories supported by YOLO), and then moves toward it. The search at
-                        the moment is a simple rotation of in place, but it can be improved in the future to be more
-                        sophisticated.
-                    </p>
-                    <p class="text-lg text-gray-600 mb-4"><strong>Note 1:</strong> if a 2-color led is properly
-                        connected to the GPIO pins, it will turn orange while the robot is "thinking" (examining a
-                        frame), green whenever the target is found, red otherwise.
-                    </p>
-                    <p class="text-lg text-gray-600 mb-4"><strong>Note 2:</strong> if the lidar is connected, the robot
-                        measures the distance to the target and stops when it is close enough (about 20 cm), and emits a
-                        beep. If the lidar is not connected, it will keep going until it collides with the target, or
-                        the target is not recognised anymore (it often happens because it can't fit in the camera images
-                        at close distances).
-                    </p>
-                    <p class="text-lg text-gray-600 mb-4">
-                        The YOLO model used by the Autonomous Agent can be changed at runtime with the controller: it
-                        cycles through the models present in a specific folder, so that you can add and remove
-                        models as you wish. The target can also be changed at runtime, by pressing a button
-                        on the controller, which cycles through the categories supported by YOLO. For convenience,
-                        you can specify a subset of categories in the configuration file, so that you don't have to
-                        cycle through all 80 categories.
-                    </p>
-                </div>
-                <div class="md:col-span-5">
-                    <img src="" alt="Autonomous Agent (Vision)" class="rounded-lg w-full h-auto object-contain">
-                </div>
-            </div>
-            <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="aspect-w-16 aspect-h-9 overflow-hidden p-4">
-                    <iframe
-                            src=""
-                            width="640"
-                            height="360"
-                            title="Autonomous Agent (Vision)"
-                            style="height: auto; width: 100%; aspect-ratio: 640 / 360;"
-                            allow="autoplay; fullscreen; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen
-                    ></iframe>
-                </div>
-            </div>
-        </div>
+                <hr class="my-12 border-gray-200">
+                <!-- Arm Movement Section -->
+                <section id="robotic-arm" class="mb-16 scroll-mt-24">
+                    <h3 class="text-3xl font-bold text-indigo-700 mb-6">Robotic Arm</h3>
+                    <div class="grid md:grid-cols-12 gap-8 items-center">
+                        <div class="md:col-span-8">
+                            <p class="text-lg text-gray-600 mb-4">
+                                The robotic arm has 6 motors, giving it 6 Degrees of Freedom (DoF), which allows it to reach a
+                                wide range of positions and orientations. The 1st motor controls the base rotation, motors 2, 3
+                                and 4 can bend the arm at different points, the 5th motor controls the gripper rotation, and the
+                                6th motor opens and closes the gripper.
+                            </p>
+                            <p class="text-lg text-gray-600">The arm has three different control modes.</p>
+                            <ul class="list-disc list-inside text-lg text-gray-600 space-y-2 mb-4">
+                                <li><strong>Direct motor control:</strong> control each motor individually using the
+                                    controller. It is not very intuitive, since you need 2 buttons or 1 rocker for each
+                                    motor (forward and backward movements), for a total of 12 buttons.</li>
+                                <li><strong>Inverse kinematics:</strong> in this mode, you control the position of the
+                                    gripper (up-down, left-right, forward-backward), and an algorithm calculates the motor
+                                    movements necessary to reach that position. It is more intuitive to use, and requires
+                                    fewer buttons (10 instead of 12). That is because the 4 controls for motors 1 to 4 are
+                                    substituted with controls for the 3 axes of a 3D position in space. Currently, this
+                                    mode is noticeably slow because the main computer can't complete the computations fast
+                                    enough. It uses the
+                                    <a href="https://ikpy.readthedocs.io/en/latest/ikpy.html" class="text-blue-600 hover:underline">IKPy library</a>
+                                    to calculate inverse kinematics.
+                                <li><strong>Memorized positions:</strong> the arm can move between memorized positions.
+                                    There are 4 buttons on the controller that can be used to memorize and recall
+                                    positions (they are set with predefined, useful positions that can be overwritten).
+                                    A long press (2 seconds) memorizes the current position, while a click makes the arm
+                                    reach the memorized position.</li>
+                            </ul>
+                            <p class="text-lg text-gray-600">
+                                Finally, it is possible to unlock the arm motors with the
+                                controller, so that it can be moved manually (for example to memorize a position).
+                            </p>
+                            <p class="text-lg text-gray-600">
+                                The arm is automatically extended forward when you start using it, and folded back when you
+                                stop using it. This is done to save space and avoid collisions with the environment.
+                            </p>
+                        </div>
+                        <div class="md:col-span-4">
+                            <img src="../assets/hardware/robotic_arm.png" alt="Mantis Robotic Arm" class="rounded-lg w-full h-auto object-contain">
+                        </div>
+                    </div>
+                    <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="aspect-w-16 aspect-h-9 overflow-hidden p-4">
+                            <h4 class="font-semibold text-lg text-gray-700 text-center">Direct motor control</h4>
+                            <iframe
+                                    src="https://player.cloudinary.com/embed/?cloud_name=dywsmv4ow&public_id=robotic_arm_mqmijm&profile=cld-default"
+                                    width="640"
+                                    height="360"
+                                    title="Direct Motor Control"
+                                    style="height: auto; width: 100%; aspect-ratio: 640 / 360;"
+                                    allow="autoplay; fullscreen; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen
+                            ></iframe>
+                        </div>
+                        <div class="aspect-w-16 aspect-h-9 overflow-hidden p-4">
+                            <h4 class="font-semibold text-lg text-gray-700 text-center">Inverse Kinematics</h4>
+                            <iframe
+                                    src=""
+                                    width="640"
+                                    height="360"
+                                    title="Inverse Kinematics"
+                                    style="height: auto; width: 100%; aspect-ratio: 640 / 360;"
+                                    allow="autoplay; fullscreen; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen
+                            ></iframe>
+                        </div>
+                    </div>
+                </section>
 
-        <hr class="my-12 border-gray-200">
-        <!-- Autonomous Agent (Sound) -->
-        <div class="mb-16">
-            <h3 class="text-3xl font-bold text-indigo-700 mb-6">Autonomous Agent (Sound)</h3>
-            <div class="grid md:grid-cols-12 gap-8 items-center">
-                <div class="md:col-span-7">
-                    <p class="text-lg text-gray-600 mb-4">
-                        In this mode, the robot autonomously goes toward the nearest sound source. It uses the
-                        ReSpeaker Mic Array v2.0 to detect the sound direction, and then moves toward it.
-                    </p>
-                    <p class="text-lg text-gray-600 mb-4"><strong>Note:</strong> sounds need to be continuous and loud
-                        enough to surpass the noise generated by the robot itself. Otherwise, the robot will start
-                        following its own motors, making it just spin in place.
-                    </p>
-                </div>
-                <div class="md:col-span-5">
-                    <img src="../assets/hardware/microphone.png" alt="ReSpeaker Mic Array v2.0" class="rounded-lg w-full h-auto max-h-[380px] object-contain">
-                </div>
-            </div>
-            <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="aspect-w-16 aspect-h-9 overflow-hidden p-4">
-                    <iframe
-                            src="https://player.cloudinary.com/embed/?cloud_name=dywsmv4ow&public_id=VID_20250329_162817_oskaac&profile=cld-default"
-                            width="640"
-                            height="360"
-                            title="Sound-following Mode"
-                            style="height: auto; width: 100%; aspect-ratio: 640 / 360;"
-                            allow="autoplay; fullscreen; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen
-                    ></iframe>
-                </div>
-            </div>
-        </div>
+                <hr class="my-12 border-gray-200">
+                <!-- Computer Vision Section -->
+                <section id="computer-vision" class="mb-16 scroll-mt-24">
+                    <h3 class="text-3xl font-bold text-indigo-700 mb-6">Computer Vision</h3>
+                    <div class="grid md:grid-cols-12 gap-8 items-center">
+                        <div class="md:col-span-7">
+                            <p class="text-lg text-gray-600 mb-4">
+                                Mantis is equipped with a frontal camera that allows it to see its surroundings and uses
+                                <a href="https://docs.ultralytics.com/" class="text-blue-600 hover:underline">YOLO
+                                    (You Only Look Once)</a> to detect objects in real time. YOLO models can detect about 80
+                                different categories including people, animals, vehicles, tools, toys, electronic devices, etc.
+                                It is free and works very well. It is also relatively easy to fine-tune models, so you can
+                                customize it to your needs.
+                            </p>
+                            <p class="text-lg text-gray-600 mb-4">
+                                On the robot are present four YOLO models (the latest at the time of the development): v11 large
+                                for TPU, v11 medium for TPU, v11 small for TPU, v11 small standard. YOLO on the main computer is
+                                very slow (about 30 seconds to examine a single image, but it depends on the model dimension).
+                                That is why, if it is present, the robot will automatically run the models on the Coral TPU, which
+                                is about 10 times faster. It, however, needs the model to be converted to a specific format,
+                                that is why three of them are "for TPU". The "standard" model is used automatically if no TPU is
+                                found at runtime.
+                                Depending on the trade-offs you want to make, you can choose the smaller and faster models, or
+                                the larger and more accurate ones. You can also easily add your own models, as long as they
+                                are in the correct format.
+                            </p>
+                        </div>
+                        <div class="md:col-span-5">
+                            <img src="../assets/capabilities/yolo_capabilities.png" alt="YOLO Capabilities" class="rounded-lg w-full h-auto object-contain">
+                        </div>
+                    </div>
+                    <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="aspect-w-16 aspect-h-9 overflow-hidden p-4">
+                            <iframe
+                                    src=""
+                                    width="640"
+                                    height="360"
+                                    title="YOLO Object Detection"
+                                    style="height: auto; width: 100%; aspect-ratio: 640 / 360;"
+                                    allow="autoplay; fullscreen; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen
+                            ></iframe>
+                        </div>
+                    </div>
+                </section>
 
-        <hr class="my-12 border-gray-200">
-        <!-- Obstacle Avoidance -->
-        <div class="mb-16">
-            <h3 class="text-3xl font-bold text-indigo-700 mb-6">Obstacle Avoidance</h3>
-            <div class="grid md:grid-cols-12 gap-8 items-center">
-                <div class="md:col-span-7">
-                    <p class="text-lg text-gray-600 mb-4">
-                        Mantis is equipped with a lidar that allows it to detect obstacles in its path. In "normal"
-                        mode (when the user controls the robot movements), the lidar can be activated.
-                        When it is active, the robot will stop if an obstacle is detected in the direction
-                        of the movement, and will emit a beep.
-                    </p>
-                    <p class="text-lg text-gray-600 mb-4"><strong>Note:</strong> The lidar is partially occluded by
-                        other robot components, so it can only detect obstacles in front of it, and to the sides, but
-                        not behind it. For now, when active, it will always block the robot from moving backward, but I
-                        plan to change it and always allow the robot to move backward instead.
-                        <br>Irrespective of any obstacles, rotation is always allowed.
-                    </p>
-                </div>
-                <div class="md:col-span-5">
-                    <img src="../assets/hardware/lidar.png" alt="Lidar" class="rounded-lg w-full h-auto max-h-[380px] object-contain">
-                </div>
-            </div>
-            <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="aspect-w-16 aspect-h-9 overflow-hidden p-4">
-                    <h4 class="font-semibold text-lg text-gray-700 text-center">Obstacle Detection</h4>
-                    <iframe
-                            src="https://player.cloudinary.com/embed/?cloud_name=dywsmv4ow&public_id=Lidar_nn8h7g&profile=cld-default"
-                            width="640"
-                            height="360"
-                            title="Obstacle Detection"
-                            style="height: auto; width: 100%; aspect-ratio: 640 / 360;"
-                            allow="autoplay; fullscreen; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen
-                    ></iframe>
-                </div>
-                <div class="aspect-w-16 aspect-h-9 overflow-hidden p-4">
-                    <h4 class="font-semibold text-lg text-gray-700 text-center">Obstacle Avoidance</h4>
-                    <iframe
-                            src=""
-                            width="640"
-                            height="360"
-                            title="Obstacle Avoidance"
-                            style="height: auto; width: 100%; aspect-ratio: 640 / 360;"
-                            allow="autoplay; fullscreen; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen
-                    ></iframe>
-                </div>
-            </div>
-        </div>
+                <hr class="my-12 border-gray-200">
+                <!-- Autonomous Agent (Vision) -->
+                <section id="autonomous-agent-vision" class="mb-16 scroll-mt-24">
+                    <h3 class="text-3xl font-bold text-indigo-700 mb-6">Autonomous Agent (Vision)</h3>
+                    <div class="grid md:grid-cols-12 gap-8 items-center">
+                        <div class="md:col-span-7">
+                            <p class="text-lg text-gray-600 mb-4">
+                                Mantis can autonomously navigate its environment using computer vision (the YOLO models
+                                described before). In this mode, the robot uses the camera to search for a specific target (must
+                                be chosen among the 80 categories supported by YOLO), and then moves toward it. The search at
+                                the moment is a simple rotation of in place, but it can be improved in the future to be more
+                                sophisticated.
+                            </p>
+                            <p class="text-lg text-gray-600 mb-4"><strong>Note 1:</strong> if a 2-color led is properly
+                                connected to the GPIO pins, it will turn orange while the robot is "thinking" (examining a
+                                frame), green whenever the target is found, red otherwise.
+                            </p>
+                            <p class="text-lg text-gray-600 mb-4"><strong>Note 2:</strong> if the lidar is connected, the robot
+                                measures the distance to the target and stops when it is close enough (about 20 cm), and emits a
+                                beep. If the lidar is not connected, it will keep going until it collides with the target, or
+                                the target is not recognised anymore (it often happens because it can't fit in the camera images
+                                at close distances).
+                            </p>
+                            <p class="text-lg text-gray-600 mb-4">
+                                The YOLO model used by the Autonomous Agent can be changed at runtime with the controller: it
+                                cycles through the models present in a specific folder, so that you can add and remove
+                                models as you wish. The target can also be changed at runtime, by pressing a button
+                                on the controller, which cycles through the categories supported by YOLO. For convenience,
+                                you can specify a subset of categories in the configuration file, so that you don't have to
+                                cycle through all 80 categories.
+                            </p>
+                        </div>
+                        <div class="md:col-span-5">
+                            <img src="" alt="Autonomous Agent (Vision)" class="rounded-lg w-full h-auto object-contain">
+                        </div>
+                    </div>
+                    <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="aspect-w-16 aspect-h-9 overflow-hidden p-4">
+                            <iframe
+                                    src=""
+                                    width="640"
+                                    height="360"
+                                    title="Autonomous Agent (Vision)"
+                                    style="height: auto; width: 100%; aspect-ratio: 640 / 360;"
+                                    allow="autoplay; fullscreen; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen
+                            ></iframe>
+                        </div>
+                    </div>
+                </section>
 
-        <hr class="my-12 border-gray-200">
-        <!-- VR Connection -->
-        <div class="mb-16">
-            <h3 class="text-3xl font-bold text-indigo-700 mb-6">VR Connection</h3>
-            <div class="grid md:grid-cols-12 gap-8 items-center">
-                <div class="md:col-span-7">
-                    <p class="text-lg text-gray-600 mb-4">
-                        Mantis can be controlled using a VR headset. The connection is made through a custom app that
-                        allows you to see through the robot's camera and control its movements using the VR controllers.
-                        The communication is done through ROS2 (Robot Operating System 2), over Wi-Fi, or the robot's
-                        own hotspot if no Wi-Fi is available. The app is built with Unity and is available on GitHub
-                        (the already built apk).
-                    </p>
-                    <p class="text-lg text-gray-600 mb-4"><strong>Note 1:</strong>
-                        I have only tested the app with the
-                        <a href="https://www.meta.com/quest/quest-3/" class="text-blue-600 hover:underline">Meta Quest 3</a>
-                        headset.
-                    </p>
-                    <p class="text-lg text-gray-600 mb-4"><strong>Note 2:</strong> the app is relatively old, so support
-                        for the arm and other features are not present. For the same reason, some of the libraries (es.
-                        VR support for Unity) have probably changed significantly.
-                    </p>
-                </div>
-                <div class="md:col-span-5">
-                    <img src="../assets/hardware/vr_headset.png" alt="VR Headset" class="rounded-lg w-full h-auto max-h-[380px] object-contain">
-                </div>
-            </div>
-            <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="aspect-w-16 aspect-h-9 overflow-hidden p-4">
-                    <h4 class="font-semibold text-lg text-gray-700 text-center">VR Control</h4>
-                    <iframe
-                            src="https://player.cloudinary.com/embed/?cloud_name=dywsmv4ow&public_id=Robot_VR_g00ekm&profile=cld-default"
-                            width="640"
-                            height="360"
-                            title="VR Control"
-                            style="height: auto; width: 100%; aspect-ratio: 640 / 360;"
-                            allow="autoplay; fullscreen; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen
-                    ></iframe>
-                </div>
-            </div>
-        </div>
+                <hr class="my-12 border-gray-200">
+                <!-- Autonomous Agent (Sound) -->
+                <section id="autonomous-agent-sound" class="mb-16 scroll-mt-24">
+                    <h3 class="text-3xl font-bold text-indigo-700 mb-6">Autonomous Agent (Sound)</h3>
+                    <div class="grid md:grid-cols-12 gap-8 items-center">
+                        <div class="md:col-span-7">
+                            <p class="text-lg text-gray-600 mb-4">
+                                In this mode, the robot autonomously goes toward the nearest sound source. It uses the
+                                ReSpeaker Mic Array v2.0 to detect the sound direction, and then moves toward it.
+                            </p>
+                            <p class="text-lg text-gray-600 mb-4"><strong>Note:</strong> sounds need to be continuous and loud
+                                enough to surpass the noise generated by the robot itself. Otherwise, the robot will start
+                                following its own motors, making it just spin in place.
+                            </p>
+                        </div>
+                        <div class="md:col-span-5">
+                            <img src="../assets/hardware/microphone.png" alt="ReSpeaker Mic Array v2.0" class="rounded-lg w-full h-auto max-h-[350px] object-contain">
+                        </div>
+                    </div>
+                    <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="aspect-w-16 aspect-h-9 overflow-hidden p-4">
+                            <iframe
+                                    src="https://player.cloudinary.com/embed/?cloud_name=dywsmv4ow&public_id=VID_20250329_162817_oskaac&profile=cld-default"
+                                    width="640"
+                                    height="360"
+                                    title="Sound-following Mode"
+                                    style="height: auto; width: 100%; aspect-ratio: 640 / 360;"
+                                    allow="autoplay; fullscreen; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen
+                            ></iframe>
+                        </div>
+                    </div>
+                </section>
 
-        <hr class="my-12 border-gray-200">
-        <!-- Voice Interaction -->
-        <div class="mb-16">
-            <h3 class="text-3xl font-bold text-indigo-700 mb-6">Voice Interaction</h3>
-            <div class="grid md:grid-cols-12 gap-8 items-center">
-                <div class="md:col-span-7">
-                    <p class="text-lg text-gray-600 mb-4">
-                        Mantis can interact with the user via spoken commands. It understands natural language
-                        (many languages are supported) and can:
-                    </p>
-                    <ul class="list-disc list-inside text-lg text-gray-600 space-y-2 mb-4">
-                        <li>respond through the speakers (often it responds in English unless
-                            explicitly asked to do it in a different language).</li>
-                        <li>execute various robot functions. Es. move the robot (you can specify direction, velocity
-                            and duration), move the arm (it uses inverse kinematics to accept intuitive commands),
-                            use the arm's camera, sound the buzzer, increase/decrease max speed...</li>
-                        <li>access the robotic arm's camera to add visual information to the conversation.</li>
-                    </ul>
-                    <p class="text-lg text-gray-600 mb-4">
-                        It uses the ReSpeaker Mic Array v2.0 to recognize voices and filter out other sounds. The voice
-                        interaction is powered by Google's
-                        <a href="https://ai.google.dev/gemini-api/docs" class="text-blue-600 hover:underline">Gemini API</a>.
-                        Each time the robot is powered on, it is a new session, but within the session it has memory of
-                        the conversation, so you can ask follow-up questions, and it will remember what you said before.
-                    </p>
-                    <p class="text-lg text-gray-600 mb-4">
-                        <strong>Note 1:</strong> in my experience, you need to speak quite loudly for this mode to work well.
-                    </p>
-                    <p class="text-lg text-gray-600 mb-4">
-                        <strong>Note 2:</strong> this capability requires internet connection, since the models are not
-                        hosted locally on the robot.
-                    </p>
-                    <p class="text-lg text-gray-600 mb-4">
-                        <strong>Note 3:</strong> you will need to create an account and put your API key on the robot
-                        to use this feature. With the free tier, you have a limited number of requests per minute and
-                        per day, but it is still usable.
-                    </p>
-                </div>
-                <div class="md:col-span-5">
-                    <img src="" alt="Voice Interaction" class="rounded-lg w-full h-auto object-contain">
-                </div>
-            </div>
-            <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="aspect-w-16 aspect-h-9 overflow-hidden p-4">
-                    <h4 class="font-semibold text-lg text-gray-700 text-center">Natural Language Conversation</h4>
-                    <iframe
-                            src=""
-                            width="640"
-                            height="360"
-                            title="Natural Language Conversation"
-                            style="height: auto; width: 100%; aspect-ratio: 640 / 360;"
-                            allow="autoplay; fullscreen; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen
-                    ></iframe>
-                </div>
-                <div class="aspect-w-16 aspect-h-9 overflow-hidden p-4">
-                    <h4 class="font-semibold text-lg text-gray-700 text-center">Voice Commands</h4>
-                    <iframe
-                            src=""
-                            width="640"
-                            height="360"
-                            title="Voice Commands"
-                            style="height: auto; width: 100%; aspect-ratio: 640 / 360;"
-                            allow="autoplay; fullscreen; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen
-                    ></iframe>
-                </div>
-                <div class="aspect-w-16 aspect-h-9 overflow-hidden p-4">
-                    <h4 class="font-semibold text-lg text-gray-700 text-center">Camera Interaction</h4>
-                    <iframe
-                            src=""
-                            width="640"
-                            height="360"
-                            title="Camera Interaction"
-                            style="height: auto; width: 100%; aspect-ratio: 640 / 360;"
-                            allow="autoplay; fullscreen; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen
-                    ></iframe>
-                </div>
-            </div>
-        </div>
+                <hr class="my-12 border-gray-200">
+                <!-- Obstacle Avoidance -->
+                <section id="obstacle-avoidance" class="mb-16 scroll-mt-24">
+                    <h3 class="text-3xl font-bold text-indigo-700 mb-6">Obstacle Avoidance</h3>
+                    <div class="grid md:grid-cols-12 gap-8 items-center">
+                        <div class="md:col-span-7">
+                            <p class="text-lg text-gray-600 mb-4">
+                                Mantis is equipped with a lidar that allows it to detect obstacles in its path. In "normal"
+                                mode (when the user controls the robot movements), the lidar can be activated.
+                                When it is active, the robot will stop if an obstacle is detected in the direction
+                                of the movement, and will emit a beep.
+                            </p>
+                            <p class="text-lg text-gray-600 mb-4"><strong>Note:</strong> The lidar is partially occluded by
+                                other robot components, so it can only detect obstacles in front of it, and to the sides, but
+                                not behind it. For now, when active, it will always block the robot from moving backward, but I
+                                plan to change it and always allow the robot to move backward instead.
+                                <br>Irrespective of any obstacles, rotation is always allowed.
+                            </p>
+                        </div>
+                        <div class="md:col-span-5">
+                            <img src="../assets/hardware/lidar.png" alt="Lidar" class="rounded-lg w-full h-auto max-h-[350px] object-contain">
+                        </div>
+                    </div>
+                    <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="aspect-w-16 aspect-h-9 overflow-hidden p-4">
+                            <h4 class="font-semibold text-lg text-gray-700 text-center">Obstacle Detection</h4>
+                            <iframe
+                                    src="https://player.cloudinary.com/embed/?cloud_name=dywsmv4ow&public_id=Lidar_nn8h7g&profile=cld-default"
+                                    width="640"
+                                    height="360"
+                                    title="Obstacle Detection"
+                                    style="height: auto; width: 100%; aspect-ratio: 640 / 360;"
+                                    allow="autoplay; fullscreen; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen
+                            ></iframe>
+                        </div>
+                        <div class="aspect-w-16 aspect-h-9 overflow-hidden p-4">
+                            <h4 class="font-semibold text-lg text-gray-700 text-center">Obstacle Avoidance</h4>
+                            <iframe
+                                    src=""
+                                    width="640"
+                                    height="360"
+                                    title="Obstacle Avoidance"
+                                    style="height: auto; width: 100%; aspect-ratio: 640 / 360;"
+                                    allow="autoplay; fullscreen; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen
+                            ></iframe>
+                        </div>
+                    </div>
+                </section>
 
+                <hr class="my-12 border-gray-200">
+                <!-- VR Connection -->
+                <section id="vr-connection" class="mb-16 scroll-mt-24">
+                    <h3 class="text-3xl font-bold text-indigo-700 mb-6">VR Connection</h3>
+                    <div class="grid md:grid-cols-12 gap-8 items-center">
+                        <div class="md:col-span-7">
+                            <p class="text-lg text-gray-600 mb-4">
+                                Mantis can be controlled using a VR headset. The connection is made through a custom app that
+                                allows you to see through the robot's camera and control its movements using the VR controllers.
+                                The communication is done through ROS2 (Robot Operating System 2), over Wi-Fi, or the robot's
+                                own hotspot if no Wi-Fi is available. The app is built with Unity and is available on GitHub
+                                (the already built apk).
+                            </p>
+                            <p class="text-lg text-gray-600 mb-4"><strong>Note 1:</strong>
+                                I have only tested the app with the
+                                <a href="https://www.meta.com/quest/quest-3/" class="text-blue-600 hover:underline">Meta Quest 3</a>
+                                headset.
+                            </p>
+                            <p class="text-lg text-gray-600 mb-4"><strong>Note 2:</strong> the app is relatively old, so support
+                                for the arm and other features are not present. For the same reason, some of the libraries (es.
+                                VR support for Unity) have probably changed significantly.
+                            </p>
+                        </div>
+                        <div class="md:col-span-5">
+                            <img src="../assets/hardware/vr_headset.png" alt="VR Headset" class="rounded-lg w-full h-auto max-h-[350px] object-contain">
+                        </div>
+                    </div>
+                    <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="aspect-w-16 aspect-h-9 overflow-hidden p-4">
+                            <h4 class="font-semibold text-lg text-gray-700 text-center">VR Control</h4>
+                            <iframe
+                                    src="https://player.cloudinary.com/embed/?cloud_name=dywsmv4ow&public_id=Robot_VR_g00ekm&profile=cld-default"
+                                    width="640"
+                                    height="360"
+                                    title="VR Control"
+                                    style="height: auto; width: 100%; aspect-ratio: 640 / 360;"
+                                    allow="autoplay; fullscreen; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen
+                            ></iframe>
+                        </div>
+                    </div>
+                </section>
+
+                <hr class="my-12 border-gray-200">
+                <!-- Voice Interaction -->
+                <section id="voice-interaction" class="mb-16 scroll-mt-24">
+                    <h3 class="text-3xl font-bold text-indigo-700 mb-6">Voice Interaction</h3>
+                    <div class="grid md:grid-cols-12 gap-8 items-center">
+                        <div class="md:col-span-7">
+                            <p class="text-lg text-gray-600 mb-4">
+                                Mantis can interact with the user via spoken commands. It understands natural language
+                                (many languages are supported) and can:
+                            </p>
+                            <ul class="list-disc list-inside text-lg text-gray-600 space-y-2 mb-4">
+                                <li>respond through the speakers (often it responds in English unless
+                                    explicitly asked to do it in a different language).</li>
+                                <li>execute various robot functions. Es. move the robot (you can specify direction, velocity
+                                    and duration), move the arm (it uses inverse kinematics to accept intuitive commands),
+                                    use the arm's camera, sound the buzzer, increase/decrease max speed...</li>
+                                <li>access the robotic arm's camera to add visual information to the conversation.</li>
+                            </ul>
+                            <p class="text-lg text-gray-600 mb-4">
+                                It uses the ReSpeaker Mic Array v2.0 to recognize voices and filter out other sounds. The voice
+                                interaction is powered by Google's
+                                <a href="https://ai.google.dev/gemini-api/docs" class="text-blue-600 hover:underline">Gemini API</a>.
+                                Each time the robot is powered on, it is a new session, but within the session it has memory of
+                                the conversation, so you can ask follow-up questions, and it will remember what you said before.
+                            </p>
+                            <p class="text-lg text-gray-600 mb-4">
+                                <strong>Note 1:</strong> in my experience, you need to speak quite loudly for this mode to work well.
+                            </p>
+                            <p class="text-lg text-gray-600 mb-4">
+                                <strong>Note 2:</strong> this capability requires internet connection, since the models are not
+                                hosted locally on the robot.
+                            </p>
+                            <p class="text-lg text-gray-600 mb-4">
+                                <strong>Note 3:</strong> you will need to create an account and put your API key on the robot
+                                to use this feature. With the free tier, you have a limited number of requests per minute and
+                                per day, but it is still usable.
+                            </p>
+                        </div>
+                        <div class="md:col-span-5">
+                            <img src="" alt="Voice Interaction" class="rounded-lg w-full h-auto object-contain">
+                        </div>
+                    </div>
+                    <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="aspect-w-16 aspect-h-9 overflow-hidden p-4">
+                            <h4 class="font-semibold text-lg text-gray-700 text-center">Natural Language Conversation</h4>
+                            <iframe
+                                    src=""
+                                    width="640"
+                                    height="360"
+                                    title="Natural Language Conversation"
+                                    style="height: auto; width: 100%; aspect-ratio: 640 / 360;"
+                                    allow="autoplay; fullscreen; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen
+                            ></iframe>
+                        </div>
+                        <div class="aspect-w-16 aspect-h-9 overflow-hidden p-4">
+                            <h4 class="font-semibold text-lg text-gray-700 text-center">Voice Commands</h4>
+                            <iframe
+                                    src=""
+                                    width="640"
+                                    height="360"
+                                    title="Voice Commands"
+                                    style="height: auto; width: 100%; aspect-ratio: 640 / 360;"
+                                    allow="autoplay; fullscreen; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen
+                            ></iframe>
+                        </div>
+                        <div class="aspect-w-16 aspect-h-9 overflow-hidden p-4">
+                            <h4 class="font-semibold text-lg text-gray-700 text-center">Camera Interaction</h4>
+                            <iframe
+                                    src=""
+                                    width="640"
+                                    height="360"
+                                    title="Camera Interaction"
+                                    style="height: auto; width: 100%; aspect-ratio: 640 / 360;"
+                                    allow="autoplay; fullscreen; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen
+                            ></iframe>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </main>
     </div>
-</section>
+</div>
+
 
 <!-- Image Modal -->
 <div id="image-modal" class="hidden fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center p-4" onclick="closeModal()">
