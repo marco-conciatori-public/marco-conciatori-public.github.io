@@ -11,399 +11,424 @@
 <body class="antialiased">
 <div id="navbar-placeholder"></div>
 
-<!-- Hardware Components Section -->
-<section id="hardware" class="bg-gray-100 py-16 rounded-lg shadow-md mx-4 mt-8">
-    <div class="container mx-auto px-4">
-        <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Mantis' Hardware Components</h2>
+<!-- Main Page Layout with Side Menu -->
+<div class="container mx-auto px-4 py-8">
+    <div class="lg:grid lg:grid-cols-12 lg:gap-12">
 
-        <p class="text-lg text-center text-gray-600 max-w-3xl mx-auto mb-12">
-            In case you want to build my same robot buying only the necessary components, or you want to create
-            something different, here I list all the packages that I used, specifying which components were used and
-            which were not. But keep in mind, the robot could still grow and change, so this list may be expanded in the
-            future.
-        </p>
+        <!-- Side Navigation (Sticky on large screens) -->
+        <aside class="hidden lg:block lg:col-span-3 lg:sticky lg:top-24 self-start">
+            <nav class="p-4 rounded-lg bg-gray-50 border">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">Hardware packages</h3>
+                <ul class="space-y-2" id="side-nav-links">
+                    <li><a href="#rdk-x3" class="side-nav-link block text-gray-600 hover:text-indigo-700 p-2 rounded-md transition-colors duration-200">Original Robot</a></li>
+                    <li><a href="#dofbot" class="side-nav-link block text-gray-600 hover:text-indigo-700 p-2 rounded-md transition-colors duration-200">Robotic Arm</a></li>
+                    <li><a href="#chassis" class="side-nav-link block text-gray-600 hover:text-indigo-700 p-2 rounded-md transition-colors duration-200">Large Chassis</a></li>
+                    <li><a href="#single-components" class="side-nav-link block text-gray-600 hover:text-indigo-700 p-2 rounded-md transition-colors duration-200">Single Components</a></li>
+                </ul>
+            </nav>
+        </aside>
 
-        <!-- Category: Components from RDK X3 Robot (Yahboom) -->
-        <div class="mb-16">
-            <h3 class="text-3xl font-bold text-gray-700 mb-8 border-b-2 border-indigo-500 pb-2">From RDK X3 Robot (Yahboom)</h3>
-            <div class="space-y-8">
-                <div class="bg-white p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
-                    <img src="../assets/hardware/rdk_x3_development_board.jpg" alt="RDK X3 Development Board" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
-                    <div>
-                        <h4 class="text-2xl font-semibold text-gray-800">RDK X3 Development Board</h4>
-                        <p class="text-gray-600 mt-2">The main processor. It came already set up with Ubuntu 18.04.</p>
+        <!-- Main Content -->
+        <main class="lg:col-span-9">
+            <div class="bg-white p-8 sm:p-12 rounded-lg shadow-md">
+                <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Mantis' Hardware Components</h2>
+
+                <p class="text-lg text-center text-gray-600 max-w-3xl mx-auto mb-16">
+                    In case you want to build my same robot buying only the necessary components, or you want to create
+                    something different, here is a list of all the packages that I used, specifying which components
+                    were used and which were not. But keep in mind, the robot could still grow and change, so this list
+                    may be updated in the future.
+                </p>
+
+                <!-- Original Robot (Yahboom RDK X3 Robot) -->
+                <section id="rdk-x3" class="mb-16 scroll-mt-24">
+                    <h3 class="text-3xl font-bold text-indigo-700 mb-8">Original Robot (Yahboom RDK X3 Robot)</h3>
+                    <div class="space-y-8">
+                        <div class="bg-gray-50 p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
+                            <img src="../assets/hardware/rdk_x3_development_board.jpg" alt="RDK X3 Development Board" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
+                            <div>
+                                <h4 class="text-2xl font-semibold text-gray-800">RDK X3 Development Board</h4>
+                                <p class="text-gray-600 mt-2">The main processor. It came already set up with Ubuntu 18.04.</p>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
+                            <img src="../assets/hardware/ros_expansion_board.jpg" alt="ROS Expansion Board" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
+                            <div>
+                                <h4 class="text-2xl font-semibold text-gray-800">ROS Expansion Board</h4>
+                                <p class="text-gray-600 mt-2">
+                                    Features the main switch, connections for wheel and arm motors, and distributes power from
+                                    the battery to all other connected components.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
+                            <img src="../assets/hardware/usb_hub_board.jpg" alt="USB HUB Board" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
+                            <div>
+                                <h4 class="text-2xl font-semibold text-gray-800">USB HUB Board</h4>
+                                <p class="text-gray-600 mt-2">
+                                    Increases the number and type of ports available for connecting to the RDK X3 Development
+                                    Board (despite the name, not just USB ports).
+                                </p>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
+                            <img src="../assets/hardware/rgb_cooling_hat.jpg" alt="RGB Cooling Hat" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
+                            <div>
+                                <h4 class="text-2xl font-semibold text-gray-800">RGB Cooling Hat</h4>
+                                <p class="text-gray-600 mt-2">
+                                    Includes a fan for cooling the board stack (RDK X3, ROS Expansion, USB HUB) and some lights
+                                    controllable via the PS2 Controller.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
+                            <img src="../assets/hardware/oled_screen.png" alt="OLED Screen" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
+                            <div>
+                                <h4 class="text-2xl font-semibold text-gray-800">OLED Screen</h4>
+                                <p class="text-gray-600 mt-2">
+                                    Used for displaying text, just 4 lines with about 20 characters per line. It is useful for
+                                    checking the robot's state when a computer connection is not available. It is not strictly
+                                    necessary, but it is quite useful.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
+                            <img src="../assets/hardware/imx219_camera.jpg" alt="IMX219 MIPI Camera" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
+                            <div>
+                                <h4 class="text-2xl font-semibold text-gray-800">IMX219 MIPI Camera</h4>
+                                <p class="text-gray-600 mt-2">
+                                    A camera that connects to the RDK X3 Development Board with a wide, flat ribbon cable. Used
+                                    for object recognition and streaming to the VR.
+                                </p>
+                                <img src="../assets/hardware/imx219_camera_info.jpg" alt="IMX219 MIPI Camera Info" class="mt-4 rounded-lg">
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
+                            <img src="../assets/hardware/lidar.png" alt="MS200 Lidar" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
+                            <div>
+                                <h4 class="text-2xl font-semibold text-gray-800">MS200 Lidar</h4>
+                                <p class="text-gray-600 mt-2">
+                                    Senses the direction and distance of objects in a 2D horizontal plane (if mounted
+                                    perpendicular to the terrain). It comes with a dedicated adapter board. It has a notable
+                                    range (up to 12 meters).
+                                </p>
+                                <p class="text-lg text-gray-600 mb-4"><strong>Note:</strong> In the current setup, the lidar is
+                                    partially occluded and can only see in front and to the sides because of other components
+                                    behind it. Mounting it higher with some kind of pole or platform would solve that but make
+                                    it blind to any obstacle lower than itself.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
+                            <img src="../assets/hardware/ps2_controller.jpg" alt="Wireless PS2-like controller" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
+                            <div>
+                                <h4 class="text-2xl font-semibold text-gray-800">Wireless PS2-like Controller</h4>
+                                <p class="text-gray-600 mt-2">
+                                    Used for manual control of the robot; its behavior can be customized via software. The
+                                    battery is included.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
+                            <img src="../assets/hardware/battery_main.png" alt="Battery" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
+                            <div>
+                                <h4 class="text-2xl font-semibold text-gray-800">Battery</h4>
+                                <p class="text-gray-600 mt-2">
+                                    Powers the ROS Expansion Board and all connected components. It can last from 30 minutes to
+                                    a few hours depending on usage. Its specific charger is also included.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
+                            <img src="../assets/hardware/antenna_main.png" alt="Antenna" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
+                            <div>
+                                <h4 class="text-2xl font-semibold text-gray-800">Antenna</h4>
+                                <p class="text-gray-600 mt-2">One antenna for Wi-Fi connection and hotspot function.</p>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
+                            <img src="../assets/hardware/external_components_main.jpg" alt="External Components" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
+                            <div>
+                                <h4 class="text-2xl font-semibold text-gray-800">External Components</h4>
+                                <p class="text-gray-600 mt-2">
+                                    There are also pieces that are auxiliary and not physically part of the robot, like a
+                                    TFCard-to-USB converter to read/write the TF Card with a computer. Many parts like screws
+                                    and pillars have some spares.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
+                            <img src="../assets/hardware/unused_components_main.jpg" alt="Unused components" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
+                            <div>
+                                <h4 class="text-2xl font-semibold text-gray-800">Unused components</h4>
+                                <p class="text-gray-600 mt-2">
+                                    All the chassis parts, the wheels, and the motors from the RDK X3 robot are not part of the
+                                    current design. The included 64 GB TF Card (system memory) was substituted with a 128 GB one
+                                    just because I had it, you can keep the original.
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
-                    <img src="../assets/hardware/ros_expansion_board.jpg" alt="ROS Expansion Board" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
-                    <div>
-                        <h4 class="text-2xl font-semibold text-gray-800">ROS Expansion Board</h4>
-                        <p class="text-gray-600 mt-2">
-                            Features the main switch, connections for wheel and arm motors, and distributes power from
-                            the battery to all other connected components.
-                        </p>
+                </section>
+
+                <hr class="my-12 border-gray-200">
+
+                <!-- Robotic Arm (Yahboom DOFBOT - Jetson Nano) -->
+                <section id="dofbot" class="mb-16 scroll-mt-24">
+                    <h3 class="text-3xl font-bold text-indigo-700 mb-8">Robotic Arm (Yahboom DOFBOT - Jetson Nano)</h3>
+                    <div class="space-y-8">
+                        <div class="bg-gray-50 p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
+                            <img src="../assets/hardware/robotic_arm.png" alt="Robotic Arm" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
+                            <div>
+                                <h4 class="text-2xl font-semibold text-gray-800">Robotic Arm</h4>
+                                <p class="text-gray-600 mt-2">A pre-assembled robotic arm with 6 Degrees of Freedom (DoF).</p>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
+                            <img src="../assets/hardware/jetson_nano_board.png" alt="Jetson Nano Board" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
+                            <div>
+                                <h4 class="text-2xl font-semibold text-gray-800">Jetson Nano Board</h4>
+                                <p class="text-gray-600 mt-2">
+                                    The arm's computer, which in the current setup, is used only for voice interaction. It
+                                    includes a wireless network card.
+                                </p>
+                                <p class="text-lg text-gray-600 mb-4"><strong>Note 1:</strong> the Yahboom one is configured
+                                    to boot from USB instead of a TF Card. It is possible to revert the change, everything is
+                                    explained on their robotic arm and Jetson Nano guides, but I kept it as is.
+                                </p>
+                                <p class="text-lg text-gray-600 mb-4"><strong>Note 2:</strong> the Jetson Nano, for now, is used
+                                    only for the voice interaction, so it is not strictly necessary. I am using it mainly
+                                    because I already have it. However, it is possible in the future it will be used for more
+                                    functions.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
+                            <img src="../assets/hardware/u_disk.jpg" alt="U Disk" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
+                            <div>
+                                <h4 class="text-2xl font-semibold text-gray-800">U Disk</h4>
+                                <p class="text-gray-600 mt-2">
+                                    A metal USB drive that contains the OS and memory for the Jetson Nano. It can be changed for
+                                    more memory, the provided one has 64 GB.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
+                            <img src="../assets/hardware/robotic_arm_expansion_board.png" alt="Robotic Arm Expansion Board" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
+                            <div>
+                                <h4 class="text-2xl font-semibold text-gray-800">Robotic Arm Expansion Board</h4>
+                                <p class="text-gray-600 mt-2">
+                                    It is equivalent to the ROS Expansion Board for the Jetson Nano. It has input for battery
+                                    plus power distribution, power switch, connections for motors, etc...
+                                </p>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
+                            <img src="../assets/hardware/usb_camera.png" alt="USB Camera" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
+                            <div>
+                                <h4 class="text-2xl font-semibold text-gray-800">USB Camera</h4>
+                                <p class="text-gray-600 mt-2">
+                                    A 0.3 MP USB camera with a support for attaching it to the top of the robotic arm. Used for
+                                    voice interaction, so that the reasoning network can "watch" through the camera if that is
+                                    required to answer user's questions. In theory, you don't need this camera, the IMX219 MIPI
+                                    Camera from the RDK X3 Robot can be used for this purpose. However, I used it because it was
+                                    already included with the robotic arm and because it is convenient (the camera is directly
+                                    connected to the Jetson Nano, where the images are needed, and in this way there are no
+                                    problems with many component competing for the same resource).
+                                </p>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
+                            <img src="../assets/hardware/antennas_jetson.jpg" alt="Antenna Jetson" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
+                            <div>
+                                <h4 class="text-2xl font-semibold text-gray-800">Antenna</h4>
+                                <p class="text-gray-600 mt-2">
+                                    Two antennas for Wi-Fi connection, with a supporting piece of metal. Because of their
+                                    positions, they are one of the most exposed and fragile parts of the whole robot. Note also
+                                    that they tend to come unscrewed easily.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
+                            <img src="../assets/hardware/external_components_jetson.png" alt="External Components" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
+                            <div>
+                                <h4 class="text-2xl font-semibold text-gray-800">External Components</h4>
+                                <p class="text-gray-600 mt-2">
+                                    As for the RDK X3 Robot, there are external components. For example, there are gadgets for
+                                    testing the arm AI capabilities: a mat with delimited areas and cubes with images or colors
+                                    on each side. Not necessary, but it is useful for tests, or as an exercise in controlling
+                                    the robotic arm.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
+                            <img src="../assets/hardware/unused_components_jetson.jpg" alt="Unused components" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
+                            <div>
+                                <h4 class="text-2xl font-semibold text-gray-800">Unused components</h4>
+                                <p class="text-gray-600 mt-2">Unused components include:</p>
+                                <ul class="list-disc pl-6 mt-2">
+                                    <li>a (second) OLED Screen. It is possible, however, that I or someone else in the
+                                        future would add the code for it to the current implementation</li>
+                                    <li>a cabled PS2-like controller</li>
+                                    <li>a transformer to power up the Robotic Arm Expansion Board from an electric plug</li>
+                                    <li>the support base for the arm</li>
+                                </ul>
+                                <p class="text-gray-600 mt-2">
+                                    The controller and transformer are not used because the robot can't have cables to external
+                                    objects.
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
-                    <img src="../assets/hardware/usb_hub_board.jpg" alt="USB HUB Board" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
-                    <div>
-                        <h4 class="text-2xl font-semibold text-gray-800">USB HUB Board</h4>
-                        <p class="text-gray-600 mt-2">
-                            Increases the number and type of ports available for connecting to the RDK X3 Development
-                            Board (despite the name, not just USB ports).
-                        </p>
+                </section>
+
+                <hr class="my-12 border-gray-200">
+
+                <!-- Large Chassis (Yahboom Mecanum Wheel Chassis, Large) -->
+                <section id="chassis" class="mb-16 scroll-mt-24">
+                    <h3 class="text-3xl font-bold text-indigo-700 mb-8">Large Chassis (Yahboom Mecanum Wheel Chassis, Large)</h3>
+                    <div class="space-y-8">
+                        <div class="bg-gray-50 p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
+                            <img src="../assets/hardware/new_chassis.png" alt="Chassis" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
+                            <div>
+                                <h4 class="text-2xl font-semibold text-gray-800">Chassis</h4>
+                                <p class="text-gray-600 mt-2">
+                                    A large chassis configured to host the robotic arm, featuring a "pendulous suspension" to
+                                    ensure all four mecanum wheels maintain ground contact for correct operation.
+                                    <br>It already has many screw holes, but I still had to add quite a few to secure every
+                                    component. I even had to make a larger hole on the bottom plate for the battery cable, but
+                                    it depends on how you organize the various boards and sensors.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
+                            <img src="../assets/hardware/wheels_and_motors.png" alt="Wheels and Motors" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
+                            <div>
+                                <h4 class="text-2xl font-semibold text-gray-800">Wheels and Motors</h4>
+                                <p class="text-gray-600 mt-2">
+                                    Includes larger mecanum wheels and motors. These motors have a higher reduction ratio,
+                                    making them slower but capable of carrying more weight.
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
-                    <img src="../assets/hardware/rgb_cooling_hat.jpg" alt="RGB Cooling Hat" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
-                    <div>
-                        <h4 class="text-2xl font-semibold text-gray-800">RGB Cooling Hat</h4>
-                        <p class="text-gray-600 mt-2">
-                            Includes a fan for cooling the board stack (RDK X3, ROS Expansion, USB HUB) and some lights
-                            controllable via the PS2 Controller.
-                        </p>
+                </section>
+
+                <hr class="my-12 border-gray-200">
+
+                <!-- Separately Acquired Components -->
+                <section id="single-components" class="mb-16 scroll-mt-24">
+                    <h3 class="text-3xl font-bold text-indigo-700 mb-8">Separately Acquired Components</h3>
+                    <div class="space-y-8">
+                        <div class="bg-gray-50 p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
+                            <img src="../assets/hardware/coral_tpu.png" alt="Coral USB Accelerator" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
+                            <div>
+                                <h4 class="text-2xl font-semibold text-gray-800">Coral USB Accelerator (Google)</h4>
+                                <p class="text-gray-600 mt-2">
+                                    It is an Edge TPU, a USB device that a computer can delegate specific computations to. In
+                                    the current setup it is used to run the YOLO models locally (for object recognition and the
+                                    autonomous vision agent). From my tests it speeds up the processing of a single camera frame
+                                    by almost 10 times.
+                                </p>
+                                <p class="text-lg text-gray-600 mb-4"><strong>Note:</strong> I bought the Coral USB Accelerator
+                                    before adding the robotic arm (with the attached Jetson Nano). I didn't do any test, but it
+                                    is possible the Jetson Nano could entirely replace the Coral USB Accelerator.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
+                            <img src="../assets/hardware/battery_jetson_and_charger.jpg" alt="Battery for Jetson Nano" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
+                            <div>
+                                <h4 class="text-2xl font-semibold text-gray-800">Battery for the Jetson Nano (Zeee)</h4>
+                                <p class="text-gray-600 mt-2">
+                                    A Lipo battery (3S 5200mAh with Deans T Plug) that powers all devices on the Robotic Arm
+                                    Expansion Board (Jetson Nano, microphone, speakers, USB Camera). It fits on the space I had
+                                    available, and with 5200mAh probably lasts a lot more than the battery connected to the main
+                                    processor. Consider I had to also buy an extension cable from the battery to the Robotic Arm
+                                    Expansion Board, because the battery cable is short.
+                                </p>
+                                <p class="text-lg text-gray-600 mb-4"><strong>Note 1:</strong> you also need a charger for the
+                                    battery. I am using WANGCL IMAX B6AC Lipo Battery Charger B6 80W Digital LCD, but it is not
+                                    specific for this battery, as long as you know what you are doing, any compatible charger is
+                                    fine.
+                                </p>
+                                <p class="text-lg text-gray-600 mb-4"><strong>Note 2:</strong> the Robotic Arm Expansion Board
+                                    and Jetson Nano can't monitor the battery level, and lithium batteries can be damaged if
+                                    discharged too much. So you may want to monitor the battery level manually or buy a
+                                    component that can do it for you. Since the battery I chose lasts longer than the main
+                                    battery, I use that as recharge reminder.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
+                            <img src="../assets/hardware/microphone.png" alt="ReSpeaker Mic Array v2.0" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
+                            <div>
+                                <h4 class="text-2xl font-semibold text-gray-800">ReSpeaker Mic Array v2.0 (Seeed Studio)</h4>
+                                <p class="text-gray-600 mt-2">
+                                    A microphone array with sound filtering capabilities and Direction of Arrival (DoA)
+                                    computation. Currently, it is connected to the Jetson Nano and for voice interaction (it can
+                                    distinguish between ambient sounds and voices). To use the Sound Agent (the mode in which
+                                    the robot follows any sound it hears), the microphone must be connected to the main board.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
+                            <img src="../assets/hardware/speakers.jpg" alt="Speakers" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
+                            <div>
+                                <h4 class="text-2xl font-semibold text-gray-800">Speakers</h4>
+                                <p class="text-gray-600 mt-2">
+                                    Since the speakers have to be connected to the ReSpeaker Mic Array v2.0, they need a 3.5mm
+                                    audio jack connection. Aside from that requirement, almost any device small enough to fit on
+                                    the robot can be used. I had two unused speakers, so I removed their casing and attached
+                                    them to the robot.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
+                            <img src="../assets/hardware/vr_headset.png" alt="VR Headset" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
+                            <div>
+                                <h4 class="text-2xl font-semibold text-gray-800">VR Headset (Meta Quest 3)</h4>
+                                <p class="text-gray-600 mt-2">
+                                    If you want to use the robot with a VR headset, you need one on which you can install/run
+                                    custom applications. I am using (and only tested it with) Meta Quest 3.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
+                            <div class="flex flex-col space-y-4 flex-shrink-0 mb-4 md:mb-0">
+                                <img src="../assets/hardware/gpio_pins_cable.jpg" alt="GPIO Pins Cable" class="component-image h-32 rounded-lg">
+                                <img src="../assets/hardware/gpio_pins_components.jpg" alt="GPIO Pins Components" class="component-image h-32 rounded-lg">
+                            </div>
+                            <div>
+                                <h4 class="text-2xl font-semibold text-gray-800">Other Customizations</h4>
+                                <p class="text-gray-600 mt-2">Various custom parts including</p>
+                                <ul class="list-disc pl-6 mt-2">
+                                    <li>128 GB TF Card, a memory expansion for the RDK X3 Development Board. You can keep the 64
+                                        GB one from the RDK X3 robot.</li>
+                                    <li>The cables necessary to connect all the components are included in both the RDK X3 Robot
+                                        and the DOFBOT - Jetson Nano. However, I had to buy a few specific cables that adapted
+                                        physically to the new configuration (some were too short, or needed the head to curve in
+                                        a different direction).</li>
+                                    <li>I also added an extension cable to the 40-pin interface of the RDK X3 Development Board
+                                        because, in the current configuration, adding or removing connections to the pins is
+                                        Very inconvenient. Even just counting the pins to connect the cables to the correct pins
+                                        is not an easy task.</li>
+                                    <li>Since I had various LEDs and switches, I connected them to the 40-pi interface of the
+                                        RDK X3 Development Board, so that some important functions of the robot can be used even
+                                        without controller or pc connection. For example, if you want to use the autonomous
+                                        Vision Agent mode (automatically search for a target and move toward it), a controller
+                                        should not be needed, it is autonomous after all!</li>
+                                    <li>For fixing all the components to the chassis you would need extra screws, pillars, and
+                                        other supporting pieces.</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
-                    <img src="../assets/hardware/oled_screen.png" alt="OLED Screen" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
-                    <div>
-                        <h4 class="text-2xl font-semibold text-gray-800">OLED Screen</h4>
-                        <p class="text-gray-600 mt-2">
-                            Used for displaying text, just 4 lines with about 20 characters per line. It is useful for
-                            checking the robot's state when a computer connection is not available. It is not strictly
-                            necessary, but it is quite useful.
-                        </p>
-                    </div>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
-                    <img src="../assets/hardware/imx219_camera.jpg" alt="IMX219 MIPI Camera" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
-                    <div>
-                        <h4 class="text-2xl font-semibold text-gray-800">IMX219 MIPI Camera</h4>
-                        <p class="text-gray-600 mt-2">
-                            A camera that connects to the RDK X3 Development Board with a wide, flat ribbon cable. Used
-                            for object recognition and streaming to the VR.
-                        </p>
-                        <img src="../assets/hardware/imx219_camera_info.jpg" alt="IMX219 MIPI Camera Info" class="mt-4 rounded-lg">
-                    </div>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
-                    <img src="../assets/hardware/lidar.png" alt="MS200 Lidar" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
-                    <div>
-                        <h4 class="text-2xl font-semibold text-gray-800">MS200 Lidar</h4>
-                        <p class="text-gray-600 mt-2">
-                            Senses the direction and distance of objects in a 2D horizontal plane (if mounted
-                            perpendicular to the terrain). It comes with a dedicated adapter board. It has a notable
-                            range (up to 12 meters).
-                        </p>
-                        <p class="text-lg text-gray-600 mb-4"><strong>Note:</strong> In the current setup, the lidar is
-                            partially occluded and can only see in front and to the sides because of other components
-                            behind it. Mounting it higher with some kind of pole or platform would solve that but make
-                            it blind to any obstacle lower than itself.
-                        </p>
-                    </div>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
-                    <img src="../assets/hardware/ps2_controller.jpg" alt="Wireless PS2-like controller" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
-                    <div>
-                        <h4 class="text-2xl font-semibold text-gray-800">Wireless PS2-like Controller</h4>
-                        <p class="text-gray-600 mt-2">
-                            Used for manual control of the robot; its behavior can be customized via software. The
-                            battery is included.
-                        </p>
-                    </div>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
-                    <img src="../assets/hardware/battery_main.png" alt="Battery" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
-                    <div>
-                        <h4 class="text-2xl font-semibold text-gray-800">Battery</h4>
-                        <p class="text-gray-600 mt-2">
-                            Powers the ROS Expansion Board and all connected components. It can last from 30 minutes to
-                            a few hours depending on usage. Its specific charger is also included.
-                        </p>
-                    </div>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
-                    <img src="../assets/hardware/antenna_main.png" alt="Antenna" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
-                    <div>
-                        <h4 class="text-2xl font-semibold text-gray-800">Antenna</h4>
-                        <p class="text-gray-600 mt-2">One antenna for Wi-Fi connection and hotspot function.</p>
-                    </div>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
-                    <img src="../assets/hardware/external_components_main.jpg" alt="External Components" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
-                    <div>
-                        <h4 class="text-2xl font-semibold text-gray-800">External Components</h4>
-                        <p class="text-gray-600 mt-2">
-                            There are also pieces that are auxiliary and not physically part of the robot, like a
-                            TFCard-to-USB converter to read/write the TF Card with a computer. Many parts like screws
-                            and pillars have some spares.
-                        </p>
-                    </div>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
-                    <img src="../assets/hardware/unused_components_main.jpg" alt="Unused components" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
-                    <div>
-                        <h4 class="text-2xl font-semibold text-gray-800">Unused components</h4>
-                        <p class="text-gray-600 mt-2">
-                            All the chassis parts, the wheels, and the motors from the RDK X3 robot are not part of the
-                            current design. The included 64 GB TF Card (system memory) was substituted with a 128 GB one
-                            just because I had it, you can keep the original.
-                        </p>
-                    </div>
-                </div>
+                </section>
             </div>
-        </div>
-
-        <!-- Category: Components from DOFBOT - Jetson Nano (Yahboom) -->
-        <div class="mb-16">
-            <h3 class="text-3xl font-bold text-gray-700 mb-8 border-b-2 border-indigo-500 pb-2">From DOFBOT - Jetson Nano (Yahboom)</h3>
-            <div class="space-y-8">
-                <div class="bg-white p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
-                    <img src="../assets/hardware/robotic_arm.png" alt="Robotic Arm" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
-                    <div>
-                        <h4 class="text-2xl font-semibold text-gray-800">Robotic Arm</h4>
-                        <p class="text-gray-600 mt-2">A pre-assembled robotic arm with 6 Degrees of Freedom (DoF).</p>
-                    </div>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
-                    <img src="../assets/hardware/jetson_nano_board.png" alt="Jetson Nano Board" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
-                    <div>
-                        <h4 class="text-2xl font-semibold text-gray-800">Jetson Nano Board</h4>
-                        <p class="text-gray-600 mt-2">
-                            The arm's computer, which in the current setup, is used only for voice interaction. It
-                            includes a wireless network card.
-                        </p>
-                        <p class="text-lg text-gray-600 mb-4"><strong>Note 1:</strong> the Yahboom one is configured
-                            to boot from USB instead of a TF Card. It is possible to revert the change, everything is
-                            explained on their robotic arm and Jetson Nano guides, but I kept it as is.
-                        </p>
-                        <p class="text-lg text-gray-600 mb-4"><strong>Note 2:</strong> the Jetson Nano, for now, is used
-                            only for the voice interaction, so it is not strictly necessary. I am using it mainly
-                            because I already have it. However, it is possible in the future it will be used for more
-                            functions.
-                        </p>
-                    </div>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
-                    <img src="../assets/hardware/u_disk.jpg" alt="U Disk" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
-                    <div>
-                        <h4 class="text-2xl font-semibold text-gray-800">U Disk</h4>
-                        <p class="text-gray-600 mt-2">
-                            A metal USB drive that contains the OS and memory for the Jetson Nano. It can be changed for
-                            more memory, the provided one has 64 GB.
-                        </p>
-                    </div>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
-                    <img src="../assets/hardware/robotic_arm_expansion_board.png" alt="Robotic Arm Expansion Board" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
-                    <div>
-                        <h4 class="text-2xl font-semibold text-gray-800">Robotic Arm Expansion Board</h4>
-                        <p class="text-gray-600 mt-2">
-                            It is equivalent to the ROS Expansion Board for the Jetson Nano. It has input for battery
-                            plus power distribution, power switch, connections for motors, etc...
-                        </p>
-                    </div>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
-                    <img src="../assets/hardware/usb_camera.png" alt="USB Camera" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
-                    <div>
-                        <h4 class="text-2xl font-semibold text-gray-800">USB Camera</h4>
-                        <p class="text-gray-600 mt-2">
-                            A 0.3 MP USB camera with a support for attaching it to the top of the robotic arm. Used for
-                            voice interaction, so that the reasoning network can "watch" through the camera if that is
-                            required to answer user's questions. In theory, you don't need this camera, the IMX219 MIPI
-                            Camera from the RDK X3 Robot can be used for this purpose. However, I used it because it was
-                            already included with the robotic arm and because it is convenient (the camera is directly
-                            connected to the Jetson Nano, where the images are needed, and in this way there are no
-                            problems with many component competing for the same resource).
-                        </p>
-                    </div>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
-                    <img src="../assets/hardware/antennas_jetson.jpg" alt="Antenna Jetson" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
-                    <div>
-                        <h4 class="text-2xl font-semibold text-gray-800">Antenna</h4>
-                        <p class="text-gray-600 mt-2">
-                            Two antennas for Wi-Fi connection, with a supporting piece of metal. Because of their
-                            positions, they are one of the most exposed and fragile parts of the whole robot. Note also
-                            that they tend to come unscrewed easily.
-                        </p>
-                    </div>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
-                    <img src="../assets/hardware/external_components_jetson.png" alt="External Components" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
-                    <div>
-                        <h4 class="text-2xl font-semibold text-gray-800">External Components</h4>
-                        <p class="text-gray-600 mt-2">
-                            As for the RDK X3 Robot, there are external components. For example, there are gadgets for
-                            testing the arm AI capabilities: a mat with delimited areas and cubes with images or colors
-                            on each side. Not necessary, but it is useful for tests, or as an exercise in controlling
-                            the robotic arm.
-                        </p>
-                    </div>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
-                    <img src="../assets/hardware/unused_components_jetson.jpg" alt="Unused components" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
-                    <div>
-                        <h4 class="text-2xl font-semibold text-gray-800">Unused components</h4>
-                        <p class="text-gray-600 mt-2">Unused components include:</p>
-                        <ul class="list-disc pl-6 mt-2">
-                            <li>a (second) OLED Screen. It is possible, however, that I or someone else in the
-                                future would add the code for it to the current implementation</li>
-                            <li>a cabled PS2-like controller</li>
-                            <li>a transformer to power up the Robotic Arm Expansion Board from an electric plug</li>
-                            <li>the support base for the arm</li>
-                        </ul>
-                        <p class="text-gray-600 mt-2">
-                            The controller and transformer are not used because the robot can't have cables to external
-                            objects.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Category: Components from mecanum Wheel Chassis (large) (Yahboom) -->
-        <div class="mb-16">
-            <h3 class="text-3xl font-bold text-gray-700 mb-8 border-b-2 border-indigo-500 pb-2">From mecanum Wheel Chassis (Yahboom)</h3>
-            <div class="space-y-8">
-                <div class="bg-white p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
-                    <img src="../assets/hardware/new_chassis.png" alt="Chassis" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
-                    <div>
-                        <h4 class="text-2xl font-semibold text-gray-800">Chassis</h4>
-                        <p class="text-gray-600 mt-2">
-                            A large chassis configured to host the robotic arm, featuring a "pendulous suspension" to
-                            ensure all four mecanum wheels maintain ground contact for correct operation.
-                            <br>It already has many screw holes, but I still had to add quite a few to secure every
-                            component. I even had to make a larger hole on the bottom plate for the battery cable, but
-                            it depends on how you organize the various boards and sensors.
-                        </p>
-                    </div>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
-                    <img src="../assets/hardware/wheels_and_motors.png" alt="Wheels and Motors" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
-                    <div>
-                        <h4 class="text-2xl font-semibold text-gray-800">Wheels and Motors</h4>
-                        <p class="text-gray-600 mt-2">
-                            Includes larger mecanum wheels and motors. These motors have a higher reduction ratio,
-                            making them slower but capable of carrying more weight.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Category: Components bought separately -->
-        <div class="mb-16">
-            <h3 class="text-3xl font-bold text-gray-700 mb-8 border-b-2 border-indigo-500 pb-2">Separately Acquired Components</h3>
-            <div class="space-y-8">
-                <div class="bg-white p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
-                    <img src="../assets/hardware/coral_tpu.png" alt="Coral USB Accelerator" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
-                    <div>
-                        <h4 class="text-2xl font-semibold text-gray-800">Coral USB Accelerator (Google)</h4>
-                        <p class="text-gray-600 mt-2">
-                            It is an Edge TPU, a USB device that a computer can delegate specific computations to. In
-                            the current setup it is used to run the YOLO models locally (for object recognition and the
-                            autonomous vision agent). From my tests it speeds up the processing of a single camera frame
-                            by almost 10 times.
-                        </p>
-                        <p class="text-lg text-gray-600 mb-4"><strong>Note:</strong> I bought the Coral USB Accelerator
-                            before adding the robotic arm (with the attached Jetson Nano). I didn't do any test, but it
-                            is possible the Jetson Nano could entirely replace the Coral USB Accelerator.
-                        </p>
-                    </div>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
-                    <img src="../assets/hardware/battery_jetson_and_charger.jpg" alt="Battery for Jetson Nano" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
-                    <div>
-                        <h4 class="text-2xl font-semibold text-gray-800">Battery for the Jetson Nano (Zeee)</h4>
-                        <p class="text-gray-600 mt-2">
-                            A Lipo battery (3S 5200mAh with Deans T Plug) that powers all devices on the Robotic Arm
-                            Expansion Board (Jetson Nano, microphone, speakers, USB Camera). It fits on the space I had
-                            available, and with 5200mAh probably lasts a lot more than the battery connected to the main
-                            processor. Consider I had to also buy an extension cable from the battery to the Robotic Arm
-                            Expansion Board, because the battery cable is short.
-                        </p>
-                        <p class="text-lg text-gray-600 mb-4"><strong>Note 1:</strong> you also need a charger for the
-                            battery. I am using WANGCL IMAX B6AC Lipo Battery Charger B6 80W Digital LCD, but it is not
-                            specific for this battery, as long as you know what you are doing, any compatible charger is
-                            fine.
-                        </p>
-                        <p class="text-lg text-gray-600 mb-4"><strong>Note 2:</strong> the Robotic Arm Expansion Board
-                            and Jetson Nano can't monitor the battery level, and lithium batteries can be damaged if
-                            discharged too much. So you may want to monitor the battery level manually or buy a
-                            component that can do it for you. Since the battery I chose lasts longer than the main
-                            battery, I use that as recharge reminder.
-                        </p>
-                    </div>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
-                    <img src="../assets/hardware/microphone.png" alt="ReSpeaker Mic Array v2.0" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
-                    <div>
-                        <h4 class="text-2xl font-semibold text-gray-800">ReSpeaker Mic Array v2.0 (Seeed Studio)</h4>
-                        <p class="text-gray-600 mt-2">
-                            A microphone array with sound filtering capabilities and Direction of Arrival (DoA)
-                            computation. Currently, it is connected to the Jetson Nano and for voice interaction (it can
-                            distinguish between ambient sounds and voices). To use the Sound Agent (the mode in which
-                            the robot follows any sound it hears), the microphone must be connected to the main board.
-                        </p>
-                    </div>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
-                    <img src="../assets/hardware/speakers.jpg" alt="Speakers" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
-                    <div>
-                        <h4 class="text-2xl font-semibold text-gray-800">Speakers</h4>
-                        <p class="text-gray-600 mt-2">
-                            Since the speakers have to be connected to the ReSpeaker Mic Array v2.0, they need a 3.5mm
-                            audio jack connection. Aside from that requirement, almost any device small enough to fit on
-                            the robot can be used. I had two unused speakers, so I removed their casing and attached
-                            them to the robot.
-                        </p>
-                    </div>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
-                    <img src="../assets/hardware/vr_headset.png" alt="VR Headset" class="component-image h-32 rounded-lg flex-shrink-0 mb-4 md:mb-0">
-                    <div>
-                        <h4 class="text-2xl font-semibold text-gray-800">VR Headset (Meta Quest 3)</h4>
-                        <p class="text-gray-600 mt-2">
-                            If you want to use the robot with a VR headset, you need one on which you can install/run
-                            custom applications. I am using (and only tested it with) Meta Quest 3.
-                        </p>
-                    </div>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-start md:space-x-6">
-                    <div class="flex flex-col space-y-4 flex-shrink-0 mb-4 md:mb-0">
-                        <img src="../assets/hardware/gpio_pins_cable.jpg" alt="GPIO Pins Cable" class="component-image h-32 rounded-lg">
-                        <img src="../assets/hardware/gpio_pins_components.jpg" alt="GPIO Pins Components" class="component-image h-32 rounded-lg">
-                    </div>
-                    <div>
-                        <h4 class="text-2xl font-semibold text-gray-800">Other Customizations</h4>
-                        <p class="text-gray-600 mt-2">Various custom parts including</p>
-                        <ul class="list-disc pl-6 mt-2">
-                            <li>128 GB TF Card, a memory expansion for the RDK X3 Development Board. You can keep the 64
-                                GB one from the RDK X3 robot.</li>
-                            <li>The cables necessary to connect all the components are included in both the RDK X3 Robot
-                                and the DOFBOT - Jetson Nano. However, I had to buy a few specific cables that adapted
-                                physically to the new configuration (some were too short, or needed the head to curve in
-                                a different direction).</li>
-                            <li>I also added an extension cable to the 40-pin interface of the RDK X3 Development Board
-                                because, in the current configuration, adding or removing connections to the pins is
-                                Very inconvenient. Even just counting the pins to connect the cables to the correct pins
-                                is not an easy task.</li>
-                            <li>Since I had various LEDs and switches, I connected them to the 40-pi interface of the
-                                RDK X3 Development Board, so that some important functions of the robot can be used even
-                                without controller or pc connection. For example, if you want to use the autonomous
-                                Vision Agent mode (automatically search for a target and move toward it), a controller
-                                should not be needed, it is autonomous after all!</li>
-                            <li>For fixing all the components to the chassis you would need extra screws, pillars, and
-                                other supporting pieces.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+        </main>
     </div>
-</section>
+</div>
 
 <div id="footer-placeholder"></div>
 <script src="main.js"></script>
