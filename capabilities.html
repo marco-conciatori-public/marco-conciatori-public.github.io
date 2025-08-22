@@ -318,6 +318,88 @@
                 </section>
 
                 <hr class="my-12 border-gray-200">
+                <!-- Voice Interaction -->
+                <section id="voice-interaction" class="mb-16 scroll-mt-24">
+                    <h3 class="text-3xl font-bold text-indigo-700 mb-6">Voice Interaction</h3>
+                    <div class="grid md:grid-cols-12 gap-8 items-center">
+                        <div class="md:col-span-7">
+                            <p class="text-lg text-gray-600 mb-4">
+                                Mantis can interact with the user via spoken commands. It understands natural language
+                                (many languages are supported) and can:
+                            </p>
+                            <ul class="list-disc list-inside text-lg text-gray-600 space-y-2 mb-4">
+                                <li>respond through the speakers (often it responds in English unless
+                                    explicitly asked to do it in a different language).</li>
+                                <li>execute various robot functions. Es. move the robot (you can specify direction, velocity
+                                    and duration), move the arm (it uses inverse kinematics to accept intuitive commands),
+                                    use the arm's camera, sound the buzzer, increase/decrease max speed...</li>
+                                <li>access the robotic arm's camera to add visual information to the conversation.</li>
+                            </ul>
+                            <p class="text-lg text-gray-600 mb-4">
+                                It uses the ReSpeaker Mic Array v2.0 to recognize voices and filter out other sounds. The voice
+                                interaction is powered by Google's
+                                <a href="https://ai.google.dev/gemini-api/docs" class="text-blue-600 hover:underline">Gemini API</a>.
+                                Each time the robot is powered on, it is a new session, but within the session it has memory of
+                                the conversation, so you can ask follow-up questions, and it will remember what you said before.
+                            </p>
+                            <p class="text-lg text-gray-600 mb-4">
+                                <strong>Note 1:</strong> in my experience, you need to speak quite loudly for this mode to work well.
+                            </p>
+                            <p class="text-lg text-gray-600 mb-4">
+                                <strong>Note 2:</strong> this capability requires internet connection, since the models are not
+                                hosted locally on the robot.
+                            </p>
+                            <p class="text-lg text-gray-600 mb-4">
+                                <strong>Note 3:</strong> you will need to create an account and put your API key on the robot
+                                to use this feature. With the free tier, you have a limited number of requests per minute and
+                                per day, but it is still usable.
+                            </p>
+                        </div>
+                        <div class="md:col-span-5">
+                            <img src="assets/capabilities/speakers_and_microphone.jpg" alt="Voice Interaction" class="rounded-lg w-full h-auto object-contain">
+                        </div>
+                    </div>
+                    <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="aspect-w-16 aspect-h-9 overflow-hidden p-4">
+                            <h4 class="font-semibold text-lg text-gray-700 text-center">Respond and move</h4>
+                            <iframe
+                                    src="https://player.cloudinary.com/embed/?cloud_name=dywsmv4ow&public_id=voice_interaction_generic_correction_uct9qd&profile=cld-default"
+                                    width="640"
+                                    height="360"
+                                    title="Respond and move"
+                                    style="height: auto; width: 100%; aspect-ratio: 640 / 360;"
+                                    allow="fullscreen; encrypted-media; gyroscope"
+                                    allowfullscreen
+                            ></iframe>
+                        </div>
+                        <div class="aspect-w-16 aspect-h-9 overflow-hidden p-4">
+                            <h4 class="font-semibold text-lg text-gray-700 text-center">Control arm</h4>
+                            <iframe
+                                    src="https://player.cloudinary.com/embed/?cloud_name=dywsmv4ow&public_id=voice_interaction_arm_short_bhuerw&profile=cld-default"
+                                    width="640"
+                                    height="360"
+                                    title="Control arm"
+                                    style="height: auto; width: 100%; aspect-ratio: 640 / 360;"
+                                    allow="fullscreen; encrypted-media; gyroscope"
+                                    allowfullscreen
+                            ></iframe>
+                        </div>
+                        <div class="aspect-w-16 aspect-h-9 overflow-hidden p-4">
+                            <h4 class="font-semibold text-lg text-gray-700 text-center">Camera interaction</h4>
+                            <iframe
+                                    src="https://player.cloudinary.com/embed/?cloud_name=dywsmv4ow&public_id=voice_interaction_camera_collage_z1rfcm&profile=cld-default"
+                                    width="640"
+                                    height="360"
+                                    title="Camera interaction"
+                                    style="height: auto; width: 100%; aspect-ratio: 640 / 360;"
+                                    allow="fullscreen; encrypted-media; gyroscope"
+                                    allowfullscreen
+                            ></iframe>
+                        </div>
+                    </div>
+                </section>
+
+                <hr class="my-12 border-gray-200">
                 <!-- Obstacle Avoidance -->
                 <section id="obstacle-avoidance" class="mb-16 scroll-mt-24">
                     <h3 class="text-3xl font-bold text-indigo-700 mb-6">Obstacle Avoidance</h3>
@@ -403,88 +485,6 @@
                                     width="640"
                                     height="360"
                                     title="VR Control"
-                                    style="height: auto; width: 100%; aspect-ratio: 640 / 360;"
-                                    allow="fullscreen; encrypted-media; gyroscope"
-                                    allowfullscreen
-                            ></iframe>
-                        </div>
-                    </div>
-                </section>
-
-                <hr class="my-12 border-gray-200">
-                <!-- Voice Interaction -->
-                <section id="voice-interaction" class="mb-16 scroll-mt-24">
-                    <h3 class="text-3xl font-bold text-indigo-700 mb-6">Voice Interaction</h3>
-                    <div class="grid md:grid-cols-12 gap-8 items-center">
-                        <div class="md:col-span-7">
-                            <p class="text-lg text-gray-600 mb-4">
-                                Mantis can interact with the user via spoken commands. It understands natural language
-                                (many languages are supported) and can:
-                            </p>
-                            <ul class="list-disc list-inside text-lg text-gray-600 space-y-2 mb-4">
-                                <li>respond through the speakers (often it responds in English unless
-                                    explicitly asked to do it in a different language).</li>
-                                <li>execute various robot functions. Es. move the robot (you can specify direction, velocity
-                                    and duration), move the arm (it uses inverse kinematics to accept intuitive commands),
-                                    use the arm's camera, sound the buzzer, increase/decrease max speed...</li>
-                                <li>access the robotic arm's camera to add visual information to the conversation.</li>
-                            </ul>
-                            <p class="text-lg text-gray-600 mb-4">
-                                It uses the ReSpeaker Mic Array v2.0 to recognize voices and filter out other sounds. The voice
-                                interaction is powered by Google's
-                                <a href="https://ai.google.dev/gemini-api/docs" class="text-blue-600 hover:underline">Gemini API</a>.
-                                Each time the robot is powered on, it is a new session, but within the session it has memory of
-                                the conversation, so you can ask follow-up questions, and it will remember what you said before.
-                            </p>
-                            <p class="text-lg text-gray-600 mb-4">
-                                <strong>Note 1:</strong> in my experience, you need to speak quite loudly for this mode to work well.
-                            </p>
-                            <p class="text-lg text-gray-600 mb-4">
-                                <strong>Note 2:</strong> this capability requires internet connection, since the models are not
-                                hosted locally on the robot.
-                            </p>
-                            <p class="text-lg text-gray-600 mb-4">
-                                <strong>Note 3:</strong> you will need to create an account and put your API key on the robot
-                                to use this feature. With the free tier, you have a limited number of requests per minute and
-                                per day, but it is still usable.
-                            </p>
-                        </div>
-                        <div class="md:col-span-5">
-                            <img src="assets/capabilities/speakers_and_microphone.jpg" alt="Voice Interaction" class="rounded-lg w-full h-auto object-contain">
-                        </div>
-                    </div>
-                    <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <div class="aspect-w-16 aspect-h-9 overflow-hidden p-4">
-                            <h4 class="font-semibold text-lg text-gray-700 text-center">Respond and move</h4>
-                            <iframe
-                                    src="https://player.cloudinary.com/embed/?cloud_name=dywsmv4ow&public_id=voice_interaction_generic_correction_uct9qd&profile=cld-default"
-                                    width="640"
-                                    height="360"
-                                    title="Respond and move"
-                                    style="height: auto; width: 100%; aspect-ratio: 640 / 360;"
-                                    allow="fullscreen; encrypted-media; gyroscope"
-                                    allowfullscreen
-                            ></iframe>
-                        </div>
-                        <div class="aspect-w-16 aspect-h-9 overflow-hidden p-4">
-                            <h4 class="font-semibold text-lg text-gray-700 text-center">Control arm</h4>
-                            <iframe
-                                    src="https://player.cloudinary.com/embed/?cloud_name=dywsmv4ow&public_id=voice_interaction_arm_short_bhuerw&profile=cld-default"
-                                    width="640"
-                                    height="360"
-                                    title="Control arm"
-                                    style="height: auto; width: 100%; aspect-ratio: 640 / 360;"
-                                    allow="fullscreen; encrypted-media; gyroscope"
-                                    allowfullscreen
-                            ></iframe>
-                        </div>
-                        <div class="aspect-w-16 aspect-h-9 overflow-hidden p-4">
-                            <h4 class="font-semibold text-lg text-gray-700 text-center">Camera interaction</h4>
-                            <iframe
-                                    src="https://player.cloudinary.com/embed/?cloud_name=dywsmv4ow&public_id=voice_interaction_camera_collage_z1rfcm&profile=cld-default"
-                                    width="640"
-                                    height="360"
-                                    title="Camera interaction"
                                     style="height: auto; width: 100%; aspect-ratio: 640 / 360;"
                                     allow="fullscreen; encrypted-media; gyroscope"
                                     allowfullscreen
