@@ -11,56 +11,73 @@
 <body class="antialiased">
 <div id="navbar-placeholder"></div>
 
-<main class="container mx-auto px-4 py-8">
-    <div class="bg-white p-8 sm:p-12 rounded-lg shadow-md">
-        <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Mantis Controller Guide</h2>
-        <p class="text-lg text-gray-600 max-w-4xl mx-auto mb-16">
-            There are many actions and commands that the robot can perform, far more than the buttons on the PS2
-            controller. To address this problem the controls are divided into different modes, each with its own set of
-            functionalities. For example, in <strong>User controlled mode (wheels)</strong> the joysticks control the movement of the
-            robot, while in <strong>User controlled mode (arm - forward kinematics)</strong> the same joysticks control the robotic arm
-            movements. Below is a guide to help you navigate through the various control schemes.
-        </p>
+<div class="container mx-auto px-4 py-8">
+    <div class="lg:grid lg:grid-cols-12 lg:gap-8">
 
-        <section id="general-controls" class="mb-16 scroll-mt-24">
-            <h3 class="text-3xl font-bold text-indigo-700 mb-6 text-center">General controls (all modes)</h3>
-            <img src="assets/controls/ps2_controller_key_map_en/Slide1.PNG" alt="General controls (all modes)" class="w-full h-auto object-contain mt-8">
-        </section>
-        <hr class="my-12 border-gray-200">
+        <aside class="hidden lg:block lg:col-span-2 lg:sticky lg:top-24 self-start">
+            <nav class="p-4 rounded-lg bg-gray-50 border">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">Control Modes</h3>
+                <ul class="space-y-2" id="side-nav-links">
+                    <li><a href="#user-wheels" class="side-nav-link block text-gray-600 hover:text-indigo-700 p-2 rounded-md transition-colors duration-200">User Mode (Wheels)</a></li>
+                    <li><a href="#user-arm-fk" class="side-nav-link block text-gray-600 hover:text-indigo-700 p-2 rounded-md transition-colors duration-200">User Mode (Arm - FK)</a></li>
+                    <li><a href="#user-arm-ik" class="side-nav-link block text-gray-600 hover:text-indigo-700 p-2 rounded-md transition-colors duration-200">User Mode (Arm - IK)</a></li>
+                    <li><a href="#agent-vision" class="side-nav-link block text-gray-600 hover:text-indigo-700 p-2 rounded-md transition-colors duration-200">Agent (Vision)</a></li>
+                    <li><a href="#agent-sound" class="side-nav-link block text-gray-600 hover:text-indigo-700 p-2 rounded-md transition-colors duration-200">Agent (Sound)</a></li>
+                    <li><a href="#vr-control" class="side-nav-link block text-gray-600 hover:text-indigo-700 p-2 rounded-md transition-colors duration-200">VR Control Mode</a></li>
+                </ul>
+            </nav>
+        </aside>
 
-        <section id="user-wheels" class="mb-16 scroll-mt-24">
-            <h3 class="text-3xl font-bold text-indigo-700 mb-6 text-center">User controlled mode (wheels)</h3>
-            <img src="assets/controls/ps2_controller_key_map_en/Slide2.PNG" alt="User controlled mode (wheels)" class="w-full h-auto object-contain mt-8">
-        </section>
-        <hr class="my-12 border-gray-200">
+        <main class="lg:col-span-10">
+            <div class="bg-white p-8 sm:p-12 rounded-lg shadow-md">
+                <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Mantis Controller Guide</h2>
+                <p class="text-lg text-gray-600 max-w-4xl mx-auto mb-16">
+                    There are many actions and commands that the robot can perform, far more than the buttons on the PS2
+                    controller. To address this problem the controls are divided into different modes, each with its own set of
+                    functionalities. For example, in <strong>User controlled mode (wheels)</strong> the joysticks control the movement of the
+                    robot, while in <strong>User controlled mode (arm - forward kinematics)</strong> the same joysticks control the movements of the
+                    robotic arm.
+                </p>
 
-        <section id="user-arm-fk" class="mb-16 scroll-mt-24">
-            <h3 class="text-3xl font-bold text-indigo-700 mb-6 text-center">User controlled mode (arm - forward kinematics)</h3>
-            <!-- Not adding extra space between title and image here (mt-8), because the image already has more white on top -->
-            <img src="assets/controls/ps2_controller_key_map_en/Slide3.PNG" alt="User controlled mode (arm - forward kinematics)" class="w-full h-auto object-contain">
-        </section>
-        <hr class="my-12 border-gray-200">
+                <section id="user-wheels" class="mb-16 scroll-mt-24">
+                    <h3 class="text-3xl font-bold text-indigo-700 mb-6 text-center">User controlled mode (wheels)</h3>
+                    <img src="assets/controls/ps2_controller_key_map_en/Slide1.PNG" alt="User controlled mode (wheels)" class="w-full h-auto object-contain">
+                </section>
+                <hr class="my-12 border-gray-200">
 
-        <section id="user-arm-ik" class="mb-16 scroll-mt-24">
-            <h3 class="text-3xl font-bold text-indigo-700 mb-6 text-center">User controlled mode (arm - inverse kinematics)</h3>
-            <!-- Not adding extra space between title and image here, because the image already has more white on top -->
-            <img src="assets/controls/ps2_controller_key_map_en/Slide4.PNG" alt="User controlled mode (arm - inverse kinematics)" class="w-full h-auto object-contain">
-        </section>
-        <hr class="my-12 border-gray-200">
+                <section id="user-arm-fk" class="mb-16 scroll-mt-24">
+                    <h3 class="text-3xl font-bold text-indigo-700 mb-6 text-center">User controlled mode (arm - forward kinematics)</h3>
+                    <img src="assets/controls/ps2_controller_key_map_en/Slide2.PNG" alt="User controlled mode (arm - forward kinematics)" class="w-full h-auto object-contain">
+                </section>
+                <hr class="my-12 border-gray-200">
 
-        <section id="auto-vision" class="mb-16 scroll-mt-24">
-            <h3 class="text-3xl font-bold text-indigo-700 mb-6 text-center">Autonomous mode (vision agent)</h3>
-            <img src="assets/controls/ps2_controller_key_map_en/Slide5.PNG" alt="Autonomous mode (vision agent)" class="w-full h-auto object-contain mt-8">
-        </section>
-        <hr class="my-12 border-gray-200">
+                <section id="user-arm-ik" class="mb-16 scroll-mt-24">
+                    <h3 class="text-3xl font-bold text-indigo-700 mb-6 text-center">User controlled mode (arm - inverse kinematics)</h3>
+                    <img src="assets/controls/ps2_controller_key_map_en/Slide4.PNG" alt="User controlled mode (arm - inverse kinematics)" class="w-full h-auto object-contain">
+                </section>
+                <hr class="my-12 border-gray-200">
 
-        <section id="auto-sound" class="scroll-mt-24">
-            <h3 class="text-3xl font-bold text-indigo-700 mb-6 text-center">Autonomous mode (sound agent)</h3>
-            <img src="assets/controls/ps2_controller_key_map_en/Slide6.PNG" alt="Autonomous mode (sound agent)" class="w-full h-auto object-contain mt-8">
-        </section>
+                <section id="agent-vision" class="mb-16 scroll-mt-24">
+                    <h3 class="text-3xl font-bold text-indigo-700 mb-6 text-center">Autonomous mode (vision agent)</h3>
+                    <img src="assets/controls/ps2_controller_key_map_en/Slide5.PNG" alt="Autonomous mode (vision agent)" class="w-full h-auto object-contain mt-8">
+                </section>
+                <hr class="my-12 border-gray-200">
 
+                <section id="agent-sound" class="mb-16 scroll-mt-24">
+                    <h3 class="text-3xl font-bold text-indigo-700 mb-6 text-center">Autonomous mode (sound agent)</h3>
+                    <img src="assets/controls/ps2_controller_key_map_en/Slide6.PNG" alt="Autonomous mode (sound agent)" class="w-full h-auto object-contain mt-8">
+                </section>
+                <hr class="my-12 border-gray-200">
+
+                <section id="vr-control" class="mb-16 scroll-mt-24">
+                    <h3 class="text-3xl font-bold text-indigo-700 mb-6 text-center">VR control mode</h3>
+                    <img src="assets/controls/ps2_controller_key_map_en/Slide7.PNG" alt="VR control mode" class="w-full h-auto object-contain mt-8">
+                </section>
+
+            </div>
+        </main>
     </div>
-</main>
+</div>
 
 <div id="footer-placeholder"></div>
 <script src="main.js"></script>
