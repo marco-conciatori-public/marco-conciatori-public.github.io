@@ -11,13 +11,23 @@
 <body class="antialiased">
 <div id="navbar-placeholder"></div>
 
-<!-- Setup Guide -->
-<!-- Note Section -->
-<section id="note" class="bg-white py-16 rounded-lg shadow-md mx-4 mt-8">
-    <div class="container mx-auto px-4">
-        <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Getting Started: Setup Guide for Mantis</h2>
-    </div>
-</section>
+<div class="container mx-auto px-4 py-8">
+    <div class="lg:grid lg:grid-cols-12 lg:gap-8">
+
+        <aside class="hidden lg:block lg:col-span-2 lg:sticky lg:top-24 self-start">
+            <nav class="p-4 rounded-lg bg-gray-50 border">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">Setup Guide</h3>
+                <ul class="space-y-2" id="side-nav-links">
+                    <li><a href="#original-robot" class="side-nav-link block text-gray-600 hover:text-indigo-700 p-2 rounded-md transition-colors duration-200">The Original Robot</a></li>
+                    <li><a href="#robot-upgrades" class="side-nav-link block text-gray-600 hover:text-indigo-700 p-2 rounded-md transition-colors duration-200">Robot's Upgrades</a></li>
+                    <li><a href="#final-robot" class="side-nav-link block text-gray-600 hover:text-indigo-700 p-2 rounded-md transition-colors duration-200">The Final Robot</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="lg:col-span-10">
+            <div class="bg-white p-8 sm:p-12 rounded-lg shadow-md">
+                <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Complete Setup Guide for Mantis</h2>
                 <p class="text-lg text-gray-600 max-w-5xl mx-auto mb-16">
                     This page explains how I created my robot, including hardware and software installation. Follow
                     these steps if you want to create your own.
@@ -32,101 +42,79 @@
                     wheels are off the ground. In this way, even if it starts moving it won't cause damage.
                 </p>
 
-<!-- The original robot Section -->
-<section id="original robot" class="bg-gray-50 py-16 rounded-lg shadow-md mx-4 mt-8">
-    <div class="container mx-auto px-4">
-        <h3 class="text-2xl font-semibold text-gray-800 mb-4">The original robot</h3>
-        I started my project from Yahboom's <a href="https://www.yahboom.net/study/RDK-X3-Robot" class="text-blue-600 hover:underline">RDK X3 Robot</a>
-        (the version without the depth camera), which is already a fully functioning robot (you have to assemble it however) with a lot of capabilities.
-        <img src="assets/setup/original_robot.png" alt="Original Robot" style="width: 400px; height: auto;">
+                <hr class="my-12 border-gray-200">
 
-        <h4 class="text-xl font-semibold text-gray-800 mb-2">Brief introduction</h4>
-        RDK X3 has 4 mecanum wheels, which give it the ability to move in any direction. For sensors, it has a
-        camera, a lidar, and other internal sensors that I still have not experimented with, like IMU. It has a
-        buzzer that can emit a beeping sound and a small oled screen that displays information about the robot.
-        it also comes with a handy, wireless PS2-like controller. The main computer is a RDK X3 development board, which
-        is similar to a Raspberry Pi.
-        <br>
-        The robot has already many sophisticated capabilities, such as SLAM (Simultaneous Localization And
-        Mapping), which allows it to map its environment and navigate autonomously. It can also follow a line, avoid
-        obstacles, and recognize objects. Most of them are implemented as ROS2 packages, which is a framework for
-        building robotic applications.
-        The <a href="https://www.yahboom.net/study/RDK-X3-Robot" class="text-blue-600 hover:underline">official documentation</a>
-        linked above enters into the details about all the hardware and software, if you are interested.
+                <section id="original-robot" class="mb-16 scroll-mt-24">
+                    <h3 class="text-3xl font-bold text-indigo-700 mb-6">The original robot</h3>
+                    <p class="text-lg text-gray-600 mb-4">I started my project from Yahboom's <a href="https://www.yahboom.net/study/RDK-X3-Robot" class="text-blue-600 hover:underline">RDK X3 Robot</a> (the version without the depth camera), which is already a fully functioning robot (you have to assemble it however) with a lot of capabilities.</p>
+                    <img src="assets/setup/original_robot.png" alt="Original Robot" class="rounded-lg w-full h-auto object-contain mb-4">
 
-        <h4 class="text-xl font-semibold text-gray-800 mb-2">PC connection</h4>
-        To access the robot OS from a computer there are several ways, but what I found most convenient is with
-        RealVNC viewer, which is a remote desktop application. Note, however, that the robot has to already be connected
-        to the same Wi-Fi network as your computer. To do this I connected a screen, a mouse, and a keyboard via cable directly to the robot,
-        and then I configured the Wi-Fi network from the desktop environment.
+                    <h4 class="text-2xl font-semibold text-gray-800 mb-2">Brief introduction</h4>
+                    <p class="text-lg text-gray-600 mb-4">
+                        RDK X3 has 4 mecanum wheels, which give it the ability to move in any direction. For sensors, it has a
+                        camera, a lidar, and other internal sensors that I still have not experimented with, like IMU. It has a
+                        buzzer that can emit a beeping sound and a small oled screen that displays information about the robot.
+                        it also comes with a handy, wireless PS2-like controller. The main computer is a RDK X3 development board, which
+                        is similar to a Raspberry Pi.
+                        <br>
+                        The robot has already many sophisticated capabilities, such as SLAM (Simultaneous Localization And
+                        Mapping), which allows it to map its environment and navigate autonomously. It can also follow a line, avoid
+                        obstacles, and recognize objects. Most of them are implemented as ROS2 packages, which is a framework for
+                        building robotic applications.
+                        The <a href="https://www.yahboom.net/study/RDK-X3-Robot" class="text-blue-600 hover:underline">official documentation</a>
+                        linked above enters into the details about all the hardware and software, if you are interested.
+                    </p>
+                    <h4 class="text-2xl font-semibold text-gray-800 mb-2">PC connection</h4>
+                    <p class="text-lg text-gray-600 mb-4">
+                        To access the robot OS from a computer there are several ways, but what I found most convenient is with
+                        RealVNC viewer, which is a remote desktop application. Note, however, that the robot has to already be connected
+                        to the same Wi-Fi network as your computer. To do this I connected a screen, a mouse, and a keyboard via cable directly to the robot,
+                        and then I configured the Wi-Fi network from the desktop environment.
+                    </p>
+                    <h4 class="text-2xl font-semibold text-gray-800 mb-2">Issues</h4>
+                    <ul class="list-disc pl-6 mb-4 text-lg text-gray-600 space-y-2">
+                        <li>The smartphone apps provided by Yahboom didn't work in my case (the robot should be controllable by phone).</li>
+                        <li>I had trouble with the advanced capabilities, in part because my pc has Windows, so I had to use a virtual machine with Ubuntu to run ROS. But even then, sometimes they didn't work as expected.</li>
+                        <li>The robot could not translate to the left or the right as it should (thanks to the mecanum wheels). Two of the wheels on a diagonal line were a bit elevated, almost not touching the ground. I didn't find the origin, maybe it was how I attached the motors to the chassis, or the chassis itself was a bit bent. Thankfully, the bigger chassis didn't have this problem.</li>
+                        <li>The RDK X3 Robot arrived with a defective IMX2...</li>
+                    </ul>
+                </section>
 
-        <h4 class="text-xl font-semibold text-gray-800 mb-2">Issues</h4>
-        I had some issues with the robot, which I will list here so you will be prepared in advance.
-        <ul class="list-disc pl-6 mb-4">
-            <li>The smartphone apps provided by Yahboom didn't work in my case (the robot should be controllable by phone).</li>
-            <li>I had trouble with the advanced capabilities, in part because my pc has Windows, so I had to use
-                a virtual machine with Ubuntu to run ROS. But even then, sometimes they didn't work as expected.</li>
-            <li>The robot could not translate to the left or the right as it should (thanks to the mecanum wheels). Two
-                of the wheels on a diagonal line were a bit elevated, almost not touching the ground. I didn't find the
-                origin, maybe it was how I attached the motors to the chassis, or the chassis itself was a bit bent.
-                Thankfully, the bigger chassis didn't have this problem.</li>
-            <li>The RDK X3 Robot arrived with a defective IMX219 MIPI Camera: it worked but the images were very blurry.
-                The Yahboom's customer service, however, was responsive (but keep in mind they are active at Chinese
-                workday hours) and helpful, and after a bit of confirmation they sent me a new camera for free. They
-                were so nice that I asked them many technical questions about the robot after that!</li>
-        </ul>
+                <hr class="my-12 border-gray-200">
 
-        <h4 class="text-xl font-semibold text-gray-800 mb-2">Software</h4>
-        I started by changing small bits of code while I was trying to understand how the robot worked. For example, I
-        added the control of the internal lights to the PS2 controller and changed some of the information
-        displayed on the oled screen.
-        <br>
-        In the end I wrote almost all the code from scratch, but I still use some of the original code, for example
-        the functions to send commands to hardware components like the motors, screen, buzzer, and so on. You can
-        find the code in my <a href="https://github.com/marco-conciatori-public?tab=repositories" class="text-blue-600 hover:underline">GitHub repository</a>.
-        There is more than one repository related to the robot
-        <ul class="list-disc pl-6 mb-4">
-            <li> <b>yahboom_rdk_x3_robot</b> contains the code for the robot's main computer (RDK X3 development board), it is mostly python with
-                some bash scripts. Actually, all my code is in the "sunriseRobot" folder, I kept the original folder
-                structure with all of Yahboom's code because I find it useful as a reference while programming. Remember
-                to switch to the latest branch (currently it is "arm_inverse_kinematics"). The other useful part of the
-                repository is the "src" folder where my ROS2 packages are kept.</li>
-            <li> <b>voice_robot_interaction</b> contains the code for the voice interaction with the robot. It is meant
-                to be run on the second computer on the robot, the Jetson Nano, just because I had it available (it came
-                with the robotic arm). It helps to offload some of the processing from the main computer and uses the
-                arm camera to avoid conflicts, but it is not strictly necessary. Note that if you want to run it on the
-                main computer you have to change a good portion of the code and install the required libraries.</li>
-            <li> <b>robot_remote_control</b> and <b>robot_remote_control_2</b> were attempts to create a smartphone
-                application to control and monitor the robot, but I have no experience in mobile development and
-                for now they are not functional.</li>
-            <li> <b>marco-conciatori-public.github.io</b> is the repository for this website, it contains the code for the
-                pages you are reading now.</li>
-        </ul>
-        There are still many features to add (es. the smartphone app mentioned above), inefficiencies to improve (es.
-        the inverse kinematics computation), bugs to solve, and the code could be better organized. If you want to
-        contribute, feel free to fork the repositories and make a pull request, I will be happy to review it. Or just
-        send advices: I am a python programmer, expert on AI, but this was my first experience with robotics, ROS/ROS2,
-        smartphone applications, and Unity/C#, so I expect many things could be improved. Even this is the first
-        website I create (thanks Gemini)!
+                <section id="robot-upgrades" class="mb-16 scroll-mt-24">
+                    <h3 class="text-3xl font-bold text-indigo-700 mb-6">Robot's upgrades</h3>
+                    <p class="text-lg text-gray-600 mb-4">
+                        In this section are listed many small upgrades (hardware and software) to the RDK X3 robot. For the more complex
+                        modifications each one has a dedicated section.
+                    </p>
+                    <h4 class="text-2xl font-semibold text-gray-800 mb-2">Oled screen</h4>
+                    <p class="text-lg text-gray-600 mb-4">
+                        The oled screen is a small display that shows information about the robot, it has low resolution and a very
+                        limited number of characters that can be displayed at once, but it is useful to show the status of the robot
+                        when you cant connect to it with a computer or a smartphone.
+                    </p>
+                    <img src="https://res.cloudinary.com/dywsmv4ow/image/upload/v1754322683/oled_screen_zoom_compressed_h7mspn.jpg" alt="Oled Screen" class="rounded-lg w-full h-auto object-contain mb-4">
+                </section>
+
+                <hr class="my-12 border-gray-200">
+
+                <section id="final-robot" class="mb-16 scroll-mt-24">
+                    <h3 class="text-3xl font-bold text-indigo-700 mb-6">The final robot</h3>
+                    <p class="text-lg text-gray-600 mb-4">
+                        This is the final result of my work, with all the modifications and upgrades.
+                        <br>
+                        Many of the capabilities are explained in more detail in their own section, but for a quick
+                        overview, the robot is now able to:
+                    </p>
+                    <ul class="list-disc pl-6 mb-4 text-lg text-gray-600 space-y-2">
+                        <li>...</li>
+                    </ul>
+                </section>
+            </div>
+        </main>
     </div>
-</section>
-
-<!-- Upgrades to the original robot Section -->
-<section id="robot's upgrades" class="bg-gray-50 py-16 rounded-lg shadow-md mx-4 mt-8">
-    <div class="container mx-auto px-4">
-        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Robot's upgrades</h3>
-        In this section are listed many small upgrades (hardware and software) to the RDK X3 robot. For the more complex
-        modifications each one has a dedicated section.
-
-        <h4 class="text-xl font-semibold text-gray-800 mb-2">Oled screen</h4>
-        The oled screen is a small display that shows information about the robot, it has low resolution and a very
-        limited number of characters that can be displayed at once, but it is useful to show the status of the robot
-        when you cant connect to it with a computer or a smartphone.
-        <img src=https://res.cloudinary.com/dywsmv4ow/image/upload/v1754322683/oled_screen_zoom_compressed_h7mspn.jpg alt="Oled Screen" style="width: 800px; height: auto;">
-        <br>
-        It can display 4 lines of text,
-    </div>
-</section>
+</div>
 
 <div id="footer-placeholder"></div>
 <script src="main.js"></script>
