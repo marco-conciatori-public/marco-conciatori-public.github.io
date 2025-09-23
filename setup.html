@@ -59,15 +59,58 @@
                     <h4 class="text-2xl font-semibold text-gray-800 mb-2">PC connection</h4>
                     <p class="text-lg text-gray-600 mb-4">
                         To access the robot OS from a computer there are several ways, but what I found most convenient
-                        is with RealVNC viewer, which is a remote desktop application. Note, however, that the robot
-                        I started my project from Yahboom's
-                        <a href="https://www.yahboom.net/study/RDK-X3-Robot" class="text-blue-600 hover:underline">RDK X3 Robot</a>
-                        (the version without the depth camera), which is already a fully functioning robot (you have to
-                        assemble it however) with a lot of capabilities.
-                        has to already be connected to the same Wi-Fi network as your computer. To do this, I connected
-                        a screen, mouse, and keyboard via cable directly to the robot, and then I connected to my
-                        Wi-Fi network from the robot's OS.
+                        is with RealVNC viewer, a remote desktop application. Before that, however, the robot has to
+                        already be connected to the same Wi-Fi network as your computer. To do this, I connected
+                        a screen, mouse, and keyboard via cable directly to the robot, and then I connected it to my
+                        Wi-Fi network from the robot's OS. While you are doing this, check the IP address of the robot
+                        (you can find it in the Wi-Fi settings), you will need it later to connect with RealVNC.
+                        With the full setup, you have to do this operation 2 times, one for the RDK X3 board, and one
+                        for the Jetson Nano board. Afterward, you can access both boards from your computer with
+                        RealVNC. Sometimes the VNC connection fails and you have to retry a few times.
                     </p>
+
+                    <h4 class="text-2xl font-semibold text-gray-800 mb-2">Save and write OS images</h4>
+                    <p class="text-lg text-gray-600 mb-4">
+                        To use the OS images I provide, you will need to be able to write them to SD card and USB.
+                        Even if you want to recreate your own by following the steps, errors happen, and they could have
+                        serious consequences. I recommend you to become familiar with saving and loading OS images, and
+                        do so frequently when you are making changes to the OS. They are checkpoints you can go back to
+                        if something goes wrong.
+                        <br>
+                        The RDK X3 board uses a micro SD card, while the Jetson Nano uses a USB drive if you bought it
+                        with the robotic arm, or a micro SD card if you bought the basic version.
+                        <br><strong>Note 1</strong>: you will need a micro SD card adapter to connect the micro SD card
+                        to your PC, unless your PC has a micro SD card reader.
+                        <br><strong>Note 2</strong>: I switch between Windows and Linux depending on the task, because
+                        I find it easier. It is probably possible to do the same with other systems, but my instructions
+                        won't work for a different OS.
+                        <br><strong>Note 3</strong>: in my case, the USB and SD card become quite hot during the
+                        operations, so much that I use a small fan to cool them down.
+                        <br><strong>Write/flash USB (on Windows)</strong>
+                    </p>
+                    <ul class="list-disc list-inside text-lg text-gray-600 space-y-2 mb-4">
+                        <li> Connect the USB to your PC.</li>
+                        <li> If it was already flashed with an OS image, follow these additional steps.
+                            <ul class="list-decimal list-inside text-lg text-gray-600 space-y-2 mt-2 ml-4">
+                                <li> Windows will see (and open) many partitions, all unreadable.</li>
+                                <li> Close all those folders, and open "This PC"</li>
+                                <li> Perform a quick format with standard settings on every visible partition of the
+                                    USB. Careful not to format one of your hard drives!</li>
+                                <li> Open "Disk Management": this tool allows you to view and modify the partitions on
+                                    your drives</li>
+                                <li> Remove every partition from the USB stick. You should do this for the partitions
+                                    listed in the top view as well as those shown graphically in the bottom view of
+                                    Disk Management.</li>
+                                <li> Create a new simple partition ("FAT" file system).</li>
+                                <li> Format the new partition with standard settings. Sometimes, you may need to do
+                                    this twice for the drive to become readable by your system.</li>
+                            </ul></li>
+                        <li> Open Win32DiskImager, Rufus, or another similar tool. I use
+                            <a href="https://win32diskimager.org/" class="text-blue-600 hover:underline">Win32DiskImager</a>.</li>
+                        <li> Select your USB drive, choose the OS image file, and begin the flashing process. If you
+                            are given a choice for the file system, always select FAT.</li>
+                    </ul>
+
                 </section>
 
             </div>
