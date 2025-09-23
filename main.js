@@ -9,9 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const data = await response.text();
             const placeholder = document.getElementById(placeholderId);
             if (placeholder) {
-                placeholder.innerHTML = data;
-            } else {
-                console.warn(`Placeholder '${placeholderId}' not found. Ensure a div with id='${placeholderId}' exists.`);
+                placeholder.outerHTML = data;
             }
         } catch (error) {
             console.error(`Error loading ${filePath}:`, error);
@@ -27,7 +25,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 img.addEventListener('error', function handleError() {
                     console.warn(`Failed to load image: ${this.src}. Setting fallback.`);
                     // Set a placeholder image if the original fails to load
-                    // Ensure the placeholder has appropriate dimensions or styling
                     this.src = 'https://placehold.co/600x300/e0e7ff/4338ca?text=Image+Not+Found';
                     // Remove the event listener to prevent infinite loops if fallback also fails
                     this.removeEventListener('error', handleError);
@@ -92,16 +89,18 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Execute functions when the DOM is fully loaded
-    // Load navbar first, then footer, then set up image fallbacks and highlight nav
-    loadContent('navbar-placeholder', 'navbar.html').then(() => {
-        highlightActiveNavLink(); // Highlight after navbar is loaded
-    });
-    loadContent('footer-placeholder', 'footer.html');
-    setupImageErrorFallback();
+    // Since the placeholder is replaced, we need to load content and then run scripts
+    async function initializePage() {
+        await loadContent('navbar-placeholder', 'navbar.html');
+        await loadContent('footer-placeholder', 'footer.html');
 
-    // This line activates the side menu logic
-    setupSideNavObserver();
+        // Now that the navbar is in the DOM, we can highlight the link
+        highlightActiveNavLink();
+        setupImageErrorFallback();
+        setupSideNavObserver();
+    }
+
+    initializePage();
 });
 
 // Get the modal and its content
