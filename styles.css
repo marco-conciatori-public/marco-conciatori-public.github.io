@@ -65,3 +65,27 @@ pre.code-block {
     border-radius: 0.5rem; /* rounded-lg */
     overflow-x: auto; /* horizontal scroll if needed */
 }
+/* Custom list style for first-level lists, they uses bullet points */
+ul.first-level {
+    list-style-type: disc;
+    list-style-position: inside;
+    font-size: 1.125rem; /* text-lg */
+    color: #4b5563; /* gray-600 */
+    margin-bottom: 1rem; /* mb-4 */
+}
+.first-level li {
+    margin-bottom: 0.5rem; /* space-y-2 */
+}
+/* Custom list style for second-level lists, they uses square points */
+ul.second-level {
+    list-style-type: square;
+    list-style-position: inside;
+    font-size: 1.125rem; /* text-lg */
+    color: #4b5563; /* gray-600 */
+    margin-top: 0.5rem; /* mt-2 */
+    margin-bottom: 0.5rem; /* mb-2 */
+    margin-left: 1.25rem; /* increased indentation */
+}
+.second-level li {
+    margin-bottom: 0.4rem; /* space-y-2 */
+}
