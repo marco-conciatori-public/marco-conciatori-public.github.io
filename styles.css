@@ -46,3 +46,7 @@ section {
     color: #3730a3; /* indigo-800 */
     font-weight: 600; /* font-semibold */
 }
+/* Custom list style for dashed lists */
+.list-dash li {
+    list-style-type: "- ";
+}
