@@ -173,3 +173,8 @@ a.side-nav-link.active-nav-link {
     color: #3730a3; /* indigo-700 */
     font-weight: 600; /* font-semibold */
 }
+
+/* HORIZONTAL RULE */
+hr.custom_hr {
+    border-color: #d1d5db;/* border-gray-300 */
+}
