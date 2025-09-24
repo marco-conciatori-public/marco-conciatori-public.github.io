@@ -112,3 +112,35 @@ p.page_intro {
     margin-right: auto; /* mx-auto */
     margin-bottom: 4rem; /* mb-16 */
 }
+
+/* CUSTOM STYLES FOR TITLES */
+/* page title */
+h2.page_title {
+    font-size: 2.25rem; /* text-4xl */
+    font-weight: 700; /* font-bold */
+    color: #1e293b; /* gray-800 */
+    margin-bottom: 3rem; /* mb-12 */
+    text-align: center; /* text-center */
+}
+/* section title */
+h3.section_title {
+    font-size: 1.875rem; /* text-3xl */
+    font-weight: 700; /* font-bold */
+    color: #4338ca; /* indigo-700 */
+    margin-bottom: 2rem; /* mb-8 */
+}
+/* section subtitle */
+h4.section_subtitle {
+    font-size: 1.5rem; /* text-2xl */
+    font-weight: 600;  /* font-semibold */
+    color: #1f2937;    /* gray-800 */
+    margin-bottom: 0.5rem; /* mb-2 */
+}
+/* element title */
+h4.element_title {
+    font-size: 1.125rem; /* text-lg */
+    font-weight: 600; /* font-semibold */
+    color: #374151; /* gray-700 */
+    margin-bottom: 0.75rem; /* mb-3 */
+    text-align: center; /* text-center */
+}

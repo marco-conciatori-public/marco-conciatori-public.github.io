@@ -16,7 +16,7 @@
 
         <aside class="hidden lg:block lg:col-span-2 lg:sticky lg:top-24 self-start">
             <nav class="p-4 rounded-lg bg-gray-50 border">
-                <h3 class="text-lg font-semibold text-gray-900 mb-4">Setup Guide</h3>
+                <h4 class="element_title">Setup Guide</h4>
                 <ul class="space-y-2" id="side-nav-links">
                     <li><a href="#original-robot" class="side-nav-link block text-gray-600 hover:text-indigo-700 p-2 rounded-md transition-colors duration-200">The Original Robot</a></li>
                 </ul>
@@ -25,7 +25,7 @@
 
         <main class="lg:col-span-10">
             <div class="bg-white p-8 sm:p-12 rounded-lg shadow-md">
-                <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Complete Setup Guide for Mantis</h2>
+                <h2 class="page_title">Complete Setup Guide for Mantis</h2>
                 <p class="page_intro max-w-5xl">
                     This guide will explain step by step how to recreate my robot, including hardware and software.
                     I will explain in very fine detail how to set up the robot OS, install all the necessary libraries,
@@ -46,7 +46,7 @@
                 </p>
 
                 <section id="original-robot" class="mb-16 scroll-mt-24">
-                    <h3 class="text-3xl font-bold text-indigo-700 mb-6">Before you start</h3>
+                    <h3 class="section_title">Before you start</h3>
                     <p class="standard_text">
                         You will need all the components listed as necessary in the
                         <a href="hardware.html#" class="text-blue-600 hover:underline">Hardware</a> section of this
@@ -56,7 +56,7 @@
 
                     </p>
 
-                    <h4 class="text-2xl font-semibold text-gray-800 mb-2">PC connection</h4>
+                    <h4 class="section_subtitle">PC connection</h4>
                     <p class="standard_text">
                         To access the robot OS from a computer there are several ways, but what I found most convenient
                         is with RealVNC viewer, a remote desktop application. Before that, however, the robot has to
@@ -69,7 +69,7 @@
                         RealVNC. Sometimes the VNC connection fails and you have to retry a few times.
                     </p>
 
-                    <h4 class="text-2xl font-semibold text-gray-800 mb-2">Save and write OS images</h4>
+                    <h4 class="section_subtitle">Save and write OS images</h4>
                     <p class="standard_text">
                         To use the OS images I provide, you will need to be able to write them to SD card and USB.
                         Even if you want to recreate your own by following the steps, errors happen, and they could have
@@ -93,10 +93,10 @@
                                 <li> Windows will see (and open) many partitions, all unreadable.</li>
                                 <li> Close all those folders, and open "This PC"</li>
                                 <li> Perform a quick format with standard settings on every visible partition of the
-                                    USB. Careful not to format one of your hard drives!</li>
+                                    memory. Careful not to format one of your hard drives!</li>
                                 <li> Open "Disk Management": this tool allows you to view and modify the partitions on
                                     your drives</li>
-                                <li> Remove every partition from the USB stick. You should do this for the partitions
+                                <li> Remove every partition from the memory. You should do this for the partitions
                                     listed in the top view as well as those shown graphically in the bottom view of
                                     Disk Management.</li>
                                 <li> Create a new simple partition ("FAT" file system).</li>
