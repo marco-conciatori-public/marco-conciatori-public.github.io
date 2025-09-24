@@ -79,6 +79,17 @@ ul.second-level {
 .second-level li {
     margin-bottom: 0.4rem; /* space-y-1.8 */
 }
+/* numbered list */
+ol.numbered_list {
+    list-style-type: decimal;
+    font-size: 1.125rem;     /* text-lg */
+    color: #4b5563;          /* gray-600 */
+    margin-bottom: 1rem;     /* mb-4 */
+    padding-left: 1.5rem;    /* pl-6 */
+}
+ol.custom_numbered_list li {
+    margin-bottom: 0.5rem;   /* space-y-2 */
+}
 
 /* CUSTOM STYLES FOR PARAGRAPH */
 /* normal text */
