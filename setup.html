@@ -16,7 +16,7 @@
 
         <aside class="hidden lg:block lg:col-span-2 lg:sticky lg:top-24 self-start">
             <nav class="p-4 rounded-lg bg-gray-50 border">
-                <h4 class="element_title">Setup Guide</h4>
+                <h4 class="element-title">Setup Guide</h4>
                 <ul class="space-y-2" id="side-nav-links">
                     <li><a href="#original-robot" class="side-nav-link">The Original Robot</a></li>
                 </ul>
@@ -25,8 +25,8 @@
 
         <main class="lg:col-span-10">
             <div class="bg-white p-8 sm:p-12 rounded-lg shadow-md">
-                <h2 class="page_title">Complete Setup Guide for Mantis</h2>
-                <p class="page_intro max-w-5xl">
+                <h2 class="page-title">Complete Setup Guide for Mantis</h2>
+                <p class="page-intro max-w-5xl">
                     This guide will explain step by step how to recreate my robot, including hardware and software.
                     I will explain in very fine detail how to set up the robot OS, install all the necessary libraries,
                     and run the code, because it is not simple and even small mistakes can lead to hours of debugging.
@@ -45,19 +45,19 @@
                     wheels are off the ground. In this way, even if it starts moving it won't cause damage.
                 </p>
 
-                <section id="original-robot" class="standard_section">
-                    <h3 class="section_title">Before you start</h3>
-                    <p class="standard_text">
+                <section id="original-robot" class="standard-section">
+                    <h3 class="section-title">Before you start</h3>
+                    <p class="standard-text">
                         You will need all the components listed as necessary in the
-                        <a href="hardware.html#" class="standard_link">Hardware</a> section of this
+                        <a href="hardware.html#" class="standard-link">Hardware</a> section of this
                         website. You will also need a computer and Wi-Fi.
                         The hardware components
                         <br>
 
                     </p>
 
-                    <h4 class="section_subtitle">PC connection</h4>
-                    <p class="standard_text">
+                    <h4 class="section-subtitle">PC connection</h4>
+                    <p class="standard-text">
                         To access the robot OS from a computer there are several ways, but what I found most convenient
                         is with RealVNC viewer, a remote desktop application. Before that, however, the robot has to
                         already be connected to the same Wi-Fi network as your computer. To do this, I connected
@@ -69,8 +69,8 @@
                         RealVNC. Sometimes the VNC connection fails and you have to retry a few times.
                     </p>
 
-                    <h4 class="section_subtitle">Save and write OS images</h4>
-                    <p class="standard_text">
+                    <h4 class="section-subtitle">Save and write OS images</h4>
+                    <p class="standard-text">
                         To use the OS images I provide, you will need to be able to write them to SD card and USB.
                         Even if you want to recreate your own by following the steps, errors happen, and they could have
                         serious consequences. I recommend you to become familiar with saving and loading OS images, and
@@ -104,11 +104,11 @@
                                     this twice for the drive to become readable by your system.</li>
                             </ul></li>
                         <li> Open Win32DiskImager, Rufus, or another similar tool. I use
-                            <a href="https://win32diskimager.org/" class="standard_link">Win32DiskImager</a>.</li>
+                            <a href="https://win32diskimager.org/" class="standard-link">Win32DiskImager</a>.</li>
                         <li> Select your memory, choose the OS image file, and begin the flashing process. If you
                             are given a choice for the file system, always select FAT.</li>
                     </ul>
-                    <p class="standard_text"><br><strong>On Linux (both flashing and cloning):</strong></p>
+                    <p class="standard-text"><br><strong>On Linux (both flashing and cloning):</strong></p>
                     <ul class="first-level">
                         <li> Connect the memory to your PC.</li>
                         <li> Identify the name of the disk: use the terminal command <code class="code-inline">lsblk</code>. It will show all the

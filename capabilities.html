@@ -18,7 +18,7 @@
         <!-- Side Navigation (Sticky on large screens) -->
         <aside class="hidden lg:block lg:col-span-2 lg:sticky lg:top-24 self-start">
             <nav class="p-4 rounded-lg bg-gray-50 border">
-                <h4 class="element_title">Capabilities</h4>
+                <h4 class="element-title">Capabilities</h4>
                 <ul class="space-y-2" id="side-nav-links">
                     <li><a href="#omnidirectional-movement" class="side-nav-link">Omnidirectional Movement</a></li>
                     <li><a href="#robotic-arm" class="side-nav-link">Robotic Arm</a></li>
@@ -35,20 +35,20 @@
         <!-- Main Content -->
         <main class="lg:col-span-10">
             <div class="bg-white p-8 sm:p-12 rounded-lg shadow-md">
-                <h2 class="page_title">What Mantis Can Do</h2>
+                <h2 class="page-title">What Mantis Can Do</h2>
 
                 <!-- Movement Section -->
-                <section id="omnidirectional-movement" class="standard_section">
-                    <h3 class="section_title">Omnidirectional Movement</h3>
+                <section id="omnidirectional-movement" class="standard-section">
+                    <h3 class="section-title">Omnidirectional Movement</h3>
                     <div class="grid md:grid-cols-12 gap-8 items-center">
                         <div class="md:col-span-7">
-                            <p class="standard_text">
+                            <p class="standard-text">
                                 Mantis has four mecanum wheels, which grant it the ability to move forward, backward, sideways,
                                 and rotate on the spot. This omnidirectional movement allows it to navigate tight spaces and
                                 complex environments with ease. Mecanum wheels work best on surfaces that are not too smooth,
                                 nor too uneven.
                             </p>
-                            <p class="standard_text">
+                            <p class="standard-text">
                                 For precise control, the speed can be adjusted in real time between 10% and 100% of the maximum
                                 velocity using the controller.
                                 This affects all form of movement, including autonomous navigation and arm speed.
@@ -60,7 +60,7 @@
                     </div>
                     <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
                         <div class="aspect-w-16 aspect-h-9 overflow-hidden p-4">
-                            <h4 class="element_title">Mecanum wheels</h4>
+                            <h4 class="element-title">Mecanum wheels</h4>
                             <iframe
                                     src="https://player.cloudinary.com/embed/?cloud_name=dywsmv4ow&public_id=movement_short_o9zp8a&profile=cld-default"
                                     width="640"
@@ -72,7 +72,7 @@
                             ></iframe>
                         </div>
                         <div class="aspect-w-16 aspect-h-9 overflow-hidden p-4">
-                            <h4 class="element_title">Change max speed</h4>
+                            <h4 class="element-title">Change max speed</h4>
                             <iframe
                                     src="https://player.cloudinary.com/embed/?cloud_name=dywsmv4ow&public_id=change_max_speed_fghv2h&profile=cld-default"
                                     width="640"
@@ -86,13 +86,13 @@
                     </div>
                 </section>
                 
-                <hr class="custom_hr">
+                <hr class="standard-hr">
                 <!-- Arm Movement Section -->
-                <section id="robotic-arm" class="standard_section">
-                    <h3 class="section_title">Robotic Arm</h3>
+                <section id="robotic-arm" class="standard-section">
+                    <h3 class="section-title">Robotic Arm</h3>
                     <div class="grid md:grid-cols-12 gap-8 items-center">
                         <div class="md:col-span-8">
-                            <p class="standard_text">
+                            <p class="standard-text">
                                 The robotic arm has 6 motors, giving it 6 Degrees of Freedom (DoF), which allows it to reach a
                                 wide range of positions and orientations. The 1st motor controls the base rotation, motors 2, 3
                                 and 4 can bend the arm at different points, the 5th motor controls the gripper rotation, and the
@@ -110,7 +110,7 @@
                                     substituted with controls for the 3 axes of a 3D position in space. Currently, this
                                     mode is noticeably slow because the main computer can't complete the computations fast
                                     enough. It uses the
-                                    <a href="https://ikpy.readthedocs.io/en/latest/ikpy.html" class="standard_link">IKPy library</a>
+                                    <a href="https://ikpy.readthedocs.io/en/latest/ikpy.html" class="standard-link">IKPy library</a>
                                     to calculate inverse kinematics.
                                 <li><strong>Memorized positions:</strong> the arm can move between memorized positions.
                                     There are 4 buttons on the controller that can be used to memorize and recall
@@ -118,7 +118,7 @@
                                     A long press (2 seconds) memorizes the current position, while a click makes the arm
                                     reach the memorized position.</li>
                             </ul>
-                            <p class="standard_text">
+                            <p class="standard-text">
                                 Finally, it is possible to unlock the arm motors with the
                                 controller, so that it can be moved manually (for example to memorize a position).
                                 The arm is automatically extended forward when you start using it, and folded back when
@@ -131,7 +131,7 @@
                     </div>
                     <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         <div class="aspect-w-16 aspect-h-9 overflow-hidden p-4">
-                            <h4 class="element_title">Forward kinematics</h4>
+                            <h4 class="element-title">Forward kinematics</h4>
                             <iframe
                                     src="https://player.cloudinary.com/embed/?cloud_name=dywsmv4ow&public_id=robotic_arm_mqmijm&profile=cld-default"
                                     width="640"
@@ -143,7 +143,7 @@
                             ></iframe>
                         </div>
                         <div class="aspect-w-16 aspect-h-9 overflow-hidden p-4">
-                            <h4 class="element_title">Inverse kinematics</h4>
+                            <h4 class="element-title">Inverse kinematics</h4>
                             <iframe
                                     src="https://player.cloudinary.com/embed/?cloud_name=dywsmv4ow&public_id=inverse_kinematics_ktnd1s&profile=cld-default"
                                     width="640"
@@ -155,7 +155,7 @@
                             ></iframe>
                         </div>
                         <div class="aspect-w-16 aspect-h-9 overflow-hidden p-4">
-                            <h4 class="element_title">Memorized positions</h4>
+                            <h4 class="element-title">Memorized positions</h4>
                             <iframe
                                     src="https://player.cloudinary.com/embed/?cloud_name=dywsmv4ow&public_id=arm_memorized_positions_few1rc&profile=cld-default"
                                     width="640"
@@ -169,21 +169,21 @@
                     </div>
                 </section>
 
-                <hr class="custom_hr">
+                <hr class="standard-hr">
                 <!-- Computer Vision Section -->
-                <section id="computer-vision" class="standard_section">
-                    <h3 class="section_title">Computer Vision</h3>
+                <section id="computer-vision" class="standard-section">
+                    <h3 class="section-title">Computer Vision</h3>
                     <div class="grid md:grid-cols-12 gap-8 items-center">
                         <div class="md:col-span-7">
-                            <p class="standard_text">
+                            <p class="standard-text">
                                 Mantis is equipped with a frontal camera that allows it to see its surroundings and uses
-                                <a href="https://docs.ultralytics.com/" class="standard_link">YOLO
+                                <a href="https://docs.ultralytics.com/" class="standard-link">YOLO
                                     (You Only Look Once)</a> to detect objects in real time. YOLO models can detect about 80
                                 different categories including people, animals, vehicles, tools, toys, electronic devices, etc.
                                 It is free and works very well. It is also relatively easy to fine-tune models, so you can
                                 customize it to your needs.
                             </p>
-                            <p class="standard_text">
+                            <p class="standard-text">
                                 On the robot are present four YOLO models (the latest at the time of the development): v11 large
                                 for TPU, v11 medium for TPU, v11 small for TPU, v11 small standard. YOLO on the main computer is
                                 very slow (about 30 seconds to examine a single image, but it depends on the model dimension).
@@ -202,7 +202,7 @@
                     </div>
                     <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
                         <div class="aspect-w-16 aspect-h-9 overflow-hidden p-4">
-                            <h4 class="element_title">YOLO object recognition example</h4>
+                            <h4 class="element-title">YOLO object recognition example</h4>
                             <iframe
                                     src="https://player.cloudinary.com/embed/?cloud_name=dywsmv4ow&public_id=yolo_example_intocg&profile=cld-default"
                                     width="640"
@@ -216,30 +216,30 @@
                     </div>
                 </section>
 
-                <hr class="custom_hr">
+                <hr class="standard-hr">
                 <!-- Autonomous Agent (Vision) -->
-                <section id="autonomous-agent-vision" class="standard_section">
-                    <h3 class="section_title">Autonomous Agent (Vision)</h3>
+                <section id="autonomous-agent-vision" class="standard-section">
+                    <h3 class="section-title">Autonomous Agent (Vision)</h3>
                     <div class="grid md:grid-cols-12 gap-8 items-center">
                         <div class="md:col-span-7">
-                            <p class="standard_text">
+                            <p class="standard-text">
                                 Mantis can autonomously navigate its environment using computer vision (the YOLO models
                                 described before). In this mode, the robot uses the camera to search for a specific target (must
                                 be chosen among the 80 categories supported by YOLO), and then moves toward it. The search at
                                 the moment is a simple rotation of in place, but it can be improved in the future to be more
                                 sophisticated.
                             </p>
-                            <p class="standard_text"><strong>Note 1:</strong> if a 2-color led is properly
+                            <p class="standard-text"><strong>Note 1:</strong> if a 2-color led is properly
                                 connected to the GPIO pins, it will stay red while the robot is "thinking" (examining a
                                 frame). After each frame it will blink green if the target is found, orange otherwise.
                             </p>
-                            <p class="standard_text"><strong>Note 2:</strong> if the lidar is connected,
+                            <p class="standard-text"><strong>Note 2:</strong> if the lidar is connected,
                                 the robot measures the distance to the target and stops when it is close enough (about
                                 20 cm), and emits a beep. If the lidar is not connected, it will keep going until it
                                 collides with the target, or the target is not recognised anymore (it often happens
                                 because it can't fit in the camera images at close distances).
                             </p>
-                            <p class="standard_text">
+                            <p class="standard-text">
                                 The YOLO model used by the Autonomous Agent can be changed at runtime with the controller: it
                                 cycles through the models present in a specific folder, so that you can add and remove
                                 models as you wish. The target can also be changed at runtime, by pressing a button
@@ -254,7 +254,7 @@
                     </div>
                     <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
                         <div class="aspect-w-16 aspect-h-9 overflow-hidden p-4">
-                            <h4 class="element_title">Search cat (lidar active)</h4>
+                            <h4 class="element-title">Search cat (lidar active)</h4>
                             <iframe
                                     src="https://player.cloudinary.com/embed/?cloud_name=dywsmv4ow&public_id=vision_agent_lidar_y7uaq2&profile=cld-default"
                                     width="640"
@@ -266,7 +266,7 @@
                             ></iframe>
                         </div>
                         <div class="aspect-w-16 aspect-h-9 overflow-hidden p-4">
-                            <h4 class="element_title">Search cat (lidar inactive)</h4>
+                            <h4 class="element-title">Search cat (lidar inactive)</h4>
                             <iframe
                                     src="https://player.cloudinary.com/embed/?cloud_name=dywsmv4ow&public_id=vision_agent_no_lidar_ebxe74&profile=cld-default"
                                     width="640"
@@ -280,17 +280,17 @@
                     </div>
                 </section>
 
-                <hr class="custom_hr">
+                <hr class="standard-hr">
                 <!-- Autonomous Agent (Sound) -->
-                <section id="autonomous-agent-sound" class="standard_section">
-                    <h3 class="section_title">Autonomous Agent (Sound)</h3>
+                <section id="autonomous-agent-sound" class="standard-section">
+                    <h3 class="section-title">Autonomous Agent (Sound)</h3>
                     <div class="grid md:grid-cols-12 gap-8 items-center">
                         <div class="md:col-span-7">
-                            <p class="standard_text">
+                            <p class="standard-text">
                                 In this mode, the robot autonomously goes toward the nearest sound source. It uses the
                                 ReSpeaker Mic Array v2.0 to detect the sound direction, and then moves toward it.
                             </p>
-                            <p class="standard_text"><strong>Note:</strong> sounds need to be continuous and loud
+                            <p class="standard-text"><strong>Note:</strong> sounds need to be continuous and loud
                                 enough to surpass the noise generated by the robot itself. Otherwise, the robot will start
                                 following its own motors, making it just spin in place.
                             </p>
@@ -301,7 +301,7 @@
                     </div>
                     <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
                         <div class="aspect-w-16 aspect-h-9 overflow-hidden p-4">
-                            <h4 class="element_title">Chase sound source</h4>
+                            <h4 class="element-title">Chase sound source</h4>
                             <iframe
                                     src="https://player.cloudinary.com/embed/?cloud_name=dywsmv4ow&public_id=VID_20250329_162817_oskaac&profile=cld-default"
                                     width="640"
@@ -315,13 +315,13 @@
                     </div>
                 </section>
 
-                <hr class="custom_hr">
+                <hr class="standard-hr">
                 <!-- Voice Interaction -->
-                <section id="voice-interaction" class="standard_section">
-                    <h3 class="section_title">Voice Interaction</h3>
+                <section id="voice-interaction" class="standard-section">
+                    <h3 class="section-title">Voice Interaction</h3>
                     <div class="grid md:grid-cols-12 gap-8 items-center">
                         <div class="md:col-span-8">
-                            <p class="standard_text">
+                            <p class="standard-text">
                                 Mantis can interact with the user via spoken commands. It understands natural language
                                 (many languages are supported) and can:
                             </p>
@@ -333,21 +333,21 @@
                                     use the arm's camera, sound the buzzer, increase/decrease max speed...</li>
                                 <li>access the robotic arm's camera to add visual information to the conversation.</li>
                             </ul>
-                            <p class="standard_text">
+                            <p class="standard-text">
                                 It uses the ReSpeaker Mic Array v2.0 to recognize voices and filter out other sounds. The voice
                                 interaction is powered by Google's
-                                <a href="https://ai.google.dev/gemini-api/docs" class="standard_link">Gemini API</a>.
+                                <a href="https://ai.google.dev/gemini-api/docs" class="standard-link">Gemini API</a>.
                                 Each time the robot is powered on, it is a new session, but within the session it has memory of
                                 the conversation, so you can ask follow-up questions, and it will remember what you said before.
                             </p>
-                            <p class="standard_text">
+                            <p class="standard-text">
                                 <strong>Note 1:</strong> in my experience, you need to speak quite loudly for this mode to work well.
                             </p>
-                            <p class="standard_text">
+                            <p class="standard-text">
                                 <strong>Note 2:</strong> this capability requires internet connection, since the models are not
                                 hosted locally on the robot.
                             </p>
-                            <p class="standard_text">
+                            <p class="standard-text">
                                 <strong>Note 3:</strong> you will need to create an account and put your API key on the robot
                                 to use this feature. With the free tier, you have a limited number of requests per minute and
                                 per day, but it is still usable.
@@ -359,7 +359,7 @@
                     </div>
                     <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         <div class="aspect-w-16 aspect-h-9 overflow-hidden p-4">
-                            <h4 class="element_title">Talk and move</h4>
+                            <h4 class="element-title">Talk and move</h4>
                             <iframe
                                     src="https://player.cloudinary.com/embed/?cloud_name=dywsmv4ow&public_id=voice_interaction_generic_correction_uct9qd&profile=cld-default"
                                     width="640"
@@ -371,7 +371,7 @@
                             ></iframe>
                         </div>
                         <div class="aspect-w-16 aspect-h-9 overflow-hidden p-4">
-                            <h4 class="element_title">Control arm</h4>
+                            <h4 class="element-title">Control arm</h4>
                             <iframe
                                     src="https://player.cloudinary.com/embed/?cloud_name=dywsmv4ow&public_id=voice_interaction_arm_short_bhuerw&profile=cld-default"
                                     width="640"
@@ -383,7 +383,7 @@
                             ></iframe>
                         </div>
                         <div class="aspect-w-16 aspect-h-9 overflow-hidden p-4">
-                            <h4 class="element_title">Camera interaction</h4>
+                            <h4 class="element-title">Camera interaction</h4>
                             <iframe
                                     src="https://player.cloudinary.com/embed/?cloud_name=dywsmv4ow&public_id=voice_interaction_camera_collage_z1rfcm&profile=cld-default"
                                     width="640"
@@ -397,20 +397,20 @@
                     </div>
                 </section>
 
-                <hr class="custom_hr">
+                <hr class="standard-hr">
                 <!-- Obstacle Avoidance -->
-                <section id="obstacle-avoidance" class="standard_section">
-                    <h3 class="section_title">Obstacle Avoidance</h3>
+                <section id="obstacle-avoidance" class="standard-section">
+                    <h3 class="section-title">Obstacle Avoidance</h3>
                     <div class="grid md:grid-cols-12 gap-8 items-center">
                         <div class="md:col-span-7">
-                            <p class="standard_text">
+                            <p class="standard-text">
                                 Mantis is equipped with a lidar that allows it to detect obstacles in its path. In
                                 "normal" mode (when the user controls the robot movements), the lidar can be activated.
                                 When it is active, the robot will stop if an obstacle is detected in the direction
                                 of the movement, and will emit a beep.
                                 <br>Irrespective of any obstacles, rotation is always allowed.
                             </p>
-                            <p class="standard_text"><strong>Note:</strong> The lidar is partially occluded
+                            <p class="standard-text"><strong>Note:</strong> The lidar is partially occluded
                                 by the robot's own components, so it can only detect obstacles in front of it, and to
                                 the sides, but not behind it. For now, when active, it will always block the robot from
                                 moving backward, but I plan to change it and always allow the robot to move backward
@@ -423,7 +423,7 @@
                     </div>
                     <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
                         <div class="aspect-w-16 aspect-h-9 overflow-hidden p-4">
-                            <h4 class="element_title">Obstacle detection</h4>
+                            <h4 class="element-title">Obstacle detection</h4>
                             <iframe
                                     src="https://player.cloudinary.com/embed/?cloud_name=dywsmv4ow&public_id=Lidar_nn8h7g&profile=cld-default"
                                     width="640"
@@ -435,7 +435,7 @@
                             ></iframe>
                         </div>
                         <div class="aspect-w-16 aspect-h-9 overflow-hidden p-4">
-                            <h4 class="element_title">Obstacle avoidance</h4>
+                            <h4 class="element-title">Obstacle avoidance</h4>
                             <iframe
                                     src="https://player.cloudinary.com/embed/?cloud_name=dywsmv4ow&public_id=obstacle_avoidance_y3tfpr&profile=cld-default"
                                     width="640"
@@ -449,25 +449,25 @@
                     </div>
                 </section>
 
-                <hr class="custom_hr">
+                <hr class="standard-hr">
                 <!-- VR Connection -->
-                <section id="vr-connection" class="standard_section">
-                    <h3 class="section_title">VR Connection</h3>
+                <section id="vr-connection" class="standard-section">
+                    <h3 class="section-title">VR Connection</h3>
                     <div class="grid md:grid-cols-12 gap-8 items-center">
                         <div class="md:col-span-7">
-                            <p class="standard_text">
+                            <p class="standard-text">
                                 Mantis can be controlled using a VR headset. The connection is made through a custom app that
                                 allows you to see through the robot's camera and control its movements using the VR controllers.
                                 The communication is done through ROS2 (Robot Operating System 2), over Wi-Fi, or the robot's
                                 own hotspot if no Wi-Fi is available. The app is built with Unity and is available on GitHub
                                 (the already built apk).
                             </p>
-                            <p class="standard_text"><strong>Note 1:</strong>
+                            <p class="standard-text"><strong>Note 1:</strong>
                                 I have only tested the app with the
-                                <a href="https://www.meta.com/quest/quest-3/" class="standard_link">Meta Quest 3</a>
+                                <a href="https://www.meta.com/quest/quest-3/" class="standard-link">Meta Quest 3</a>
                                 headset.
                             </p>
-                            <p class="standard_text"><strong>Note 2:</strong> the app is relatively old, so support
+                            <p class="standard-text"><strong>Note 2:</strong> the app is relatively old, so support
                                 for the arm and other features are not present. For the same reason, some of the libraries (es.
                                 VR support for Unity) have probably changed significantly.
                             </p>
@@ -478,7 +478,7 @@
                     </div>
                     <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
                         <div class="aspect-w-16 aspect-h-9 overflow-hidden p-4">
-                            <h4 class="element_title">VR control</h4>
+                            <h4 class="element-title">VR control</h4>
                             <iframe
                                     src="https://player.cloudinary.com/embed/?cloud_name=dywsmv4ow&public_id=Robot_VR_g00ekm&profile=cld-default"
                                     width="640"
