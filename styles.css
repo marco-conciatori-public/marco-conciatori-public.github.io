@@ -98,5 +98,17 @@ ul.second-level {
     margin-left: 1.25rem; /* increased indentation */
 }
 .second-level li {
-    margin-bottom: 0.4rem; /* space-y-2 */
+    margin-bottom: 0.4rem; /* space-y-1.8 */
+}
+
+/* CUSTOM STYLES FOR PARAGRAPH */
+/* normal text */
+p.standard_text {
+    margin-bottom: 1rem; /* mb-4 */
+}
+/* intro text */
+p.page_intro {
+    margin-left: auto; /* mx-auto */
+    margin-right: auto; /* mx-auto */
+    margin-bottom: 4rem; /* mb-16 */
 }

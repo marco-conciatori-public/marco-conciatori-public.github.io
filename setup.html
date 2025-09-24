@@ -26,7 +26,7 @@
         <main class="lg:col-span-10">
             <div class="bg-white p-8 sm:p-12 rounded-lg shadow-md">
                 <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Complete Setup Guide for Mantis</h2>
-                <p class="text-lg text-gray-600 max-w-5xl mx-auto mb-16">
+                <p class="page_intro max-w-5xl">
                     This guide will explain step by step how to recreate my robot, including hardware and software.
                     I will explain in very fine detail how to set up the robot OS, install all the necessary libraries,
                     and run the code, because it is not simple and even small mistakes can lead to hours of debugging.
@@ -47,7 +47,7 @@
 
                 <section id="original-robot" class="mb-16 scroll-mt-24">
                     <h3 class="text-3xl font-bold text-indigo-700 mb-6">Before you start</h3>
-                    <p class="text-lg text-gray-600 mb-4">
+                    <p class="standard_text">
                         You will need all the components listed as necessary in the
                         <a href="hardware.html#" class="text-blue-600 hover:underline">Hardware</a> section of this
                         website. You will also need a computer and Wi-Fi.
@@ -57,7 +57,7 @@
                     </p>
 
                     <h4 class="text-2xl font-semibold text-gray-800 mb-2">PC connection</h4>
-                    <p class="text-lg text-gray-600 mb-4">
+                    <p class="standard_text">
                         To access the robot OS from a computer there are several ways, but what I found most convenient
                         is with RealVNC viewer, a remote desktop application. Before that, however, the robot has to
                         already be connected to the same Wi-Fi network as your computer. To do this, I connected
@@ -70,7 +70,7 @@
                     </p>
 
                     <h4 class="text-2xl font-semibold text-gray-800 mb-2">Save and write OS images</h4>
-                    <p class="text-lg text-gray-600 mb-4">
+                    <p class="standard_text">
                         To use the OS images I provide, you will need to be able to write them to SD card and USB.
                         Even if you want to recreate your own by following the steps, errors happen, and they could have
                         serious consequences. I recommend you to become familiar with saving and loading OS images, and
@@ -89,7 +89,7 @@
                     <ul class="list-disc list-inside text-lg text-gray-600 space-y-2 mb-4">
                         <li> Connect the USB to your PC.</li>
                         <li> If it was already flashed with an OS image, follow these additional steps.
-                            <ul class="list-dash list-inside text-lg text-gray-600 space-y-2 mt-2 ml-4">
+                            <ul class="second-level">
                                 <li> Windows will see (and open) many partitions, all unreadable.</li>
                                 <li> Close all those folders, and open "This PC"</li>
                                 <li> Perform a quick format with standard settings on every visible partition of the
@@ -108,7 +108,7 @@
                         <li> Select your USB drive, choose the OS image file, and begin the flashing process. If you
                             are given a choice for the file system, always select FAT.</li>
                     </ul>
-                    <p class="text-lg text-gray-600 mb-4"><br><strong>Save/clone USB (on Windows):</strong></p>
+                    <p class="standard_text"><br><strong>On Linux (both flashing and cloning):</strong></p>
 
                 </section>
 
