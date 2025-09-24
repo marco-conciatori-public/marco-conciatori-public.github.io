@@ -197,3 +197,11 @@ div.hardware-card {
         flex-direction: row;
     }
 }
+
+/* SECTION STYLES */
+/* standard section style */
+/* mb-16 scroll-mt-24 */
+section.standard_section {
+    margin-bottom: 4rem; /* mb-16 */
+    scroll-margin-top: 6rem; /* scroll-mt-24 */
+}
