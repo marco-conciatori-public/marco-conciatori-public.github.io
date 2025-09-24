@@ -115,7 +115,7 @@ p.small_text {
 p.page_intro {
     margin-left: auto; /* mx-auto */
     margin-right: auto; /* mx-auto */
-    margin-bottom: 4rem; /* mb-16 */
+    margin-bottom: 2rem; /* mb-8 */
 }
 
 /* CUSTOM STYLES FOR TITLES */
