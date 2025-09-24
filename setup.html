@@ -79,15 +79,15 @@
                         <br>
                         You may have USB drives and SD cards, but once you can connect them to your pc, they can be
                         handled in the same way.
-                        <br><strong>Note 2:</strong> I switch between Windows and Linux depending on the task, because
-                        I find it easier. It is probably possible to do the same with other systems, but my instructions
-                        won't work for a different OS.
-                        <br><strong>Note 3:</strong> in my case, the USB and SD card become quite hot during the
+                        <br><strong>Note 1:</strong> I switch between Windows and Linux depending on the task, because
+                        I find it easier. I will leave instructions for my way and for Linux only, but I don't know how
+                        to save OS images from the robot to the pc with Windows.
+                        <br><strong>Note 2:</strong> in my case, the USB and SD card become quite hot during the
                         operations, so much that I use a small fan to cool them down.
-                        <br><strong>Write/flash USB (on Windows):</strong>
+                        <br><strong>Flash memory on Windows (write an OS image from your pc to the robot memory):</strong>
                     </p>
-                        <li> Connect the USB to your PC.</li>
                     <ul class="first-level">
+                        <li> Connect the memory to your PC.</li>
                         <li> If it was already flashed with an OS image, follow these additional steps.
                             <ul class="second-level">
                                 <li> Windows will see (and open) many partitions, all unreadable.</li>
@@ -105,11 +105,20 @@
                             </ul></li>
                         <li> Open Win32DiskImager, Rufus, or another similar tool. I use
                             <a href="https://win32diskimager.org/" class="text-blue-600 hover:underline">Win32DiskImager</a>.</li>
-                        <li> Select your USB drive, choose the OS image file, and begin the flashing process. If you
+                        <li> Select your memory, choose the OS image file, and begin the flashing process. If you
                             are given a choice for the file system, always select FAT.</li>
                     </ul>
                     <p class="standard_text"><br><strong>On Linux (both flashing and cloning):</strong></p>
                     <ul class="first-level">
+                        <li> Connect the memory to your PC.</li>
+                        <li> Identify the name of the disk: use the terminal command <code class="code-inline">lsblk</code>. It will show all the
+                            connected memory devices, find the correct one by watching the memory size.</li>
+                        <li> Find currently mounted partitions with the command below ("X" depends on the previous
+                            command)
+                            <pre class="code-block"><code>mount | grep /dev/sdX</code></pre>
+                        </li>
+                    </ul>
+
 
                 </section>
 
