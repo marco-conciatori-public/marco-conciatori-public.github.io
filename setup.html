@@ -18,7 +18,7 @@
             <nav class="p-4 rounded-lg bg-gray-50 border">
                 <h4 class="element-title">Setup Guide</h4>
                 <ul class="space-y-2" id="side-nav-links">
-                    <li><a href="#original-robot" class="side-nav-link">The Original Robot</a></li>
+                    <li><a href="#original-robot" class="side-nav-link">Before you start</a></li>
                 </ul>
             </nav>
         </aside>
@@ -113,11 +113,50 @@
                         <li> Connect the memory to your PC.</li>
                         <li> Identify the name of the disk: use the terminal command <code class="code-inline">lsblk</code>. It will show all the
                             connected memory devices, find the correct one by watching the memory size.</li>
-                        <li> Find currently mounted partitions with the command below ("X" depends on the previous
-                            command)
+                        <li> Find currently mounted partitions with the command below. "X" is a letter that you will
+                            know thanks to the previous command, substitute with the actual letter.
                             <pre class="code-block"><code>mount | grep /dev/sdX</code></pre>
+                            es.
+                            <pre class="code-block"><code>mount | grep /dev/sdd</code></pre></li>
+                        <li>Unmount ALL partitions without removing the disk. "X" is the previous letter and "N" is a
+                            number that you will know thanks to the previous command. Substitute them in the command.
+                            If there are multiple partitions, you will need to repeat this command multiple times,
+                            changing only the "N" number.
+                            <pre class="code-block"><code>sudo umount /dev/sdXN</code></pre>
+                            es.
+                            <pre class="code-block"><code>sudo umount /dev/sdd1</code></pre></li>
+                        <li> The command for flashing an OS image to the robot memory and for cloning the robot
+                            memory to a file on your pc is the same, only the parameters are inverted.
+                            <pre class="code-block"><code>sudo dd
+    if=/dev/sdX
+    of=PATH_TO_A_FOLDER/FILE_NAME.img
+    status=progress</code></pre>
+                            es.
+                            <pre class="code-block"><code>sudo dd
+    if=/dev/sdd
+    of=/media/marco/DATA/robot_system_images/backup_30_06_2025.img
+    status=progress</code></pre>
+                            <br>In the command above, "if" is the input file, and "of" is the output file. If you want
+                            to flash an OS image to the robot memory, you have to set "if" as the path to the OS
+                            image file on your pc, and "of" as the robot memory ("/dev/sdX"). If you want to clone
+                            the robot memory to a file on your pc, you have to set "if" as the robot memory
+                            ("/dev/sdX"), and "of" as the path to a folder on your pc where you want to save the
+                            image. The example above is for cloning the robot memory to a file on the pc.
                         </li>
                     </ul>
+                    <p class="standard-text">
+                        <strong>Note 1:</strong> The flashing/cloning can take some time, do not interrupt it. With
+                        Win32DiskImager or the <code class="code-inline">status=progress</code> option, you can
+                        see the progress.
+                        <strong>Note 2:</strong> If you clone a smaller image into a bigger disk, you then have to use
+                        the program "Gparted". Right-click on the main partition, select "move/resize" and expand it
+                        over the unallocated memory. Otherwise, the extra memory will be unavailable. For example,
+                        I changed the original 64GB SD card of the RDK X3 with a 128GB one, so I cloned the 64GB
+                        image on my pc (just in case), then I flashed the same image to the 128GB SD card, and finally I
+                        used Gparted to expand the main partition to use the full 128GB.
+                        <br><strong>Note 3:</strong> There is probably software to do this operation, but this worked
+                        consistently for me, and it is not too difficult, so it is what I do.
+                    </p>
 
 
                 </section>
