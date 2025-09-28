@@ -89,6 +89,35 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Fetches and displays content from GitHub text files
+    function fetchGithubContent() {
+        const todoElement = document.getElementById('todo-content');
+        const bugsElement = document.getElementById('bugs-content');
+
+        // Only run the fetch logic if these elements exist on the current page
+        if (todoElement && bugsElement) {
+            const todoUrl = 'https://raw.githubusercontent.com/marco-conciatori-public/yahboom_rdk_x3_robot/arm_inverse_kinematics/sunriseRobot/app_SunriseRobot/info/TODO.txt';
+            const bugsUrl = 'https://raw.githubusercontent.com/marco-conciatori-public/yahboom_rdk_x3_robot/arm_inverse_kinematics/sunriseRobot/app_SunriseRobot/info/known_bugs.txt';
+
+            const displayTextFile = async (url, element) => {
+                try {
+                    const response = await fetch(url);
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    element.textContent = await response.text();
+                } catch (error) {
+                    console.error(`Failed to fetch ${url}:`, error);
+                    element.textContent = `Error: Could not load content from ${url}.`;
+                }
+            };
+
+            displayTextFile(todoUrl, todoElement);
+            displayTextFile(bugsUrl, bugsElement);
+        }
+    }
+
+
     // Since the placeholder is replaced, we need to load content and then run scripts
     async function initializePage() {
         await loadContent('navbar-placeholder', 'navbar.html');
@@ -98,6 +127,7 @@ document.addEventListener('DOMContentLoaded', function() {
         highlightActiveNavLink();
         setupImageErrorFallback();
         setupSideNavObserver();
+        fetchGithubContent();
     }
 
     initializePage();

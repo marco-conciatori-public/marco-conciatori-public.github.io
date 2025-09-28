@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mantis - TODO & Bugs</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="antialiased">
+<div id="navbar-placeholder"></div>
+
+<div class="container mx-auto px-4 py-8">
+    <main>
+        <div class="bg-white p-8 sm:p-12 rounded-lg shadow-md">
+            <h2 class="page-title">TODO & Known Bugs</h2>
+
+            <p class="page-intro max-w-4xl">
+                This page shows the current development tasks and known issues for the Mantis project. The content is
+                loaded directly from the public GitHub repository, so it's always up-to-date.
+            </p>
+
+            <section id="todo" class="standard-section">
+                <h3 class="section-title">TODO List</h3>
+                <pre id="todo-content" class="code-block">Loading TODO.txt...</pre>
+            </section>
+
+            <hr class="standard-hr">
+
+            <section id="bugs" class="standard-section">
+                <h3 class="section-title">Known Bugs</h3>
+                <pre id="bugs-content" class="code-block">Loading known_bugs.txt...</pre>
+            </section>
+        </div>
+    </main>
+</div>
+
+<div id="footer-placeholder"></div>
+<script src="main.js"></script>
+</body>
+</html>
