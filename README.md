@@ -1,3 +1,3 @@
-Public site for my robot project
+Public site for my robot project, visible at https://marco-conciatori-public.github.io/
 
 Physical and hardware components, code, explanations etc...
