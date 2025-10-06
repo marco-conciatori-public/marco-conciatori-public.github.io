@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mantis - About</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="antialiased">
+<div id="navbar-placeholder"></div>
+
+<div class="container mx-auto px-4 py-8">
+    <main>
+        <div class="bg-white p-8 sm:p-12 rounded-lg shadow-md">
+            <h2 class="page-title">If you are curious about the creator and the origin of the project</h2>
+
+            <section id="about-me" class="standard-section">
+                <h3 class="section-title">About Me</h3>
+                <p class="standard-text">
+                    Hi, I'm Marco, a Python programmer and AI expert. I have always been interested in AI, in particular
+                    AGI (Artificial General Intelligence). I did a PhD in Civil Engineering, but it was about applying
+                    AI to Civil Engineering tasks (landslide forecasting). I prefer theory and research over practical
+                    applications, that is why this project, developed only for entertainment and testing technologies,
+                    was a first for me.
+                </p>
+            </section>
+
+            <hr class="standard-hr">
+
+            <section id="genesis" class="standard-section">
+                <h3 class="section-title">About Mantis</h3>
+                <p class="standard-text">
+                    For two projects during my PhD, I had to develop object detection and tracking algorithms. At first,
+                    I tried to develop Neural Networks from scratch, but after I compared them with big, pre-trained
+                    models, I realized that they were <strong>much</strong> better. Even in cases where I had to adapt
+                    the NNs to different domains, with just a little fine-tuning they performed way better than new
+                    models. And it is not just in comparison with my models, the best object recognition algorithms are
+                    amazing, more than I previously realized.
+                    So I started to think about how to use them in a practical way (for fun), and I thought about
+                    a robot. With object detection, it could recognize objects and people and do something with that
+                    information. But aside from this vague idea I had not a clear direction for what I wanted to do.
+                    <br><br>
+                    I started to look for robot kits with good hardware and that allowed programming. I found the
+                    Yahboom RDK X3, which had a good balance between price and performance, and I started from it.
+                    <br><br>
+                    While developing, more ideas kept coming to mind, and I tried to implement them. I also received
+                    as gift from friends various hardware components, like the robotic arm and the ReSpeaker Mic Array
+                    v2.0, which allowed new features and gave me new ideas and objectives.
+                    <br><br>
+                    Ideally I would have liked to make the robot fully autonomous, but the models required for voice
+                    interaction (reasoning and Text-to-Speech) are far too big to run on the robot, so that part uses
+                    an internet connection to Google's Gemini API. Aside from that the robot is fully autonomous, even
+                    object detection is done on-board.
+                </p>
+            </section>
+
+            <hr class="standard-hr">
+
+            <section id="skills" class="standard-section">
+                <h3 class="section-title">Skills & Technologies</h3>
+                <p class="standard-text">
+                    Building Mantis required more languages and technologies than I initially assumed.
+                </p>
+                <ul class="first-level">
+                    <li><strong>Python:</strong> most of the code is written in Python. Both because the original RDK X3
+                    codebase was in Python, and because it is the programming language I am most comfortable with.</li>
+                    <li><strong><a href="https://www.yahboom.net/study/RDK-X3-Robot" class="standard-link">ROS2</a>
+                        (Robot Operating System):</strong> I had to learn it from scratch, and it was not super easy,
+                        but it was necessary. Some components, like the lidar, can only communicate through ROS.</li>
+                    <li><strong>Bash scripting:</strong> I had to write some bash scripts to automate tasks on the
+                        robot, like starting the main program on boot. And when ROS was involved the scripts became more
+                        complicated.</li>
+                    <li><strong>Unity/C#:</strong> I had to learn the basics of Unity and C# to create the app for
+                        controlling the robot with the VR headset. It was not super difficult, but the libraries for
+                        the VR interaction were not very stable and documented, so that required some trial and error.
+                    </li>
+                    <li><strong>HTML/CSS/JavaScript:</strong> even the website was basically my first experience with
+                        web development. But in this case, it was mostly created AND designed by Gemini, I just
+                        modified small parts of the code and added the content.</li>
+                </ul>
+            </section>
+
+            <hr class="standard-hr">
+
+            <section id="connect" class="standard-section">
+                <h3 class="section-title">Connect with Me</h3>
+                <p class="standard-text">
+                    I'm always open to connecting with fellow developers, roboticists, and enthusiasts. Whether you have
+                    questions about the project, want to share ideas, or even contribute to new features, feel free to
+                    reach out!
+                    <br>
+                    E-mail: <a href="mailto:marco.conciatori@unipr.it" class="standard-link font-semibold">
+                    marco.conciatori@unipr.it</a>
+                    <br>
+                    LinkedIn:
+                    <a href="https://www.linkedin.com/in/marco-conciatori-545a47196/" class="standard-link font-semibold">
+                        www.linkedin.com/in/marco-conciatori-545a47196</a>
+                    <br><br>
+                    You can find the complete source code for the robot on my GitHub. It is separated into two
+                    repositories: one for the Jetson Nano board (only voice interaction at the moment), and one for the
+                    RDK X3 board (everything else). I also made two attempts at creating a smartphone app to control the
+                    robot. They were not successful, and they are suspended for now, but you can find the code if you
+                    are interested.
+                    <br>
+                    RDK X3 code:
+                    <a href="https://github.com/marco-conciatori-public/yahboom_rdk_x3_robot" class="standard-link font-semibold">
+                        github.com/marco-conciatori-public/yahboom_rdk_x3_robot</a>
+                    <br>
+                    Jetson Nano code:
+                    <a href="https://github.com/marco-conciatori-public/voice_robot_interaction" class="standard-link font-semibold">
+                        github.com/marco-conciatori-public/voice_robot_interaction</a>
+                    <br>
+                    Smartphone app (test 1):
+                    <a href="https://github.com/marco-conciatori-public/robot_remote_control" class="standard-link font-semibold">
+                        github.com/marco-conciatori-public/robot_remote_control</a>
+                    <br>
+                    Smartphone app (test 2):
+                    <a href="https://github.com/marco-conciatori-public/robot_remote_control_2" class="standard-link font-semibold">
+                        github.com/marco-conciatori-public/robot_remote_control_2</a>
+                </p>
+            </section>
+        </div>
+    </main>
+</div>
+
+<div id="footer-placeholder"></div>
+<script src="main.js"></script>
+</body>
+</html>
