@@ -3,6 +3,19 @@ title: Mantis - Robot Showcase
 description: A small robot with many capabilities, built as a personal project to explore AI and robotics.
 
 # Files that should not be published as part of the site.
+# NOTE: setting `exclude` replaces Jekyll's defaults, so the build-tooling and
+# dependency entries (node_modules, Gemfile, vendor, ...) must be listed here
+# explicitly or they would be copied into the deployed site.
 exclude:
   - README.md
   - CLAUDE.md
+  - node_modules
+  - vendor
+  - Gemfile
+  - Gemfile.lock
+  - package.json
+  - package-lock.json
+  - tailwind.config.js
+  - _tailwind
+  - .sass-cache
+  - .jekyll-cache

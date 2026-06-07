@@ -16,19 +16,6 @@ section {
 }
 
 /* STYLES FOR IMAGES */
-/* This is for the video aspect ratio on older browsers that don't support aspect-w/h classes */
-.aspect-w-4 {
-    position: relative;
-    padding-bottom: 75%; /* 3/4 ratio */
-}
-.aspect-w-4 iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none; /* Remove default iframe border */
-}
 /* Additional style to ensure images don't get squished in flex container on small screens */
 .component-image {
     max-width: 100%; /* Ensure image is not wider than its container */

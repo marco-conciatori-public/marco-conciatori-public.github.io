@@ -1,0 +1,13 @@
+{
+  "name": "mantis-robot-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Build tooling for the Mantis robot showcase site (Tailwind CSS).",
+  "scripts": {
+    "build:css": "tailwindcss -i ./_tailwind/input.css -o ./assets/css/tailwind.css --minify",
+    "watch:css": "tailwindcss -i ./_tailwind/input.css -o ./assets/css/tailwind.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}

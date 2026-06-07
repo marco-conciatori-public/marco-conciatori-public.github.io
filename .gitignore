@@ -7,3 +7,7 @@ CLAUDE.md
 _site/
 .jekyll-cache/
 .sass-cache/
+
+# Node / Tailwind: dependencies and the generated CSS (rebuilt by CI on every push)
+node_modules/
+assets/css/tailwind.css
