@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="assets/all/tab_icon.png">
+</head>
+<body class="antialiased">
+
+{% include navbar.html %}
+
+{{ content }}
+
+{% include footer.html %}
+
+<!-- Image Modal (shared lightbox for any image with onclick="openModal(this)") -->
+<div id="image-modal" class="fixed inset-0 z-50 hidden bg-black bg-opacity-75 flex justify-center items-center p-4" onclick="closeModal()">
+    <div class="relative max-w-full max-h-full" onclick="event.stopPropagation()">
+        <span class="absolute top-4 right-4 text-white text-5xl font-thin cursor-pointer hover:text-gray-300" onclick="closeModal()">&times;</span>
+        <img id="modal-image" class="rounded-lg shadow-xl max-w-full max-h-[85vh]" src="" alt="Full-size image">
+    </div>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>

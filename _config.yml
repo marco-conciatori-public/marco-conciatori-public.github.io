@@ -1,0 +1,8 @@
+# Site-wide configuration for Jekyll (GitHub Pages builds the site with this).
+title: Mantis - Robot Showcase
+description: A small robot with many capabilities, built as a personal project to explore AI and robotics.
+
+# Files that should not be published as part of the site.
+exclude:
+  - README.md
+  - CLAUDE.md

@@ -1,1 +1,9 @@
 .idea/
+.claude/
+
+CLAUDE.md
+
+# Jekyll build output (only created if you build the site locally)
+_site/
+.jekyll-cache/
+.sass-cache/

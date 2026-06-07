@@ -1,21 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Function to load reusable HTML content into a placeholder
-    async function loadContent(placeholderId, filePath) {
-        try {
-            const response = await fetch(filePath);
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            const data = await response.text();
-            const placeholder = document.getElementById(placeholderId);
-            if (placeholder) {
-                placeholder.outerHTML = data;
-            }
-        } catch (error) {
-            console.error(`Error loading ${filePath}:`, error);
-        }
-    }
-
     // Function to handle image loading errors and set a fallback
     function setupImageErrorFallback() {
         document.querySelectorAll('img').forEach(img => {
@@ -118,19 +101,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 
-    // Since the placeholder is replaced, we need to load content and then run scripts
-    async function initializePage() {
-        await loadContent('navbar-placeholder', 'navbar.html');
-        await loadContent('footer-placeholder', 'footer.html');
-
-        // Now that the navbar is in the DOM, we can highlight the link
-        highlightActiveNavLink();
-        setupImageErrorFallback();
-        setupSideNavObserver();
-        fetchGithubContent();
-    }
-
-    initializePage();
+    // The navbar and footer are now included at build time by Jekyll, so they
+    // are already in the DOM when this runs. Run the page setup directly.
+    highlightActiveNavLink();
+    setupImageErrorFallback();
+    setupSideNavObserver();
+    fetchGithubContent();
 });
 
 // Get the modal and its content
