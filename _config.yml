@@ -7,6 +7,11 @@ url: "https://marco-conciatori-public.github.io"
 # Default preview image for link shares (1200x630, cropped by Cloudinary).
 og_image: "https://res.cloudinary.com/dywsmv4ow/image/upload/w_1200,h_630,c_fill,g_auto,f_jpg,q_auto/v1755544824/IMG_20250817_153907_eixrsu.jpg"
 
+# Jekyll plugins. jekyll-sitemap ships with the github-pages gem and generates
+# /sitemap.xml so search engines can discover every page.
+plugins:
+  - jekyll-sitemap
+
 # Files that should not be published as part of the site.
 # NOTE: setting `exclude` replaces Jekyll's defaults, so the build-tooling and
 # dependency entries (node_modules, Gemfile, vendor, ...) must be listed here
