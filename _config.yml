@@ -4,6 +4,10 @@ description: A small robot with many capabilities, built as a personal project t
 
 # Absolute site URL (used to build canonical and social-share links).
 url: "https://marco-conciatori-public.github.io"
+# Served at the domain root (user page), so the path prefix is empty. Setting
+# this explicitly stops the github-metadata plugin from trying to resolve it
+# from the GitHub API, which fails the production build with no token.
+baseurl: ""
 # Default preview image for link shares (1200x630, cropped by Cloudinary).
 og_image: "https://res.cloudinary.com/dywsmv4ow/image/upload/w_1200,h_630,c_fill,g_auto,f_jpg,q_auto/v1755544824/IMG_20250817_153907_eixrsu.jpg"
 
