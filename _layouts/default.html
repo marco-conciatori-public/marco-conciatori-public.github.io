@@ -26,7 +26,9 @@
     <meta name="twitter:image" content="{{ page_image }}">
 
     <link rel="stylesheet" href="assets/css/tailwind.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/png" href="assets/all/robot_icon_1_small.png">
 </head>
@@ -39,18 +41,18 @@
 {% include footer.html %}
 
 <!-- Image Modal (shared lightbox; main.js auto-wires content images) -->
-<div id="image-modal" class="fixed inset-0 z-50 hidden bg-black bg-opacity-75 flex justify-center items-center p-4" onclick="closeModal()">
-    <div class="relative max-w-full max-h-full" onclick="event.stopPropagation()">
-        <span class="absolute top-4 right-4 text-white text-5xl font-thin cursor-pointer hover:text-gray-300" onclick="closeModal()">&times;</span>
-        <img id="modal-image" class="rounded-lg shadow-xl max-w-full max-h-[85vh]" src="" alt="Full-size image">
+<div id="image-modal" class="fixed inset-0 z-50 hidden bg-ink/90 flex justify-center items-center p-4" onclick="closeModal()">
+    <div class="modal-frame relative max-w-full max-h-full" onclick="event.stopPropagation()">
+        <span class="absolute -top-1 right-0 -translate-y-full font-mono text-paper text-sm tracking-widest cursor-pointer hover:text-accent-bright" onclick="closeModal()">[ CLOSE × ]</span>
+        <img id="modal-image" class="max-w-full max-h-[85vh]" src="" alt="Full-size image">
     </div>
 </div>
 
 <!-- Back-to-top button (shown after scrolling; wired in main.js) -->
 <button id="back-to-top" type="button" aria-label="Back to top"
-        class="fixed bottom-6 right-6 z-40 hidden h-11 w-11 items-center justify-center rounded-full bg-indigo-600 text-white shadow-lg transition hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-400">
-    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
+        class="fixed bottom-6 right-6 z-40 hidden h-11 w-11 items-center justify-center bg-ink text-paper shadow-lg transition hover:bg-accent focus:outline-none focus:ring-2 focus:ring-accent">
+    <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+        <path stroke-linecap="square" stroke-linejoin="miter" d="M5 15l7-7 7 7" />
     </svg>
 </button>
 

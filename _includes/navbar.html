@@ -1,13 +1,16 @@
-<header class="bg-white shadow-md sticky top-0 z-50">
+<header class="bg-surface/90 backdrop-blur border-b border-line sticky top-0 z-50">
     <nav class="container mx-auto px-4 py-3 flex items-center justify-between gap-4">
-        <!-- Brand: logo + name, links home -->
-        <a href="index.html" class="flex items-center gap-2 text-2xl font-bold text-indigo-700 flex-shrink-0">
-            <img src="assets/all/robot_icon_1_small.png" alt="Mantis logo" class="h-9 w-9 rounded-md">
-            <span>Mantis</span>
+        <!-- Brand: logo + name + telemetry status, links home -->
+        <a href="index.html" class="flex items-center gap-2.5 flex-shrink-0">
+            <img src="assets/all/robot_icon_1_small.png" alt="Mantis logo" class="h-9 w-9 rounded-sm border border-line">
+            <span class="font-display font-extrabold uppercase tracking-tight text-2xl text-ink leading-none">Mantis</span>
+            <span class="hidden sm:inline-flex items-center gap-1.5 ml-1 font-mono text-[0.65rem] uppercase tracking-widest text-inksoft">
+                <span class="status-dot"></span>Online
+            </span>
         </a>
 
         <!-- Desktop navigation (inline from lg up) -->
-        <div class="hidden lg:flex flex-wrap items-center justify-end gap-1">
+        <div class="hidden lg:flex flex-wrap items-center justify-end gap-0.5">
             <a href="index.html" class="nav-link">Home</a>
             <a href="capabilities.html" class="nav-link">Capabilities</a>
             <a href="hardware.html" class="nav-link">Hardware</a>
@@ -21,19 +24,19 @@
 
         <!-- Mobile menu toggle (hidden from lg up) -->
         <button id="nav-toggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu"
-                class="lg:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                class="lg:hidden inline-flex items-center justify-center p-2 rounded-sm text-ink hover:bg-surface2 focus:outline-none focus:ring-2 focus:ring-accent">
             <svg id="nav-icon-open" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                <path stroke-linecap="square" stroke-linejoin="miter" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
             <svg id="nav-icon-close" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                <path stroke-linecap="square" stroke-linejoin="miter" d="M6 18L18 6M6 6l12 12" />
             </svg>
         </button>
     </nav>
 
     <!-- Mobile navigation menu (toggled by the button above) -->
-    <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-100 bg-white">
-        <div class="container mx-auto px-4 py-3 flex flex-col gap-1">
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-line bg-surface">
+        <div class="container mx-auto px-4 py-3 flex flex-col gap-0.5">
             <a href="index.html" class="nav-link">Home</a>
             <a href="capabilities.html" class="nav-link">Capabilities</a>
             <a href="hardware.html" class="nav-link">Hardware</a>

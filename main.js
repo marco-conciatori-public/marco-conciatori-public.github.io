@@ -24,15 +24,8 @@ document.addEventListener('DOMContentLoaded', function() {
         navLinks.forEach(link => {
             const linkPath = link.getAttribute('href').split('/').pop();
             // Handle empty currentPath for index.html if accessed directly (e.g., your_domain.com/)
-            if (linkPath === currentPath || (currentPath === '' && linkPath === 'index.html')) {
-                // Add Tailwind classes for highlighting
-                link.classList.add('bg-indigo-100', 'text-indigo-800', 'font-semibold');
-                link.classList.remove('text-gray-700', 'hover:text-indigo-700'); // Remove default hover styles
-            } else {
-                // Ensure other links don't have the active style if they were previously active
-                link.classList.remove('bg-indigo-100', 'text-indigo-800', 'font-semibold');
-                link.classList.add('text-gray-700', 'hover:text-indigo-700');
-            }
+            const isActive = linkPath === currentPath || (currentPath === '' && linkPath === 'index.html');
+            link.classList.toggle('nav-link-active', isActive);
         });
     }
 
@@ -144,11 +137,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         const details = document.createElement('details');
-        details.className = 'lg:hidden mb-6 bg-gray-50 border rounded-lg';
+        details.className = 'lg:hidden mb-6 bg-surface border border-line rounded';
 
         const summary = document.createElement('summary');
-        summary.className = 'cursor-pointer select-none px-4 py-3 font-semibold text-gray-700';
-        summary.textContent = 'On this page';
+        summary.className = 'cursor-pointer select-none px-4 py-3 font-mono text-sm uppercase tracking-widest text-ink';
+        summary.textContent = '// On this page';
         details.appendChild(summary);
 
         const list = document.createElement('div');
