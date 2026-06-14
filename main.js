@@ -101,12 +101,111 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 
+    // Toggles the mobile navigation menu (hamburger button in the navbar).
+    function setupMobileNav() {
+        const toggle = document.getElementById('nav-toggle');
+        const menu = document.getElementById('mobile-menu');
+        if (!toggle || !menu) {
+            return;
+        }
+        const openIcon = document.getElementById('nav-icon-open');
+        const closeIcon = document.getElementById('nav-icon-close');
+
+        const setOpen = (open) => {
+            menu.classList.toggle('hidden', !open);
+            toggle.setAttribute('aria-expanded', String(open));
+            if (openIcon && closeIcon) {
+                openIcon.classList.toggle('hidden', open);
+                closeIcon.classList.toggle('hidden', !open);
+            }
+        };
+
+        toggle.addEventListener('click', () => {
+            setOpen(menu.classList.contains('hidden'));
+        });
+        // Close the menu after tapping a link so navigation feels natural.
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => setOpen(false));
+        });
+    }
+
+    // Builds a collapsible "On this page" menu on pages that have a sticky side
+    // nav, so section links are reachable on small screens (where the aside is
+    // hidden). Generated from the existing side-nav links to stay in sync.
+    function setupMobileToc() {
+        const aside = document.querySelector('aside nav');
+        const main = document.querySelector('main');
+        if (!aside || !main) {
+            return;
+        }
+        const links = aside.querySelectorAll('a.side-nav-link');
+        if (links.length === 0) {
+            return;
+        }
+
+        const details = document.createElement('details');
+        details.className = 'lg:hidden mb-6 bg-gray-50 border rounded-lg';
+
+        const summary = document.createElement('summary');
+        summary.className = 'cursor-pointer select-none px-4 py-3 font-semibold text-gray-700';
+        summary.textContent = 'On this page';
+        details.appendChild(summary);
+
+        const list = document.createElement('div');
+        list.className = 'px-2 pb-2 flex flex-col gap-1';
+        links.forEach(link => {
+            const a = document.createElement('a');
+            a.href = link.getAttribute('href');
+            a.textContent = link.textContent;
+            a.className = 'side-nav-link';
+            a.addEventListener('click', () => { details.open = false; });
+            list.appendChild(a);
+        });
+        details.appendChild(list);
+
+        main.insertBefore(details, main.firstChild);
+    }
+
+    // Makes every content image open in the shared lightbox on click.
+    function setupImageZoom() {
+        document.querySelectorAll('main img, section img').forEach(img => {
+            if (img.closest('#image-modal')) {
+                return; // never wire the modal's own image
+            }
+            img.classList.add('cursor-pointer');
+            // Skip images that already open the modal via inline onclick.
+            if (!img.getAttribute('onclick')) {
+                img.addEventListener('click', () => openModal(img));
+            }
+        });
+    }
+
+    // Shows a back-to-top button once the user has scrolled down.
+    function setupBackToTop() {
+        const btn = document.getElementById('back-to-top');
+        if (!btn) {
+            return;
+        }
+        const update = () => {
+            const show = window.scrollY > 400;
+            btn.classList.toggle('hidden', !show);
+            btn.classList.toggle('flex', show);
+        };
+        update();
+        window.addEventListener('scroll', update, { passive: true });
+        btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    }
+
     // The navbar and footer are now included at build time by Jekyll, so they
     // are already in the DOM when this runs. Run the page setup directly.
     highlightActiveNavLink();
     setupImageErrorFallback();
     setupSideNavObserver();
     fetchGithubContent();
+    setupMobileNav();
+    setupMobileToc();
+    setupImageZoom();
+    setupBackToTop();
 });
 
 // Get the modal and its content
