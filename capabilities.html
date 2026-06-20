@@ -20,6 +20,7 @@ title: "Mantis - Capabilities"
                     <li><a href="#voice-interaction" class="side-nav-link">Voice Interaction</a></li>
                     <li><a href="#obstacle-avoidance" class="side-nav-link">Obstacle Avoidance</a></li>
                     <li><a href="#vr-connection" class="side-nav-link">VR Connection</a></li>
+                    <li><a href="#mobile-app" class="side-nav-link">Smartphone App</a></li>
                 </ul>
             </nav>
         </aside>
@@ -449,19 +450,22 @@ title: "Mantis - Capabilities"
                         <div class="md:col-span-7">
                             <p class="standard-text">
                                 Mantis can be controlled using a VR headset. The connection is made through a custom app that
-                                allows you to see through the robot's camera and control its movements using the VR controllers.
-                                The communication is done through ROS2 (Robot Operating System 2), over Wi-Fi, or the robot's
-                                own hotspot if no Wi-Fi is available. The app is built with Unity and is available on GitHub
-                                (the already built apk).
+                                lets you see through the robot's camera in AR and control it with the VR controllers: you can
+                                drive the robot around and operate the 6 DoF robotic arm. The app also supports two-way audio,
+                                so you can hear what the robot hears through its microphone and talk to people near it through
+                                its speakers. Communication is handled through ROS2 (Robot Operating System 2) over Wi-Fi, the
+                                robot's own hotspot if no Wi-Fi is available, or even over the Internet from any network
+                                (through a Tailscale VPN, with no port forwarding needed). The app is built with Unity and is
+                                available on GitHub (the already built apk).
                             </p>
                             <p class="standard-text"><strong>Note 1:</strong>
                                 I have only tested the app with the
                                 <a href="https://www.meta.com/quest/quest-3/" class="standard-link">Meta Quest 3</a>
                                 headset.
                             </p>
-                            <p class="standard-text"><strong>Note 2:</strong> the app is relatively old, so support
-                                for the arm and other features are not present. For the same reason, some of the libraries (e.g.
-                                VR support for Unity) have probably changed significantly.
+                            <p class="standard-text"><strong>Note 2:</strong> if you don't have a VR headset, the
+                                <a href="#mobile-app" class="standard-link">Smartphone App</a> below offers the same
+                                capabilities from an ordinary Android phone.
                             </p>
                         </div>
                         <div class="md:col-span-5">
@@ -480,6 +484,44 @@ title: "Mantis - Capabilities"
                                     allow="fullscreen; encrypted-media; gyroscope"
                                     allowfullscreen
                             ></iframe>
+                        </div>
+                    </div>
+                </section>
+
+                <hr class="standard-hr">
+                <!-- Smartphone App -->
+                <section id="mobile-app" class="standard-section">
+                    <h3 class="section-title">Smartphone App</h3>
+                    <div class="max-w-4xl">
+                        <p class="standard-text">
+                            Mantis can also be controlled from an Android smartphone through a dedicated app. It works
+                            like the VR app, but on a phone, so you get the full experience without needing a VR headset.
+                            The screen shows a live feed from the robot's camera, and the on-screen controls (two joysticks
+                            and a set of buttons) let you drive the robot around and operate the 6 DoF robotic arm.
+                        </p>
+                        <p class="standard-text">
+                            Just like the VR app, it supports two-way audio: you can hear what the robot hears through its
+                            microphone and talk to people near it through its speakers. Communication is handled through
+                            ROS2 over Wi-Fi, the robot's own hotspot if no Wi-Fi is available, or even over the Internet
+                            from any network (through a Tailscale VPN, with no port forwarding needed).
+                        </p>
+                        <p class="standard-text">
+                            A settings menu lets you point the app at the robot (its address and port), check the connection
+                            status at a glance, and pick the ROS2 topics used for the camera, lidar, two-way audio, and the
+                            controller.
+                        </p>
+                        <p class="standard-text"><strong>Note:</strong> the app is built for Android and is available on
+                            GitHub as a ready-to-install apk.
+                        </p>
+                    </div>
+                    <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="overflow-hidden p-4">
+                            <h4 class="element-title">Main screen &amp; controls</h4>
+                            <img loading="lazy" src="assets/capabilities/screen_robot_app.png" alt="Mantis smartphone app - main control screen" class="rounded-lg w-full h-auto object-contain">
+                        </div>
+                        <div class="overflow-hidden p-4">
+                            <h4 class="element-title">Settings menu</h4>
+                            <img loading="lazy" src="assets/capabilities/menu_robot_app.png" alt="Mantis smartphone app - settings menu" class="rounded-lg w-full h-auto object-contain">
                         </div>
                     </div>
                 </section>
